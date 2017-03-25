@@ -4,3 +4,4 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("wellcome").innerHTML = "Hello" + " " + person;
     }
 });
+//# sourceMappingURL=A00.js.map
