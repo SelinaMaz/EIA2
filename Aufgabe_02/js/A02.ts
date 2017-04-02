@@ -2,9 +2,11 @@
 Aufgabe: A2
 Name: Selina Mazzaro
 Matrikel: 254068
-Datum: 30.03.17
+Datum: 01.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+
+In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
 */
 document.addEventListener('DOMContentLoaded', function() {
     let n: number = 64; //Anzahl der Felder
