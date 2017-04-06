@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         else {
             black();
-        };
+        }
         if (x % 8 == 0) {
             zeile++;
         };
