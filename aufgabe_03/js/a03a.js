@@ -8,9 +8,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
 */
-//let n: number = 64; //Anzahl der Felder
-//let i: number = 0;
-//let x: number = 0; // gerade Zahlen sind wei�, ungerade sind schwarz.
 let zeile = 0;
 let a = 1; //Anzahl Reis
 document.addEventListener("DOMContentLoaded", function () {
@@ -34,6 +31,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 });
+//Divs erzeugen
+function Div() {
+    let div = document.createElement("div");
+    document.body.appendChild(div);
+    div.className = "DivBox";
+    //Aussehen von Divs
+    let s = div.style;
+    s.borderStyle = "solid";
+    s.borderColor = "#000000";
+    s.borderWidth = "1px";
+    s.width = "50px";
+    s.height = "50px";
+    s.display = "inline-block";
+    s.cssFloat = "left";
+    s.overflow = "auto";
+    //Reis
+    div.innerText = "" + a;
+    a = a * 2;
+}
 //Schwarze Divs
 function black(_number) {
     let div = document.getElementsByTagName("div");
@@ -54,41 +70,12 @@ function white(_number) {
         currentDiv.style.textAlign = "center";
     }
 }
-//Divs erzeugen
-function Div() {
-    let div = document.createElement("div");
-    document.body.appendChild(div);
-    div.className = "DivBox";
-    //Aussehen von Divs
-    let s = div.style;
-    s.borderStyle = "solid";
-    s.borderColor = "#000000";
-    s.borderWidth = "1px";
-    s.width = "50px";
-    s.height = "50px";
-    s.display = "inline-block";
-    s.cssFloat = "left";
-    s.overflow = "auto";
-    //Reis
-    div.innerText = "" + a;
-    a = a * 2;
-}
-function clickOnField() {
-    //    document.addEventListener('DOMContentLoaded', function () {
-    //    var burgerNav = document.getElementById("IconNav");
-    //    var burgerButton = document.getElementById("burger");
-    //    var state = true;
-    //    burgerButton.addEventListener("click", function () {
-    //        //    console.log("funktioniert");
-    //        if (state) {
-    //            burgerNav.style.display = "block";
-    //            state = false;
-    //        }
-    //        else {
-    //            burgerNav.style.display = "none";
-    //            state = true;
-    //        }
-    //    });
-    //});
-}
+/********************************************************************************************************
+Aufgabe 3a
+********************************************************************************************************/
+let x = 0;
+let divList = document.getElementsByTagName("div");
+divList[x].addEventListener("click", function () {
+    console.log("Hallo");
+});
 //# sourceMappingURL=a03a.js.map
