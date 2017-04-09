@@ -5,7 +5,6 @@ Matrikel: 254068
 Datum: 01.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
 */
 let zeile = 0;
@@ -35,9 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
    ********************************************************************************************************/
     let x = 0;
     let divList = document.getElementsByTagName("div");
-    divList[x].addEventListener("click", function () {
-        console.log("Hallo");
-    });
+    for (x; x < 8; x++) {
+        divList[x].addEventListener("click", clickEvent);
+    }
 });
 //Divs erzeugen
 function Div() {
@@ -76,6 +75,24 @@ function white(_number) {
         currentDiv.style.backgroundColor = "white";
         currentDiv.style.color = "black";
         currentDiv.style.textAlign = "center";
+    }
+}
+/********************************************************************************************************
+Aufgabe 3a
+********************************************************************************************************/
+let x = 0;
+let divList = document.getElementsByTagName("div");
+let state = true;
+function clickEvent() {
+    for (x; x < 8; x++) {
+        if (state == true) {
+            divList[x].style.borderColor = "yellow";
+            state = false;
+        }
+        else {
+            divList[x].style.borderColor = "black";
+            state = true;
+        }
     }
 }
 //# sourceMappingURL=a03a.js.map

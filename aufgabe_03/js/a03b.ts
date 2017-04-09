@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
             div.addEventListener("click", function(): void {
                 for (i, i < handcards.length; i++; ) {
 
-                    var entferntesKind:  = document.getElementById("handstapel").removeChild(div);
+                    var entferntesKind  = document.getElementById("handstapel").removeChild(div);
 
                     document.getElementById("ablagestapel").appendChild(div);
                     ablagecards.push(handcards[i]);

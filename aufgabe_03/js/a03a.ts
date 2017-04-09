@@ -5,7 +5,6 @@ Matrikel: 254068
 Datum: 01.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
 */
 
@@ -35,18 +34,17 @@ document.addEventListener("DOMContentLoaded", function(): void {
             countField++;
         }
     }
-    
- /********************************************************************************************************
-Aufgabe 3a
-********************************************************************************************************/
-let x: number = 0;
-let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
 
-divList[x].addEventListener("click", function (): void {
-    console.log("Hallo");
-});
-   
-    
+    /********************************************************************************************************
+   Aufgabe 3a
+   ********************************************************************************************************/
+    let x: number = 0;
+    let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
+
+    for (x; x < 8; x++) {
+    divList[x].addEventListener("click", clickEvent);    
+    }
+
 });
 
 //Divs erzeugen
@@ -91,6 +89,27 @@ function white(_number: number): void {
         currentDiv.style.textAlign = "center";
     }
 }
+
+/********************************************************************************************************
+Aufgabe 3a
+********************************************************************************************************/
+let x: number = 0;
+let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
+let state: boolean = true;
+
+function clickEvent(): void {
+    for (x; x < 8; x++) {
+        if (state == true) {
+            divList[x].style.borderColor = "yellow";
+            state = false;
+        }
+        else {
+            divList[x].style.borderColor = "black";
+            state = true;
+        }
+    }
+}
+
 
 
 
