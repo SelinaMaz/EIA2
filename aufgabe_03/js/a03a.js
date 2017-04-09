@@ -30,6 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
             countField++;
         }
     }
+    /********************************************************************************************************
+   Aufgabe 3a
+   ********************************************************************************************************/
+    let x = 0;
+    let divList = document.getElementsByTagName("div");
+    divList[x].addEventListener("click", function () {
+        console.log("Hallo");
+    });
 });
 //Divs erzeugen
 function Div() {
@@ -70,12 +78,4 @@ function white(_number) {
         currentDiv.style.textAlign = "center";
     }
 }
-/********************************************************************************************************
-Aufgabe 3a
-********************************************************************************************************/
-let x = 0;
-let divList = document.getElementsByTagName("div");
-divList[x].addEventListener("click", function () {
-    console.log("Hallo");
-});
 //# sourceMappingURL=a03a.js.map

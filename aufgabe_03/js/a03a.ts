@@ -35,6 +35,18 @@ document.addEventListener("DOMContentLoaded", function(): void {
             countField++;
         }
     }
+    
+ /********************************************************************************************************
+Aufgabe 3a
+********************************************************************************************************/
+let x: number = 0;
+let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
+
+divList[x].addEventListener("click", function (): void {
+    console.log("Hallo");
+});
+   
+    
 });
 
 //Divs erzeugen
@@ -82,15 +94,6 @@ function white(_number: number): void {
 
 
 
-/********************************************************************************************************
-Aufgabe 3a
-********************************************************************************************************/
-let x: number = 0;
-let divList: NodeList = document.getElementsByTagName("div");
-
-divList[x].addEventListener("click", function (): void {
-    console.log("Hallo");
-});
 
 
 
