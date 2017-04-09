@@ -6,6 +6,12 @@ Datum: 01.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
+
+Leider ist diese Aufgabe nicht vollst�ndig aufgrund fehlender Verst�ndis meinerseits.
+Ich hab es auch nicht geschafft die Aufgabe in der Gruppe zul�sen und w�re deshalb sehr dankbar,
+wenn wir diese Aufgabe im Praltikum nochmal Besprechen k�nnten.
+
+Ich versuche es bis dahin weiter zu l�sen...
 */
 let zeile = 0;
 let a = 1; //Anzahl Reis
