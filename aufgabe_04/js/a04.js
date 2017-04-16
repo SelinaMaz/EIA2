@@ -17,8 +17,10 @@ var a04_Canvas;
         house(175, 50, 50, 50);
         sun(300, 30);
         tree(350, 80);
-        //        Geanseblume(100, 200);
+        createKleeblatt(300, 200);
+        geanseblume(80, 200);
     }
+    //Funktionen
     function bigMountain(_x, _y) {
         can2.fillStyle = "#A0A0A0";
         can2.beginPath();
@@ -45,7 +47,7 @@ var a04_Canvas;
         can2.lineTo(_x + width / 2, _y - height / 2);
         can2.fill();
         //T�r
-        var ombre = can2.createLinearGradient(0, -10, 0, 170);
+        var ombre = can2.createLinearGradient(0, -50, 0, 170);
         ombre.addColorStop(0, "black");
         ombre.addColorStop(1, "white");
         can2.fillStyle = ombre;
@@ -64,7 +66,7 @@ var a04_Canvas;
         can2.fillRect(_x + 5, _y + 5, width / 3, height / 3);
     }
     function sun(_x, _y) {
-        can2.fillStyle = "yellow";
+        can2.fillStyle = "#FCC631";
         can2.beginPath();
         can2.arc(_x, _y, 20, 0, Math.PI * 2, true);
         can2.fill();
@@ -103,41 +105,50 @@ var a04_Canvas;
             }
         }
     }
+    function kleeblatt(_x, _y) {
+        can2.scale(0.1, 0.1);
+        can2.beginPath();
+        can2.moveTo(_x, _y);
+        can2.bezierCurveTo(75, 37, 70, 25, 50, 25); // (x, y, radius, startWinkel, endWinkel, uhrzeigersinn)
+        can2.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
+        can2.bezierCurveTo(20, 80, 40, 102, 75, 120);
+        can2.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
+        can2.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
+        can2.bezierCurveTo(85, 25, 75, 37, 75, 40);
+        can2.fillStyle = "darkgreen";
+        can2.fill();
+    }
+    function createKleeblatt(_x, _y) {
+        for (let a = 0; a < 4; a++) {
+            switch (a) {
+                case 0:
+                    can2.setTransform(1, 0, 0, 1, 0, 0);
+                    can2.translate(_x, _y);
+                    kleeblatt(_x, _y);
+                    break;
+                case 1:
+                    can2.setTransform(1, 0, 0, 1, 0, 0);
+                    can2.translate(_x + 21, _y + 11);
+                    can2.rotate((1 * Math.PI / 1.5));
+                    kleeblatt(_x, _y);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    can2.setTransform(1, 0, 0, 1, 0, 0);
+                    can2.translate(_x - 2, _y + 22.5);
+                    can2.rotate((1 * Math.PI / 0.7));
+                    kleeblatt(_x, _y);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    function geanseblume(_x, _y) {
+        can2.beginPath();
+        can2.arc(100, 75, 50, 0, 2);
+        can2.stroke();
+    }
 })(a04_Canvas || (a04_Canvas = {}));
-//namespace L4_Canvas {
-//    window.addEventListener("load", init);
-//    let crc2: CanvasRenderingContext2D;
-//
-//    function init(_event: Event): void {
-//        console.log("Hallo");
-//        let canvas: HTMLCanvasElement;
-//        canvas = document.getElementsByTagName("canvas")[0];
-//        console.log(canvas);
-//
-//        crc2 = canvas.getContext("2d");
-//        console.log(crc2);
-//
-//        crc2.fillStyle = "#0000ff";
-//        crc2.fillRect(0, 0, canvas.width, canvas.height);
-//
-//        crc2.moveTo(0, 0);
-//        crc2.lineTo(canvas.width, canvas.height);
-//        crc2.stroke();
-//
-//        drawTriangle(200, 150, "#00ff00", "#ff0000");
-//    }
-//
-//    function drawTriangle(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-//        crc2.beginPath();
-//        crc2.fillStyle = _fillColor;
-//        crc2.strokeStyle = _strokeColor;
-//        crc2.moveTo(_x - 10, _y + 10);
-//        crc2.lineTo(_x, _y - 10);
-//        crc2.lineTo(_x + 10, _y + 10);
-//        crc2.closePath();
-//        crc2.fill();
-//        crc2.stroke();
-//        //draw a triangle around the coordinates (_x, _y);
-//    }
-//}
 //# sourceMappingURL=a04.js.map
