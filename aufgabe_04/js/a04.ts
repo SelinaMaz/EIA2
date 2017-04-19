@@ -1,14 +1,13 @@
 namespace a04_Canvas {
     var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
-    var flowersize: number = 15;
 
     window.addEventListener("load", init);
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
         can2 = canvas.getContext("2d");
         //Wiese
-        can2.fillStyle = "#82FA58";
+        can2.fillStyle = "#BEF781";
         can2.fillRect(0, 0, canvas.width, canvas.height);
         //Himmel
         can2.fillStyle = "#81DAF5";
@@ -19,15 +18,23 @@ namespace a04_Canvas {
         house(175, 50, 50, 50);
         sun(300, 30);
         tree(350, 80);
-        tulpe(200, 200);
-        gaenseblume(100, 300, 5, "yellow", 3);
-        createKleeblatt(380, 200);
-        createKleeblatt(320, 190);
-        createKleeblatt(310, 220);
-        createKleeblatt(330, 210);
-        createKleeblatt(350, 170);
-    }
 
+        for (var i: number = 0; i < 8; i++) {
+            let randomFlower: number = Math.floor((Math.random() * 3) + 0);
+            let _x: number = (Math.random() * (280 + 20)) + 0;
+            let _y: number = (Math.random() * (280 - 130)) + 130;
+
+            blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
+            blume("#FCC631", "#A9D0F5", _x - 10 , _y + 5, 6); // Blau
+            blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
+            tulpe(_x + 40, _y - 5);
+        }
+        createKleeblatt(380, 120);
+        createKleeblatt(361, 115);
+        createKleeblatt(361, 150);
+        createKleeblatt(380, 140);
+        createKleeblatt(348, 140);
+    }
 
     //Funktionen
 
@@ -86,30 +93,30 @@ namespace a04_Canvas {
     }
 
     function tree(_x: number, _y: number): void {
-        can2.fillStyle = "#3B170B";
+        can2.fillStyle = "#8B4513 ";
         can2.fillRect(_x, _y, 10, 30);
         for (let a: number = 0; a < 4; a++) {
             switch (a) {
                 case 0:
-                    can2.fillStyle = "darkgreen";
+                    can2.fillStyle = "#5FB404";
                     can2.beginPath();
                     can2.arc(_x - 5, _y - 5, 20, 0, Math.PI * 2, true);
                     can2.fill();
                     break;
                 case 1:
-                    can2.fillStyle = "darkgreen";
+                    can2.fillStyle = "#5FB404";
                     can2.beginPath();
                     can2.arc(_x - 2, _y - 20, 20, 0, Math.PI * 2, true);
                     can2.fill();
                     break;
                 case 2:
-                    can2.fillStyle = "darkgreen";
+                    can2.fillStyle = "#5FB404";
                     can2.beginPath();
                     can2.arc(_x + 10, _y - 20, 20, 0, Math.PI * 2, true);
                     can2.fill();
                     break;
                 case 3:
-                    can2.fillStyle = "darkgreen";
+                    can2.fillStyle = "#5FB404";
                     can2.beginPath();
                     can2.arc(_x + 10, _y - 5, 20, 0, Math.PI * 2, true);
                     can2.fill();
@@ -120,34 +127,35 @@ namespace a04_Canvas {
         }
     }
 
-    function gaenseblume(_color: string, _x: number, _y: number, _leafs: number, _leafRatio: number): void {
-
+    function blume(_pointColor: string, _color: string, _x: number, _y: number, _size: number): void {
         can2.beginPath();
-        for (var a: number = 0; a < _leafs; a++) {
-            can2.moveTo(_x, _y);
-            can2.arc(_x, _y, flowersize, a * (360 / _leafs) * Math.PI / 180, true);
-        }
-        can2.closePath();
+        can2.moveTo(_x + 0.5, _y - 15);
         can2.fillStyle = _color;
+        can2.strokeStyle = _color;
+        can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
+        can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
+        can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
+        can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
+        can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
+        can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
+        can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
+        can2.stroke();
         can2.fill();
-
-        //Gelber Punkt
+        //Punkt
         can2.beginPath();
-        can2.fillStyle = "#FCC631";
-        can2.arc(_x, _y, 3, 0, Math.PI * 2, true);
+        can2.fillStyle = _pointColor;
+        can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
         can2.fill();
+        can2.closePath();
 
     }
 
-
     function tulpe(_x: number, _y: number): void {
         can2.beginPath();
-        can2.strokeStyle = "red";
-        can2.fillStyle = "red";
+        can2.fillStyle = "#F78181";
         can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
         can2.closePath();
         can2.fill();
-        can2.stroke();
         can2.beginPath();
         can2.moveTo(_x, _y - 32);
         can2.lineTo(_x, _y - 40);
@@ -156,12 +164,11 @@ namespace a04_Canvas {
         can2.lineTo(_x + 11, _y - 32);
         can2.lineTo(_x + 16, _y - 40);
         can2.lineTo(_x + 16, _y - 32);
-        can2.stroke();
         can2.fill();
     }
 
     function kleeblatt(_x: number, _y: number): void {
-        can2.scale(0.1, 0.1);
+        can2.scale(0.05, 0.05);
         can2.beginPath();
         can2.moveTo(_x, _y);
         can2.bezierCurveTo(75, 37, 70, 25, 50, 25); // (x, y, radius, startWinkel, endWinkel, uhrzeigersinn)
@@ -170,7 +177,7 @@ namespace a04_Canvas {
         can2.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
         can2.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
         can2.bezierCurveTo(85, 25, 75, 37, 75, 40);
-        can2.fillStyle = "darkgreen";
+        can2.fillStyle = "#5FB404";
         can2.fill();
     }
 
@@ -184,7 +191,7 @@ namespace a04_Canvas {
                     break;
                 case 1:
                     can2.setTransform(1, 0, 0, 1, 0, 0);
-                    can2.translate(_x + 21, _y + 11);
+                    can2.translate(_x + 10, _y + 5);
                     can2.rotate((1 * Math.PI / 1.5));
                     kleeblatt(_x, _y);
                     break;
@@ -192,7 +199,7 @@ namespace a04_Canvas {
                     break;
                 case 3:
                     can2.setTransform(1, 0, 0, 1, 0, 0);
-                    can2.translate(_x - 2, _y + 22.5);
+                    can2.translate(_x - 1, _y + 11);
                     can2.rotate((1 * Math.PI / 0.7));
                     kleeblatt(_x, _y);
                     break;
@@ -202,5 +209,6 @@ namespace a04_Canvas {
         }
     }
 }
+
 
 
