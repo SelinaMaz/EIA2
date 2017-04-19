@@ -14,65 +14,65 @@ wenn wir diese Aufgabe im Praltikum nochmal Besprechen könnten.
 
 Ich versuche es bis dahin weiter zu lösen...*/
 
+let cards: string[];
+let handcards: string[] = [];
+let ablagecards: string[] = [];
+let nachziehstapel: HTMLElement;
+let ablagestapel: HTMLElement;
+
+
 document.addEventListener("DOMContentLoaded", function(): void {
-
-
-    let cards: string[] = [
-        "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz König", "Herz Ass",
-        "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik König", "Pik Ass",
-        "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo König", "Karo Ass",
-        "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz König", "Kreuz Ass"
+    cards = [
+        "Herz 7", "Herz 8", "Herz 9", "Herz 10", "Herz Bube", "Herz Dame", "Herz Koenig", "Herz Ass",
+        "Pik 7", "Pik 8", "Pik 9", "Pik 10", "Pik Bube", "Pik Dame", "Pik Koenig", "Pik Ass",
+        "Karo 7", "Karo 8", "Karo 9", "Karo 10", "Karo Bube", "Karo Dame", "Karo Koenig", "Karo Ass",
+        "Kreuz 7", "Kreuz 8", "Kreuz 9", "Kreuz 10", "Kreuz Bube", "Kreuz Dame", "Kreuz Koenig", "Kreuz Ass"
     ];
 
-    let handcards: string[];
-    let ablagecards: string[];
-    let nachziehstapel: HTMLElement = document.getElementById("nachziehstapel");
-    let ablagestapel: HTMLElement = document.getElementById("ablagestapel");
+    nachziehstapel = document.getElementById("nachziehstapel");
+    ablagestapel = document.getElementById("ablagestapel");
+
+    nachziehstapel.addEventListener("click", drawCard);
+    ablagestapel.addEventListener("click", removeCard);
+});
+
+function drawCard(): void {
+    //if (typeof handcards !== "undefined") {  <-- wenn ich das drin lasse, verschwindet die Fehlermeldung, jedoch 
+    //                                             werden keine divs mehr erzeugt :(
+    if (cards.length > 0 && handcards.length < 5) {
+
+        let div: HTMLDivElement = document.createElement("div"); //create div
+        document.getElementById("handstapel").appendChild(div); //anhängen an handkarten
+        div.style.backgroundColor = "grey";
+        div.style.cssFloat = "left";
+        div.style.height = "15em";
+        div.style.width = "10em";
+        div.style.borderColor = "black";
 
 
-    nachziehstapel.addEventListener("click", ClickEvent);
-    // if (handcards.length < 5 && cards.length != 0) {
+        let wert: number = Math.floor((Math.random() * (cards.length - 1)) + 0);
 
+        div.className = "selected";
 
-    function ClickEvent(): void {
+        div.textContent = cards[wert];
 
+        let auswahl: string = cards[wert];
+        cards.splice(wert, 1);
+        handcards.push(auswahl);
 
-        for (let i: number = 0; i < cards.length && i < 5; i++) {
+        div.addEventListener("click", removeCard);
+    }
 
-            let div: HTMLDivElement = document.createElement("div"); //create div
-            document.getElementById("handstapel").appendChild(div); //anhängen an handkarten
+}
 
-
-            let wert: number = Math.floor((Math.random() * 31) + 0);
-
-            div.className = "box";
-            let s: CSSStyleDeclaration = div.style;
-            s.borderStyle = "1 px solid black";
-            s.height = "15em";
-            s.width = "10em";
-            s.backgroundColor = "grey";
-            s.cssFloat = "left";
-
-
-            //if (handcards.length < 5 && cards.length != 0) 
-            // let wert: number = Math.floor((Math.random() * 31
-  
-      
-            div.className = "divBox";
-            div.textContent = cards[wert];
-            handcards.push(cards[wert]);
-            cards.splice(wert, 1); //entfernt Karte von Nachziehstapel
-
-            div.addEventListener("click", function(): void {
-                for (i, i < handcards.length; i++; ) {
-
-                    var entferntesKind  = document.getElementById("handstapel").removeChild(div);
-
-                    document.getElementById("ablagestapel").appendChild(div);
-                    ablagecards.push(handcards[i]);
-                    console.log("hallo");
-                }
-            });
+function removeCard(_event: MouseEvent): void {
+    let target: HTMLElement = <HTMLElement>_event.target;
+    console.log(target);
+    for (let i: number = 0; i < handcards.length; i++) {
+        if (handcards[i] === target.textContent) {
+            ablagecards.push(handcards.splice(i, 1)[0]);
+            target.parentNode.removeChild(target);
         }
     }
-});
+    ablagestapel.textContent = ablagecards[ablagecards.length - 1];
+}
