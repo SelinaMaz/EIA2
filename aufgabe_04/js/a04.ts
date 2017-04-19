@@ -23,6 +23,7 @@ namespace a04_Canvas {
             let randomFlower: number = Math.floor((Math.random() * 3) + 0);
             let _x: number = (Math.random() * (280 + 20)) + 0;
             let _y: number = (Math.random() * (280 - 130)) + 130;
+
             blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
             blume("#FCC631", "#A9D0F5", _x - 10 , _y + 5, 6); // Blau
             blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
