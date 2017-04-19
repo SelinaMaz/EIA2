@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function(): void {
     let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
 
     for (x; x < 8; x++) {
-    divList[x].addEventListener("click", clickEvent);    
+        divList[x].addEventListener("click", clickEvent);
     }
 
 });
@@ -99,25 +99,18 @@ function white(_number: number): void {
 /********************************************************************************************************
 Aufgabe 3a
 ********************************************************************************************************/
-let x: number = 0;
-let divList: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
-let state: boolean = true;
+let state: boolean[] = [false, false, false, false, false, false, false, false];
+let div: NodeList = document.getElementsByTagName("div");
 
-function clickEvent(): void {
-    for (x; x < 8; x++) {
-        if (state == true) {
-            divList[x].style.borderColor = "yellow";
-            state = false;
-        }
-        else {
-            divList[x].style.borderColor = "black";
-            state = true;
-        }
+function clickEvent(_event: MouseEvent): void {
+    let target: HTMLElement = <HTMLElement>_event.target;
+
+    for (let i: number = 0; i < state.length; i++) {
+        
     }
+
+
 }
-
-
-
 
 
 

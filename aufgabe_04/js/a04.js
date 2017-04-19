@@ -1,7 +1,8 @@
 var a04_Canvas;
 (function (a04_Canvas) {
-    let can2;
-    let canvas;
+    var can2;
+    var canvas;
+    var flowersize = 24;
     window.addEventListener("load", init);
     function init(_event) {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -17,8 +18,13 @@ var a04_Canvas;
         house(175, 50, 50, 50);
         sun(300, 30);
         tree(350, 80);
-        createKleeblatt(300, 200);
-        geanseblume(80, 200);
+        tulpe(200, 200);
+        gaenseblume(100, 200, 5, "blue", 5);
+        createKleeblatt(380, 200);
+        createKleeblatt(320, 190);
+        createKleeblatt(310, 220);
+        createKleeblatt(330, 210);
+        createKleeblatt(350, 170);
     }
     //Funktionen
     function bigMountain(_x, _y) {
@@ -105,6 +111,39 @@ var a04_Canvas;
             }
         }
     }
+    function gaenseblume(_x, _y, _leafs, _color, _leafRatio) {
+        can2.beginPath();
+        can2.fillStyle = "#FCC631";
+        can2.arc(_x, _y, 3, 0, Math.PI * 2, true);
+        can2.fill();
+        for (let a = 0; a < _leafs; a++) {
+            can2.fillStyle = _color;
+            can2.beginPath();
+            can2.arc(_x + _leafRatio, _y + _leafRatio, flowersize, 0, Math.PI * 2, true);
+            can2.fill();
+            _leafRatio + 5;
+            a++;
+        }
+    }
+    function tulpe(_x, _y) {
+        can2.beginPath();
+        can2.strokeStyle = "red";
+        can2.fillStyle = "red";
+        can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
+        can2.closePath();
+        can2.fill();
+        can2.stroke();
+        can2.beginPath();
+        can2.moveTo(_x, _y - 32);
+        can2.lineTo(_x, _y - 40);
+        can2.lineTo(_x + 5, _y - 32);
+        can2.lineTo(_x + 8, _y - 40);
+        can2.lineTo(_x + 11, _y - 32);
+        can2.lineTo(_x + 16, _y - 40);
+        can2.lineTo(_x + 16, _y - 32);
+        can2.stroke();
+        can2.fill();
+    }
     function kleeblatt(_x, _y) {
         can2.scale(0.1, 0.1);
         can2.beginPath();
@@ -144,11 +183,6 @@ var a04_Canvas;
                     break;
             }
         }
-    }
-    function geanseblume(_x, _y) {
-        can2.beginPath();
-        can2.arc(100, 75, 50, 0, 2);
-        can2.stroke();
     }
 })(a04_Canvas || (a04_Canvas = {}));
 //# sourceMappingURL=a04.js.map

@@ -1,6 +1,7 @@
 namespace a04_Canvas {
-    let can2: CanvasRenderingContext2D;
-    let canvas: HTMLCanvasElement;
+    var can2: CanvasRenderingContext2D;
+    var canvas: HTMLCanvasElement;
+    var flowersize: number = 15;
 
     window.addEventListener("load", init);
     function init(_event: Event): void {
@@ -18,8 +19,13 @@ namespace a04_Canvas {
         house(175, 50, 50, 50);
         sun(300, 30);
         tree(350, 80);
-        createKleeblatt(300, 200);
-        geanseblume(80, 200);
+        tulpe(200, 200);
+        gaenseblume(100, 300, 5, "yellow", 3);
+        createKleeblatt(380, 200);
+        createKleeblatt(320, 190);
+        createKleeblatt(310, 220);
+        createKleeblatt(330, 210);
+        createKleeblatt(350, 170);
     }
 
 
@@ -82,7 +88,6 @@ namespace a04_Canvas {
     function tree(_x: number, _y: number): void {
         can2.fillStyle = "#3B170B";
         can2.fillRect(_x, _y, 10, 30);
-
         for (let a: number = 0; a < 4; a++) {
             switch (a) {
                 case 0:
@@ -113,6 +118,46 @@ namespace a04_Canvas {
                     break;
             }
         }
+    }
+
+    function gaenseblume(_color: string, _x: number, _y: number, _leafs: number, _leafRatio: number): void {
+
+        can2.beginPath();
+        for (var a: number = 0; a < _leafs; a++) {
+            can2.moveTo(_x, _y);
+            can2.arc(_x, _y, flowersize, a * (360 / _leafs) * Math.PI / 180, true);
+        }
+        can2.closePath();
+        can2.fillStyle = _color;
+        can2.fill();
+
+        //Gelber Punkt
+        can2.beginPath();
+        can2.fillStyle = "#FCC631";
+        can2.arc(_x, _y, 3, 0, Math.PI * 2, true);
+        can2.fill();
+
+    }
+
+
+    function tulpe(_x: number, _y: number): void {
+        can2.beginPath();
+        can2.strokeStyle = "red";
+        can2.fillStyle = "red";
+        can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
+        can2.closePath();
+        can2.fill();
+        can2.stroke();
+        can2.beginPath();
+        can2.moveTo(_x, _y - 32);
+        can2.lineTo(_x, _y - 40);
+        can2.lineTo(_x + 5, _y - 32);
+        can2.lineTo(_x + 8, _y - 40);
+        can2.lineTo(_x + 11, _y - 32);
+        can2.lineTo(_x + 16, _y - 40);
+        can2.lineTo(_x + 16, _y - 32);
+        can2.stroke();
+        can2.fill();
     }
 
     function kleeblatt(_x: number, _y: number): void {
@@ -156,14 +201,6 @@ namespace a04_Canvas {
             }
         }
     }
-
-    function geanseblume (_x: number, _y: number): void {
-        can2.beginPath();
-        can2.arc(100, 75, 50, 0, 2);
-        can2.stroke();
-    }
 }
-
-
 
 

@@ -86,19 +86,11 @@ function white(_number) {
 /********************************************************************************************************
 Aufgabe 3a
 ********************************************************************************************************/
-let x = 0;
-let divList = document.getElementsByTagName("div");
-let state = true;
-function clickEvent() {
-    for (x; x < 8; x++) {
-        if (state == true) {
-            divList[x].style.borderColor = "yellow";
-            state = false;
-        }
-        else {
-            divList[x].style.borderColor = "black";
-            state = true;
-        }
+let state = [false, false, false, false, false, false, false, false];
+let div = document.getElementsByTagName("div");
+function clickEvent(_event) {
+    let target = _event.target;
+    for (let i = 0; i < state.length; i++) {
     }
 }
 //# sourceMappingURL=a03a.js.map
