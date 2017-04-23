@@ -1,0 +1,17 @@
+body{
+	width: 450px;
+}
+
+.selected {
+	background-color: red !important;
+}
+
+
+#inhalt {
+	background-color: #F0F8FF;
+	width: 10em;
+	height: 4em;
+	padding: 1em;
+	position: absolute;
+display: none;
+}
