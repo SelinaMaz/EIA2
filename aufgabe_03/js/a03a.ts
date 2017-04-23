@@ -120,8 +120,6 @@ namespace A3 {
             currentDiv.style.textAlign = "center";
         }
     }
-
-
 }
 
 
