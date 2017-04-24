@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="ISO-8859-1">
+<title>Selina Mazzaro</title>
+<link rel="stylesheet" type="text/css" href="portfolio.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet">
+<script src="js/Portfolio.js"></script>
+</head>
+<body>
+	<header>
+		<div class="Hintergrund">
+			<img src="Meer.JPG" alt="Meer" class="headerpic w3-animate-fading" /> <img
+				src="Haus.JPG" alt="Haus" class="headerpic w3-animate-fading" /> <img
+				src="Palmen.JPG" alt="Palmen" class="headerpic w3-animate-fading" /> <img
+				src="Sonnenuntergang.JPG" alt="Sonnenuntergang w3-animate-fading" class="headerpic" />
+			<script>
+			var myIndex = 0;
+			carousel();
+
+			function carousel() {
+			    var i;
+			    var x = document.getElementsByClassName("headerpic");
+			    for (i = 0; i < x.length; i++) {
+			       x[i].style.display = "none";  
+			    }
+			    myIndex++;
+			    if (myIndex > x.length) {myIndex = 1}    
+			    x[myIndex-1].style.display = "block";  
+			    setTimeout(carousel, 9000);    
+			}
+			</script>
+			<img src="Logo.png" alt="Logo" id="Logo" />
+			<nav id="Leiste">
+				<ul>
+					<li><i class="fa fa-bars" id="burger"> </i></li>
+					<li><a href="#"><i class="fa fa-twitter"
+							style="font-size: 1em; color: black;"> </i></a></li>
+					<li><a
+						href="https://www.facebook.com/profile.php?id=100013609428236"><i
+							class="fa fa-facebook-square"
+							style="font-size: 1em; color: black;"> </i></a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"
+							style="font-size: 1em; color: black;"> </i></a></li>
+				</ul>
+			</nav>
+			<ul id="BurgerNav">
+				<li><a href="#AnkerFacts">Facts</a></li>
+				<li><a href="#AnkerSkills">Skills</a></li>
+				<li><a href="#AnkerProjects">Projects</a></li>
+				<li><a href="#AnkerContact">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+	<main>
+	<div id="AnkerFacts" class="Anker"></div>
+	<section id="Facts" class="Abschnitte">
+		<h1>FACTS</h1>
+		<img src="Profilbild.png" alt="Profilbild" id="Profilbild" />
+		<p id="Begruessung">
+			Hi, my name is Selina. <br> Nice to meet you!
+		</p>
+
+		<p id="TextAboutMe">
+			I study Media Design and I love my course of studies. <br>The
+			first semester is already over. <br>That's why I'm searching for
+			a traineeship in winter semester 2017/18. <br>If you are
+			interested in supporting me, <br>then feel free to check some
+			Skills and Projects below.
+		</p>
+
+	</section>
+	<div id="AnkerSkills" class="Anker"></div>
+	<section class="Abschnitte">
+		<div id="SkillDivBox">
+			<!--Informatik-->
+			<h2>Informatics</h2>
+			<img src="Css.png" alt="CSS" class="Skills" /> <img src="HTML.png"
+				alt="HTML" class="Skills" /> <img src="JavaScript.png"
+				alt="JAVASCRIPT" class="Skills" />
+
+			<!-- Gestalterisch-->
+			<h2>Design</h2>
+			<img src="InDesign.png" alt="InDesign" class="Skills" /> <img
+				src="Illustrator.png" alt="Illustrator" class="Skills" />
+
+			<!--Sprachen-->
+			<h2>Languages</h2>
+			<img src="Italienisch.png" alt="Italienisch" class="Skills" /> <img
+				src="Englisch.png" alt="Englisch" class="Skills" /> <img
+				src="Spanisch.png" alt="Spanisch" class="Skills" /> <img
+				src="Franzoesisch.png" alt="Französisch" class="Skills" /> <img
+				src="Deutsch.png" alt="Deutsch" class="Skills" />
+		</div>
+	</section>
+	<div id="AnkerProjects" class="Anker"></div>
+	<section class="Abschnitte" id="Art">
+		<h1>PROJECTS</h1>
+		<h2 class="Projects">Art</h2>
+
+		<a href="DameInBlauK.png"><img src="DameInBlauKlein.png"></a> <a
+			href="Gesicht.png"><img src="Gesichtklein.png"></a> <a
+			href="Elefant.png"><img src="Elefantklein.png"></a> <a
+			href="Loewe.png"><img src="Loeweklein.png"></a> <a
+			href="Gloria.png"><img src="Gloriaklein.png"></a> <a
+			href="Kompas.png"><img src="Kompasklein.png"></a> <a
+			href="Honig.png"><img src="Honigklein.png"></a> <a
+			href="SchoeneUndDasBiest.png"><img src="SchoeneUndDasBiestklein.png"></a>
+
+		<h2>Programming</h2>
+		<div>
+			<img src="Konzeption.PNG" alt="Conzeption" class="Programming" />
+			<p>Conzeption</p>
+		</div>
+		<div>
+			<img src="Gestalltung.PNG" alt="Gestaltung" class="Programming" />
+			<p>Design</p>
+		</div>
+		<div>
+			<img src="ResponsiveDesign.PNG" alt="ResponsiveDesign"
+				class="Programming" />
+			<p>Responsive</p>
+		</div>
+		<div>
+			<img src="Funktionsmechanismen.PNG" alt="Funktionsmechanismen"
+				class="Programming" />
+			<p>Functions</p>
+		</div>
+	</section>
+	<div id="AnkerContact" class="Anker"></div>
+	</main>
+	<footer class="Abschnitte">
+		<h1>Contact</h1>
+		<div class="Kreis" id="Kreis1">
+			<img src="Hochschule_Furtwangen_HFU_logo.svg.png" alt="HFULogo"
+				id="HFULogo" />
+		</div>
+		<div class="Kreis">
+			<p>
+				<i class="fa fa-facebook-square"
+					style="font-size: 1em; color: black;"> </i> Selina Maz <br> <i
+					class="fa fa-twitter" style="font-size: 1em; color: black;"> </i>
+				MazSelina <br> <i class="fa fa-envelope-o"
+					style="font-size: 1em; color: black;"> </i> selinamazzaro@aol.de <br>
+				<img src="Hochschule_Furtwangen_HFU_logo.svg.png"
+					alt="hfuLogoFooter" id="HFULogoHandy" />
+			</p>
+		</div>
+		<div class="Kreis" id="Kreis3">
+			<img src="Zeichenflaeche 1.png" alt="MeinLogo" id="MeinLogo" />
+		</div>
+	</footer>
+</body>
+</html>

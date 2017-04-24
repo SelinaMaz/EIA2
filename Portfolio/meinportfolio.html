@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="ISO-8859-1">
+<title>Selina Mazzaro</title>
+<link rel="stylesheet" type="text/css" href="meinPortfolio.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Raleway"
+	rel="stylesheet">
+<script src="js/Portfolio.js"></script>
+</head>
+<body>
+	<header>
+		<div class="Hintergrund">
+			<img src="Meer.JPG" alt="Meer" class="headerpic w3-animate-fading" />
+			<img src="Haus.JPG" alt="Haus" class="headerpic w3-animate-fading" />
+			<img src="Palmen.JPG" alt="Palmen"
+				class="headerpic w3-animate-fading" /> <img
+				src="Sonnenuntergang.JPG" alt="Sonnenuntergang w3-animate-fading"
+				class="headerpic" />
+			<script>
+				var myIndex = 0;
+				carousel();
+
+				function carousel() {
+					var i;
+					var x = document.getElementsByClassName("headerpic");
+					for (i = 0; i < x.length; i++) {
+						x[i].style.display = "none";
+					}
+					myIndex++;
+					if (myIndex > x.length) {
+						myIndex = 1
+					}
+					x[myIndex - 1].style.display = "block";
+					setTimeout(carousel, 9000);
+				}
+			</script>
+			<img src="Logo.png" alt="Logo" id="Logo" />
+			<nav id="Leiste">
+				<ul>
+					<li><i class="fa fa-bars" id="burger"> </i></li>
+					<li><a href="#"><i class="fa fa-twitter"
+							style="font-size: 1em; color: black;"> </i></a></li>
+					<li><a
+						href="https://www.facebook.com/profile.php?id=100013609428236"><i
+							class="fa fa-facebook-square"
+							style="font-size: 1em; color: black;"> </i></a></li>
+					<li><a href="#"><i class="fa fa-envelope-o"
+							style="font-size: 1em; color: black;"> </i></a></li>
+				</ul>
+			</nav>
+			<ul id="BurgerNav">
+				<li><a href="#AnkerFacts">Facts</a></li>
+				<li><a href="#AnkerSkills">Skills</a></li>
+				<li><a href="#AnkerProjects">Projects</a></li>
+				<li><a href="#AnkerContact">Contact</a></li>
+			</ul>
+		</div>
+
+	</header>
+
+	<main>
+	<section id="about">
+		<h1>About</h1>
+	</section>
+	<section id="skills">
+		<h1>Skills</h1>
+		<div id="SkillDivBox">
+			<h1>SKILLS</h1>
+			<!--Informatik-->
+			<h2>Informatics</h2>
+			<img src="Css.png" alt="CSS" class="Skills" /> <img src="HTML.png"
+				alt="HTML" class="Skills" /> <img src="JavaScript.png"
+				alt="JAVASCRIPT" class="Skills" />
+
+			<!-- Gestalterisch-->
+			<h2>Design</h2>
+			<img src="InDesign.png" alt="InDesign" class="Skills" /> <img
+				src="Illustrator.png" alt="Illustrator" class="Skills" />
+
+			<!--Sprachen-->
+			<h2>Languages</h2>
+			<img src="Italienisch.png" alt="Italienisch" class="Skills" /> <img
+				src="Englisch.png" alt="Englisch" class="Skills" /> <img
+				src="Spanisch.png" alt="Spanisch" class="Skills" /> <img
+				src="Franzoesisch.png" alt="Französisch" class="Skills" /> <img
+				src="Deutsch.png" alt="Deutsch" class="Skills" />
+		</div>
+	</section>
+	<section id="projects">
+		<h1>Projects</h1>
+	</section>
+	</main>
+
+	<footer>
+		<section id="contact">
+			<h1>Contact</h1>
+		</section>
+	</footer>
+</body>

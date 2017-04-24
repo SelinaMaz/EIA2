@@ -1,0 +1,111 @@
+body {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.headerpic {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+	max-width: 100%;
+}
+
+#Logo {
+	width: 50%;
+	margin-top: 17%;
+	margin-bottom: 20%;
+	background-color: #FFFFFF;
+	opacity: 0.8;
+}
+
+
+/*Menu Leiste*/
+nav > ul {
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	top: 1em;
+	left: 1em;
+	height: 40px;
+	box-shadow: 0px 0px 32px 0px #111;
+	border-radius: 8px;
+}
+
+nav  ul  li {
+	list-style: none;
+	float: left;
+	background-color: #FFFFFF;
+	padding: 1em;
+	width: 1em;
+	text-align: center;
+	transition: all 500ms;
+}
+
+nav ul li:hover {
+	background-color: #AAAAAA;
+	cursor: pointer;
+}
+
+nav ul li:first-child {
+	border-radius: 8px 0px 0px 8px;
+}
+
+nav ul li:last-child {
+	border-radius: 0px 8px 8px 0px;
+}
+
+/*Burger-Menue*/
+#BurgerNav {
+	display: none;
+	float: left;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	top: 4.5em;
+	left: 3em;
+	box-shadow: 0px 0px 32px 0px #111;
+	border-radius: 8px;
+}
+
+ul > li {
+	list-style: none;
+	background-color: #FFFFFF;
+	margin: 0;
+	padding: 10px;
+	width: 70px;
+}
+
+ul > li:first-child {
+	border-radius: 8px 8px 0px 0px;
+}
+
+ul > li:last-child {
+	border-radius: 0px 0px 8px 8px;
+}
+
+ul > li:hover {
+	background-color: #AAAAAA;
+	transition: all 500ms;
+	font-weight: bold;
+	cursor: pointer;
+}
+/*************************************************************************************************************
+Main*/
+
+#about {
+	background-color: lightgrey;
+	width: 100%;
+}
+
+#skills {
+	background-color: white;
+	width: 100%;
+}
+
+#projects {
+	background-color: lightgrey;
+	width: 100%;
+}
+
