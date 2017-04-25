@@ -10,10 +10,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet">
-<script src="js/Portfolio.js"></script>
+<script src="js/meinPortfolio.js"></script>
 </head>
 <body>
 	<header>
+	<div id="AnkerHome"> </div>
 		<div class="Hintergrund">
 			<img src="Meer.JPG" alt="Meer" class="headerpic w3-animate-fading" />
 			<img src="Haus.JPG" alt="Haus" class="headerpic w3-animate-fading" />
@@ -54,51 +55,75 @@
 				</ul>
 			</nav>
 			<ul id="BurgerNav">
-				<li><a href="#AnkerFacts">Facts</a></li>
+				<li><a href="#AnkerHome">Home</a></li>
+				<li><a href="#AnkerAbout">About</a></li>
 				<li><a href="#AnkerSkills">Skills</a></li>
 				<li><a href="#AnkerProjects">Projects</a></li>
 				<li><a href="#AnkerContact">Contact</a></li>
 			</ul>
 		</div>
-
 	</header>
 
 	<main>
 	<section id="about">
+		<div id="AnkerAbout"></div>
 		<h1>About</h1>
-	</section>
-	<section id="skills">
-		<h1>Skills</h1>
-		<div id="SkillDivBox">
-			<h1>SKILLS</h1>
-			<!--Informatik-->
-			<h2>Informatics</h2>
-			<img src="Css.png" alt="CSS" class="Skills" /> <img src="HTML.png"
-				alt="HTML" class="Skills" /> <img src="JavaScript.png"
-				alt="JAVASCRIPT" class="Skills" />
-
-			<!-- Gestalterisch-->
-			<h2>Design</h2>
-			<img src="InDesign.png" alt="InDesign" class="Skills" /> <img
-				src="Illustrator.png" alt="Illustrator" class="Skills" />
-
-			<!--Sprachen-->
-			<h2>Languages</h2>
-			<img src="Italienisch.png" alt="Italienisch" class="Skills" /> <img
-				src="Englisch.png" alt="Englisch" class="Skills" /> <img
-				src="Spanisch.png" alt="Spanisch" class="Skills" /> <img
-				src="Franzoesisch.png" alt="Französisch" class="Skills" /> <img
-				src="Deutsch.png" alt="Deutsch" class="Skills" />
+		<div id="Profilbackground">
+			<p>
+				Hey nice to meet you!<br> My name is Selina.
+			</p>
+			<img id="Profilbild" src="SchwarzWeiß.jpg" alt="Foto">
+			<p id="TextAboutMe">
+				I study Media Design and I love my course of studies. <br>The
+				first semester is already over. <br>That's why I'm searching
+				for a traineeship in winter semester 2017/18. <br>If you are
+				interested in supporting me, then feel free to check some Skills and
+				Projects below.
+			</p>
 		</div>
 	</section>
+	<section id="skills">
+		<div id="AnkerSkills"></div>
+		<h1>Skills</h1>
+	</section>
 	<section id="projects">
+		<div id="AnkerProjects"></div>
 		<h1>Projects</h1>
+		<h2>Art</h2>
+		<a href="DameInBlau.png"><img src="DameInBlauKlein.png"
+			class="Projects"></a> <a href="Gesicht.png"><img
+			src="Gesichtklein.png" class="Projects"></a> <a href="Elefant.png"><img
+			src="Elefantklein.png" class="Projects"></a> <a
+			href="SchoeneUndDasBiest.png"><img
+			src="SchoeneUndDasBiestklein.png" class="Projects"></a>
+		<details>
+			<summary> Weiter Zeichnungen </summary>
+			<a href="Gloria.png"><img src="Gloriaklein.png" class="Projects"></a>
+			<a href="Kompas.png"><img src="Kompasklein.png" class="Projects"></a>
+			<a href="Honig.png"><img src="Honigklein.png" class="Projects"></a>
+			<a href="Loewe2.png"><img src="Loeweklein.png" class="Projects"></a>
+		</details>
+		<h2>Computer graphics</h2>
+		<a href="Alle_Roboter.JPG"><img src="Alle_Roboter.JPG"
+			class="Projects"></a> <a href="5.2-r2d2.png"><img
+			src="5.2-r2d2.png" class="Projects"></a> <a
+			href="RaumschiffeBild.png"><img src="RaumschiffeBild.png"
+			class="Projects"></a>
 	</section>
 	</main>
 
 	<footer>
 		<section id="contact">
+			<div id="AnkerContact"></div>
 			<h1>Contact</h1>
+			<div id="Contactbackground">
+				<p id="ContactContent">
+					<img id="ContactLogo" alt="Logo" src="Logo.png"> <br>Studentin
+					der HFU <br>Medienkonzeption <br>2. Semester <br> <br>Selina
+					Mazzaro <br>Hödlerstraße 26 <br>79183 Waldkirch <br>Germany
+					<br> <br>Mobil: 0157 3251 4937
+				</p>
+			</div>
 		</section>
 	</footer>
 </body>

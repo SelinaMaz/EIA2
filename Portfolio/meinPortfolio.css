@@ -17,11 +17,12 @@ body {
 	margin-bottom: 20%;
 	background-color: #FFFFFF;
 	opacity: 0.8;
+	position: relative;
+	left: 25%;
 }
 
-
 /*Menu Leiste*/
-nav > ul {
+nav>ul {
 	float: left;
 	margin: 0;
 	padding: 0;
@@ -37,8 +38,8 @@ nav  ul  li {
 	list-style: none;
 	float: left;
 	background-color: #FFFFFF;
-	padding: 1em;
-	width: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
 	text-align: center;
 	transition: all 500ms;
 }
@@ -69,43 +70,96 @@ nav ul li:last-child {
 	border-radius: 8px;
 }
 
-ul > li {
+ul>li {
 	list-style: none;
 	background-color: #FFFFFF;
 	margin: 0;
 	padding: 10px;
-	width: 70px;
 }
 
-ul > li:first-child {
+ul>li:first-child {
 	border-radius: 8px 8px 0px 0px;
 }
 
-ul > li:last-child {
+ul>li:last-child {
 	border-radius: 0px 0px 8px 8px;
 }
 
-ul > li:hover {
+ul>li:hover {
 	background-color: #AAAAAA;
 	transition: all 500ms;
 	font-weight: bold;
 	cursor: pointer;
 }
+
+a{
+	text-decoration: none;
+}
 /*************************************************************************************************************
 Main*/
-
 #about {
 	background-color: lightgrey;
-	width: 100%;
+	padding: 2%;
 }
 
+#TextAboutMe {
+	font-size: 1em;
+	line-height: 1.5em;
+}
+
+#Profilbackground {
+	background-color: white;
+	text-align: center;
+	padding: 2%;
+}
+
+#Profilbild {
+	width: 50%;
+	height: 50%;
+	margin: 2%;
+}
+/**************************************************************************************************************/
 #skills {
 	background-color: white;
 	width: 100%;
+	padding-left: 2%;
 }
 
+.Projects {
+	width: 50%;
+	height: 25%;
+	margin-left: 25%;
+	margin-top: 2%;
+	margin-bottom: 1%;
+	border: 1px solid black;
+	box-shadow: 5px 5px 10px 0px #111;
+}
+
+/***************************************************************************************************************/
 #projects {
 	background-color: lightgrey;
 	width: 100%;
+	padding-left: 2%;
+}
+/****************************************************************************************************************/
+#Contactbackground {
+	background-image: url("Meer.jpg");
+	width: 95%;
+	margin: 2%;
+	padding: 5%;
+	z-index: -1;
 }
 
+#ContactContent{
+	background-color: white;
+	opacity: 0.6;
+	width: 50%;
+	text-align: center;
+	position: relative;
+	left: 25%;
+	padding: 2%;
+}
+
+#ContactLogo{
+	width: 70%;
+}
