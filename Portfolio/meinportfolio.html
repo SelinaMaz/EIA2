@@ -10,11 +10,13 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Raleway"
 	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans"
+	rel="stylesheet">
 <script src="js/meinPortfolio.js"></script>
 </head>
 <body>
 	<header>
-	<div id="AnkerHome"> </div>
+		<div id="AnkerHome"></div>
 		<div class="Hintergrund">
 			<img src="Meer.JPG" alt="Meer" class="headerpic w3-animate-fading" />
 			<img src="Haus.JPG" alt="Haus" class="headerpic w3-animate-fading" />
@@ -44,13 +46,13 @@
 			<nav id="Leiste">
 				<ul>
 					<li><i class="fa fa-bars" id="burger"> </i></li>
-					<li><a href="#"><i class="fa fa-twitter"
+					<li><a href="https://twitter.com/MazSelina"><i class="fa fa-twitter"
 							style="font-size: 1em; color: black;"> </i></a></li>
 					<li><a
 						href="https://www.facebook.com/profile.php?id=100013609428236"><i
 							class="fa fa-facebook-square"
 							style="font-size: 1em; color: black;"> </i></a></li>
-					<li><a href="#"><i class="fa fa-envelope-o"
+					<li><a href="mailto:selinamazzaro@aol.de"><i class="fa fa-envelope-o"
 							style="font-size: 1em; color: black;"> </i></a></li>
 				</ul>
 			</nav>
@@ -68,12 +70,12 @@
 	<section id="about">
 		<div id="AnkerAbout"></div>
 		<h1>About</h1>
-		<div id="Profilbackground">
-			<p>
+		<div class="background">
+			<p class="TextAboutMe">
 				Hey nice to meet you!<br> My name is Selina.
 			</p>
 			<img id="Profilbild" src="SchwarzWeiß.jpg" alt="Foto">
-			<p id="TextAboutMe">
+			<p class="TextAboutMe">
 				I study Media Design and I love my course of studies. <br>The
 				first semester is already over. <br>That's why I'm searching
 				for a traineeship in winter semester 2017/18. <br>If you are
@@ -84,38 +86,54 @@
 	</section>
 	<section id="skills">
 		<div id="AnkerSkills"></div>
-		<h1>Skills</h1>
+		<h1 id="HeadlineSkills">Skills</h1>
+		<div class="background">
+			<img src="Informatik.PNG" alt="Informatik" class="skillsBilder">
+			<img src="Design.PNG" alt="Informatik" class="skillsBilder"> <img
+				src="sprachen.PNG" alt="Informatik" class="skillsBilder">
+		</div>
 	</section>
 	<section id="projects">
 		<div id="AnkerProjects"></div>
 		<h1>Projects</h1>
-		<h2>Art</h2>
-		<a href="DameInBlau.png"><img src="DameInBlauKlein.png"
-			class="Projects"></a> <a href="Gesicht.png"><img
-			src="Gesichtklein.png" class="Projects"></a> <a href="Elefant.png"><img
-			src="Elefantklein.png" class="Projects"></a> <a
-			href="SchoeneUndDasBiest.png"><img
-			src="SchoeneUndDasBiestklein.png" class="Projects"></a>
-		<details>
-			<summary> Weiter Zeichnungen </summary>
-			<a href="Gloria.png"><img src="Gloriaklein.png" class="Projects"></a>
-			<a href="Kompas.png"><img src="Kompasklein.png" class="Projects"></a>
-			<a href="Honig.png"><img src="Honigklein.png" class="Projects"></a>
-			<a href="Loewe2.png"><img src="Loeweklein.png" class="Projects"></a>
-		</details>
-		<h2>Computer graphics</h2>
-		<a href="Alle_Roboter.JPG"><img src="Alle_Roboter.JPG"
-			class="Projects"></a> <a href="5.2-r2d2.png"><img
-			src="5.2-r2d2.png" class="Projects"></a> <a
-			href="RaumschiffeBild.png"><img src="RaumschiffeBild.png"
-			class="Projects"></a>
+		<div class="background">
+			<h2 class="subheadings">Art</h2>
+			<div class="FirstPics">
+				<a href="DameInBlau.png" id="DameInBlau"><img
+					src="DameInBlauKlein.png" class="Projects"></a> <a
+					href="Gesicht.png"><img src="Gesichtklein.png"
+					class="Projects BildTablet" id="Gesicht"></a> <a
+					href="Elefant.png"><img src="Elefantklein.png" class="Projects"
+					id="Elefant"></a> <a href="SchoeneUndDasBiest.png"><img
+					src="SchoeneUndDasBiestklein.png" class="Projects BildTablet"
+					id="SchoeneUndDasBiest"></a>
+			</div>
+			<details>
+				<summary> show more </summary>
+				<div class="FirstPics">
+					<a href="Gloria.png"><img src="Gloriaklein.png"
+						class="Projects" id="Gloria"></a> <a href="Kompas.png"><img
+						src="Kompasklein.png" class="Projects BildTablet" id="Kompas"></a>
+					<a href="Honig.png"><img src="Honigklein.png" class="Projects"
+						id="Honig"></a> <a href="Loewe2.png"><img
+						src="Loeweklein.png" class="Projects BildTablet" id="Loewe"></a>
+				</div>
+			</details>
+			<h2 class="subheadings">Computer graphics</h2>
+			<div class="Blender">
+				<a href="Roboter.png"><img src="Roboter.png" class="Projects"></a>
+				<a href="5.2-r2d2.png"><img src="5.2-r2d2.png" class="Projects"></a>
+				<a href="RaumschiffeBild.png"><img src="RaumschiffeBild.png"
+					class="Projects"></a>
+			</div>
+		</div>
 	</section>
 	</main>
 
 	<footer>
 		<section id="contact">
 			<div id="AnkerContact"></div>
-			<h1>Contact</h1>
+			<h1 id="headlineContact">Contact</h1>
 			<div id="Contactbackground">
 				<p id="ContactContent">
 					<img id="ContactLogo" alt="Logo" src="Logo.png"> <br>Studentin
