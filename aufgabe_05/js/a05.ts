@@ -1,3 +1,12 @@
+/*
+Aufgabe: A03a
+Name: Selina Mazzaro
+Matrikel: 254068
+Datum: 09.04.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
+
 namespace a04_Canvas {
     var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
@@ -41,12 +50,12 @@ namespace a04_Canvas {
         /**************************************************************************************************************************
         *Aufgabe 5
         **************************************************************************************************************************/
-        drawBee(350, 50);
+        beehive(350, 70);
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < n; i++) {
             x[i] = 350; //Koordinaten von Bienenkorb
-            y[i] = 70;
+            y[i] = 60;
             drawBee(x[i], y[i]); //Start der Biene
         }
         window.setTimeout(animate, 30);
@@ -73,7 +82,7 @@ namespace a04_Canvas {
                 y[i] = 0;
             }
 
-            drawBee(x[i], y[i]);
+            drawBee(x[i], y[i] + 8);
         }
         window.setTimeout(animate, 20);
     }
@@ -123,13 +132,29 @@ namespace a04_Canvas {
         can2.stroke();
 
     }
-
-
+    
     function addBee(): void {
         x.push(350); y.push(50);
         n++;
     }
-
+    
+    function beehive (_x: number, _y: number): void {
+        can2.beginPath();
+        can2.moveTo(_x, _y);
+        can2.bezierCurveTo(_x + 10, _y, _x + 10, _y - 20, _x, _y - 20);
+        can2.moveTo(_x, _y);
+        can2.bezierCurveTo(_x - 10, _y, _x - 10, _y - 20, _x, _y - 20);
+        can2.fillStyle = "#FCC631";
+        can2.fill();
+        can2.strokeStyle = "black";
+        can2.stroke();
+        //öffnung
+        can2.beginPath();
+        can2.moveTo(_x, _y);
+        can2.arc(_x - 2.5, _y - 8, 4, 0, Math.PI * 2, true);
+        can2.fillStyle = "black";
+        can2.fill();
+    }
     /********************************************************************************************************
     *Aufgabe 4
     **********************************************************************************************************/
