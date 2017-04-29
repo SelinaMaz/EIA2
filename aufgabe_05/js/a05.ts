@@ -2,6 +2,11 @@ namespace a04_Canvas {
     var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
 
+    let x: number[] = [];
+    let y: number[] = [];
+    let n: number = 10;
+    let imgData: ImageData;
+
     window.addEventListener("load", init);
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -10,7 +15,10 @@ namespace a04_Canvas {
         can2.fillStyle = "#BEF781";
         can2.fillRect(0, 0, canvas.width, canvas.height);
         //Himmel
-        can2.fillStyle = "#81DAF5";
+        var ombre: any = can2.createLinearGradient(0, 10, 0, 100);
+        ombre.addColorStop(0, "#A9D0F5");
+        ombre.addColorStop(1, "white");
+        can2.fillStyle = ombre;
         can2.fillRect(0, 0, canvas.width, 80);
 
         bigMountain(30, 10);
@@ -25,24 +33,106 @@ namespace a04_Canvas {
             let _y: number = (Math.random() * (280 - 130)) + 130;
 
             blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
-            blume("#FCC631", "#A9D0F5", _x - 10 , _y + 5, 6); // Blau
+            blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
             blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
             tulpe(_x + 40, _y - 5);
         }
-        createKleeblatt(380, 120);
-        createKleeblatt(361, 115);
-        createKleeblatt(361, 150);
-        createKleeblatt(380, 140);
-        createKleeblatt(348, 140);
+
+        /**************************************************************************************************************************
+        *Aufgabe 5
+        **************************************************************************************************************************/
+        drawBee(350, 50);
+        imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
+
+        for (let i: number = 0; i < n; i++) {
+            x[i] = 350; //Koordinaten von Bienenkorb
+            y[i] = 70;
+            drawBee(x[i], y[i]); //Start der Biene
+        }
+        window.setTimeout(animate, 30);
+        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("push", addBee);
+
     }
 
-    //Funktionen
 
-//    function copyImage() {
-//        var imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
-//        can2.putImageData(imgData, 0, 0);
-//    }
-    
+    //Funktionen 
+    function animate(): void {
+        can2.putImageData(imgData, 0, 0);
+        for (let i: number = 0; i < n; i++) {
+            x[i] += Math.random() * 5 - 3;
+            y[i] += Math.random() * 4 - 2;
+
+            if (x[i] < 0) {
+                x[i] = 400;
+            }
+            if (y[i] < 0) {
+                y[i] = 300;
+            }
+            if (y[i] > 300) {
+                y[i] = 0;
+            }
+
+            drawBee(x[i], y[i]);
+        }
+        window.setTimeout(animate, 20);
+    }
+
+    function drawBee(_x: number, _y: number): void {
+        //Flügel
+        can2.beginPath();
+        can2.moveTo(_x + 3, _y - 3 - 3 / 2);
+        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - 3 - 3 / 2, _x + 3 + 10 / 2, _y - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
+        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - 3 + 3 / 2, _x + 3 - 10 / 2, _y - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
+        can2.fillStyle = "rgba(255,255,255, 0.8)";
+        can2.fill();
+        can2.closePath();
+        //Körper der Biene
+        can2.beginPath();
+        can2.moveTo(_x, _y - 5 / 2);
+        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
+        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
+        can2.fillStyle = "#FCC631";
+        can2.fill();
+        can2.closePath();
+        can2.beginPath();
+        can2.moveTo(_x, _y - 5 / 2);
+        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
+        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
+        can2.strokeStyle = "black";
+        can2.stroke();
+        can2.closePath();
+        //Kopf
+        can2.beginPath();
+        can2.moveTo(_x - 1, _y + 5 / 2);
+        can2.bezierCurveTo(_x - 5, _y, _x - 5, _y - 5 / 2, _x - 1, _y - 5 / 2);
+        can2.fillStyle = "black";
+        can2.fill();
+        can2.closePath();
+        //Streifen
+        can2.beginPath();
+        can2.moveTo(_x + 0.25, _y + 5 / 2);
+        can2.lineTo(_x, _y - 5 / 2);
+        can2.strokeStyle = "black";
+        can2.stroke();
+        can2.closePath();
+        can2.beginPath();
+        can2.moveTo(_x + 2.25, _y + 5 / 2);
+        can2.lineTo(_x + 2.25, _y - 5 / 2);
+        can2.strokeStyle = "black";
+        can2.stroke();
+
+    }
+
+
+    function addBee(): void {
+        x.push(350); y.push(50);
+        n++;
+    }
+
+    /********************************************************************************************************
+    *Aufgabe 4
+    **********************************************************************************************************/
     function bigMountain(_x: number, _y: number): void {
         can2.fillStyle = "#A0A0A0";
         can2.beginPath();
@@ -152,7 +242,6 @@ namespace a04_Canvas {
         can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
         can2.fill();
         can2.closePath();
-
     }
 
     function tulpe(_x: number, _y: number): void {
@@ -170,48 +259,6 @@ namespace a04_Canvas {
         can2.lineTo(_x + 16, _y - 40);
         can2.lineTo(_x + 16, _y - 32);
         can2.fill();
-    }
-
-    function kleeblatt(_x: number, _y: number): void {
-        can2.scale(0.05, 0.05);
-        can2.beginPath();
-        can2.moveTo(_x, _y);
-        can2.bezierCurveTo(75, 37, 70, 25, 50, 25); // (x, y, radius, startWinkel, endWinkel, uhrzeigersinn)
-        can2.bezierCurveTo(20, 25, 20, 62.5, 20, 62.5);
-        can2.bezierCurveTo(20, 80, 40, 102, 75, 120);
-        can2.bezierCurveTo(110, 102, 130, 80, 130, 62.5);
-        can2.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
-        can2.bezierCurveTo(85, 25, 75, 37, 75, 40);
-        can2.fillStyle = "#5FB404";
-        can2.fill();
-    }
-
-    function createKleeblatt(_x: number, _y: number): void {
-        for (let a: number = 0; a < 4; a++) {
-            switch (a) {
-                case 0:
-                    can2.setTransform(1, 0, 0, 1, 0, 0);
-                    can2.translate(_x, _y);
-                    kleeblatt(_x, _y);
-                    break;
-                case 1:
-                    can2.setTransform(1, 0, 0, 1, 0, 0);
-                    can2.translate(_x + 10, _y + 5);
-                    can2.rotate((1 * Math.PI / 1.5));
-                    kleeblatt(_x, _y);
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    can2.setTransform(1, 0, 0, 1, 0, 0);
-                    can2.translate(_x - 1, _y + 11);
-                    can2.rotate((1 * Math.PI / 0.7));
-                    kleeblatt(_x, _y);
-                    break;
-                default:
-                    break;
-            }
-        }
     }
 }
 
