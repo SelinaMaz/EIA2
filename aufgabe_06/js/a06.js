@@ -7,7 +7,7 @@ var StudiVZ;
         switch (action) {
             case "n":
             case "N":
-                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, Name, Vorname, Alter, Geschlecht (0 oder 1) und Kommentar");
+                var input = prompt("Eingabe (jeweils mit Komma getrennt) von\nMatrikelnummer, \nName, \nVorname, \nAlter, \nGeschlecht 0 = m oder 1 = w und \nKommentar");
                 alert(saveData(input));
                 break;
             case "a":
@@ -22,19 +22,34 @@ var StudiVZ;
     }
     function saveData(_input) {
         let data = _input.split(",");
+        let _matrikel = (parseInt(data[0]));
+        let _name = data[1];
+        let _firstname = data[2];
+        let _age = (parseInt(data[3]));
+        let _sex = parseInt(data[4]) != 0 && parseInt(data[4]) != 1;
+        let _comment;
         if (data.length < 4) {
-            return "Angaben nicht vollst�ndig!";
+            return "Angaben nicht vollstaendig!";
         }
-        if (isNaN(parseInt(data[0]))) {
+        if (isNaN(_matrikel)) {
             return "Matrikelnummer ist keine Nummer";
         }
-        if (data[1]) {
-            return "Matrikelnummer ist keine Nummer";
+        if (isNaN(_age)) {
+            return "Das Alter ist keine Nummer";
         }
-        let sexBoolean = false;
-        if (parseInt(data[4]) == 0) {
+        if (_sex) {
+            return "Geschlecht bitte als 0 f�r w oder 1 f�r m eingeben.";
         }
-        return "Hier fehlt noch der richtige Code...";
+        let check = {
+            matrikel: _matrikel,
+            name: _name,
+            firstname: _firstname,
+            age: _age,
+            sex: _sex,
+            comment: _comment
+        };
+        students.push(check);
+        confirm("Bitte ueberpruefen Sie Ihre Daten nach der Richtigkeit und bestaetigen Sie mit OK:\nMatrikelnummer: " + check.matrikel + "\nName: " + check.name + "\nVorname: " + check.firstname + "\nAlter: " + check.age + "\nGeschlecht: " + check.sex + "\nKommentar: " + check.comment);
     }
     function queryData(_matrikel) {
         return "Hier fehlt noch der richtige Code...";

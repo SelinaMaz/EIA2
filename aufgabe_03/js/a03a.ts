@@ -46,7 +46,7 @@ namespace A3 {
 
             console.log("Schleife");
             let fields: NodeListOf<HTMLElement> = document.getElementsByTagName("div");
-            fields[i].addEventListener("click", function() {
+            fields[i].addEventListener("click", function(): any {
                 fields[i].classList.toggle("selected");
 
                 console.log(fields[i]);

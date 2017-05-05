@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function(): any {
     
     var person: string = prompt("Geben Sie ihren Namen ein");
     

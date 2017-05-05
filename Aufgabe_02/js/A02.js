@@ -1,24 +1,41 @@
 /*
-Aufgabe: A2
+Aufgabe: A03a
 Name: Selina Mazzaro
 Matrikel: 254068
-Datum: 01.04.17
+Datum: 09.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.
+
+Leider ist diese Aufgabe nicht vollst�ndig aufgrund fehlender Verst�ndis meinerseits.
+Ich hab es auch nicht geschafft die Aufgabe in der Gruppe zul�sen und w�re deshalb sehr dankbar,
+wenn wir diese Aufgabe im Praltikum nochmal Besprechen k�nnten.
 */
-document.addEventListener('DOMContentLoaded', function () {
-    let n = 64; //Anzahl der Felder
-    let i = 0;
-    let x = 0; // gerade Zahlen sind wei�, ungerade sind schwarz.
+var A3;
+(function (A3) {
     let zeile = 0;
     let a = 1; //Anzahl Reis
-    //Aussehen von Body bleibt immer gleich 
-    let b = document.body.style;
-    b.width = "450px";
-    b.margin = "50px";
-    b.backgroundColor = "#F7F7F7";
+    document.addEventListener("DOMContentLoaded", function () {
+        //Aussehen von Body bleibt immer gleich 
+        let b = document.body.style;
+        b.width = "450px";
+        b.margin = "50px";
+        b.backgroundColor = "#F7F7F7";
+        let countField = 0;
+        //Schachbrett
+        for (let i = 0; i < 8; i++) {
+            for (let j = 0; j < 8; j++) {
+                Div();
+                if (i % 2 == j % 2) {
+                    white(countField);
+                }
+                else {
+                    black(countField);
+                }
+                countField++;
+            }
+        }
+    });
     //Divs erzeugen
     function Div() {
         let div = document.createElement("div");
@@ -38,47 +55,25 @@ document.addEventListener('DOMContentLoaded', function () {
         div.innerText = "" + a;
         a = a * 2;
     }
-    ;
-    //Wei�e Divs
-    function white() {
-        let div = document.getElementsByTagName("div");
-        let divColor = div[x].getElementsByClassName("DivBox");
-        if (div.length != 0) {
-            div[x].style.backgroundColor = "white";
-            div[x].style.color = "black";
-            div[x].style.textAlign = "center";
-            x++;
-        }
-        ;
-    }
-    ;
     //Schwarze Divs
-    function black() {
+    function black(_number) {
         let div = document.getElementsByTagName("div");
-        let divColor = div[x].getElementsByClassName("DivBox");
+        let currentDiv = div[_number];
         if (div.length != 0) {
-            div[x].style.backgroundColor = "black";
-            div[x].style.color = "white";
-            div[x].style.textAlign = "center";
-            x++;
+            currentDiv.style.backgroundColor = "black";
+            currentDiv.style.color = "white";
+            currentDiv.style.textAlign = "center";
         }
-        ;
     }
-    ;
-    //Schachbrett
-    for (i; i < n; i++) {
-        Div();
-        if (x % 2 == zeile % 2) {
-            white();
+    //Wei�e Divs
+    function white(_number) {
+        let div = document.getElementsByTagName("div");
+        let currentDiv = div[_number];
+        if (div.length != 0) {
+            currentDiv.style.backgroundColor = "white";
+            currentDiv.style.color = "black";
+            currentDiv.style.textAlign = "center";
         }
-        else {
-            black();
-        }
-        if (x % 8 == 0) {
-            zeile++;
-        }
-        ;
     }
-    ;
-});
+})(A3 || (A3 = {}));
 //# sourceMappingURL=A02.js.map
