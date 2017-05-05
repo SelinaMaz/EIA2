@@ -1,6 +1,4 @@
 namespace StudiVZ {
-
-
     interface StudentData {
         name: string;
         firstname: string;
@@ -79,5 +77,4 @@ namespace StudiVZ {
         }
         return "Ihre Matrikelnummer ist nicht registriert. Bitte tragen Sie sich vor der Abfrage ein.";
     }
-
 }
