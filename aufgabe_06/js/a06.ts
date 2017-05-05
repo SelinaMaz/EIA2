@@ -40,8 +40,7 @@ namespace StudiVZ {
         let _name: string = data[1];
         let _firstname: string = data[2];
         let _age: number = (parseInt(data[3]));
-        let _sex: boolean = parseInt(data[4]) != 0 && parseInt(data[4]) != 1;
-        let _comment: string;
+        let _comment: string = data[5];
 
         if (data.length < 4) {
             return "Angaben nicht vollstaendig!";
@@ -53,7 +52,7 @@ namespace StudiVZ {
             return "Das Alter ist keine Nummer";
         }
 
-        if (_sex) {
+        if (parseInt(data[4]) != 0 && parseInt(data[4]) != 1) {
             return "Geschlecht bitte als 0 für w oder 1 für m eingeben.";
         }
 
@@ -62,18 +61,23 @@ namespace StudiVZ {
             name: _name,
             firstname: _firstname,
             age: _age,
-            sex: _sex,
+            sex: parseInt(data[4]) == 0,
             comment: _comment
         };
-        
         students.push(check);
-        confirm("Bitte ueberpruefen Sie Ihre Daten nach der Richtigkeit und bestaetigen Sie mit OK:\nMatrikelnummer: " + check.matrikel + "\nName: " + check.name + "\nVorname: " + check.firstname + "\nAlter: " + check.age + "\nGeschlecht: " + check.sex + "\nKommentar: " + check.comment);
+        let stringSex: string = check.sex ? "m" : "w";
+        return "Bitte ueberpruefen Sie Ihre Daten nach der Richtigkeit und bestaetigen Sie mit OK:\nMatrikelnummer: " + check.matrikel + "\nName: " + check.name + "\nVorname: " + check.firstname + "\nAlter: " + check.age + "\nGeschlecht: " + stringSex + "\nKommentar: " + check.comment;
     }
 
-
-
     function queryData(_matrikel: number): string {
-        return "Hier fehlt noch der richtige Code...";
+        for (let i: number = 0; i < students.length; i++) {
+            if (students[i].matrikel == _matrikel) {
+                let stringSex: string = students[i].sex ? "m" : "w";
+                let s: StudentData = students[i];
+                return "Unter Ihrer Matrikelnummer sind Folgende Daten gespeichert: \nMatrikelnummer: " + s.matrikel + "\nName: " + s.name + "\nVorname: " + s.firstname + "\nAlter: " + s.age + "\nGeschlecht: " + stringSex + "\nKommentar: " + s.comment;
+            }
+        }
+        return "Ihre Matrikelnummer ist nicht registriert. Bitte tragen Sie sich vor der Abfrage ein.";
     }
 
 }
