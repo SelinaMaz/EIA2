@@ -1,13 +1,13 @@
 /*
-Aufgabe: A03a
+Aufgabe: A06a
 Name: Selina Mazzaro
 Matrikel: 254068
-Datum: 29.04.17
+Datum: 06.05.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
-var a04_Canvas;
-(function (a04_Canvas) {
+var a06a_Canvas;
+(function (a06a_Canvas) {
     var can2;
     var canvas;
     let x = [];
@@ -42,84 +42,99 @@ var a04_Canvas;
             tulpe(_x + 40, _y - 5);
         }
         /**************************************************************************************************************************
-        *Aufgabe 5
+        *Aufgabe 6a
         **************************************************************************************************************************/
         beehive(350, 70);
+        let beeData = [];
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
+        //        for (let i: number = 0; i < n; i++) {
+        //            let s: Square = { x: 0, y: 0, size: 0, color: "#0000ff" }; // default-values
+        //            s["x"] = Math.random() * 200; // mögliche Schreibweise, hier sind variable Schlüssel möglich
+        //            s.y = Math.random() * 200; // andere mögliche Schreibweise mit literalem Schlüssel
+        //            s.size = Math.random() * 30 + 10;
+        //            s.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+        //            squares[i] = s;
+        //        }
+        //        console.log(squares);
+        //        window.setTimeout(animate, 20);
         for (let i = 0; i < n; i++) {
-            x[i] = 350; //Koordinaten von Bienenkorb
-            y[i] = 60;
-            drawBee(x[i], y[i]); //Start der Biene
+            let b = { x: 0, y: 0, size: 0 };
+            b.x = 348; //Koordinaten von Bienenkorb
+            b.y = 61;
+            b.size = Math.random() * 10 + 5;
+            drawBee(b); //Start der Biene
+            beeData[i] = b;
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
     }
-    //Funktionen 
+    let beeData = [];
     function animate() {
         can2.putImageData(imgData, 0, 0);
         for (let i = 0; i < n; i++) {
-            x[i] += Math.random() * 5 - 3;
-            y[i] += Math.random() * 4 - 2;
-            if (x[i] < 0) {
-                x[i] = 400;
+            let b = beeData[i];
+            b.x += Math.random() * 5 - 3;
+            b.y += Math.random() * 4 - 2;
+            if (b.x < 0) {
+                b.y = 400;
             }
-            if (y[i] < 0) {
-                y[i] = 300;
+            if (b.y < 0) {
+                b.y = 300;
             }
-            if (y[i] > 300) {
-                y[i] = 0;
+            if (b.y > 300) {
+                b.y = 0;
             }
-            drawBee(x[i], y[i] + 8);
+            drawBee(b);
         }
         window.setTimeout(animate, 20);
     }
-    function drawBee(_x, _y) {
+    function drawBee(_b) {
         //Fl�gel
-        can2.beginPath();
-        can2.moveTo(_x + 3, _y - 3 - 3 / 2);
-        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - 3 - 3 / 2, _x + 3 + 10 / 2, _y - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
-        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - 3 + 3 / 2, _x + 3 - 10 / 2, _y - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
-        can2.fillStyle = "rgba(255,255,255, 0.8)";
-        can2.fill();
-        can2.closePath();
+        //        can2.beginPath();
+        //        can2.moveTo(_x + 3, _y - 3 - 3 / 2);
+        //        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - 3 - 3 / 2, _x + 3 + 10 / 2, _y - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
+        //        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - 3 + 3 / 2, _x + 3 - 10 / 2, _y - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
+        //        can2.fillStyle = "rgba(255,255,255, 0.8)";
+        //        can2.fill();
+        //        can2.closePath();
         //K�rper der Biene
         can2.beginPath();
-        can2.moveTo(_x, _y - 5 / 2);
-        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
+        can2.moveTo(_b.x, _b.y - 5 / 2);
+        can2.bezierCurveTo(_b.x + 10 / 2, _b.y - 5 / 2, _b.x + 10 / 2, _b.y + 5 / 2, _b.x, _b.y + 5 / 2);
+        can2.bezierCurveTo(_b.x - 10 / 2, _b.y + 5 / 2, _b.x - 10 / 2, _b.y - 5 / 2, _b.x, _b.y - 5 / 2);
         can2.fillStyle = "#FCC631";
         can2.fill();
         can2.closePath();
         can2.beginPath();
-        can2.moveTo(_x, _y - 5 / 2);
-        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
+        can2.moveTo(_b.x, _b.y - 5 / 2);
+        can2.bezierCurveTo(_b.x + 10 / 2, _b.y - 5 / 2, _b.x + 10 / 2, _b.y + 5 / 2, _b.x, _b.y + 5 / 2);
+        can2.bezierCurveTo(_b.x - 10 / 2, _b.y + 5 / 2, _b.x - 10 / 2, _b.y - 5 / 2, _b.x, _b.y - 5 / 2);
         can2.strokeStyle = "black";
         can2.stroke();
         can2.closePath();
         //Kopf
-        can2.beginPath();
-        can2.moveTo(_x - 1, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 5, _y, _x - 5, _y - 5 / 2, _x - 1, _y - 5 / 2);
-        can2.fillStyle = "black";
-        can2.fill();
-        can2.closePath();
-        //Streifen
-        can2.beginPath();
-        can2.moveTo(_x + 0.25, _y + 5 / 2);
-        can2.lineTo(_x, _y - 5 / 2);
-        can2.strokeStyle = "black";
-        can2.stroke();
-        can2.closePath();
-        can2.beginPath();
-        can2.moveTo(_x + 2.25, _y + 5 / 2);
-        can2.lineTo(_x + 2.25, _y - 5 / 2);
-        can2.strokeStyle = "black";
-        can2.stroke();
+        //        can2.beginPath();
+        //        can2.moveTo(_x - 1, _y + 5 / 2);
+        //        can2.bezierCurveTo(_x - 5, _y, _x - 5, _y - 5 / 2, _x - 1, _y - 5 / 2);
+        //        can2.fillStyle = "black";
+        //        can2.fill();
+        //        can2.closePath();
+        //        //Streifen
+        //        can2.beginPath();
+        //        can2.moveTo(_x + 0.25, _y + 5 / 2);
+        //        can2.lineTo(_x, _y - 5 / 2);
+        //        can2.strokeStyle = "black";
+        //        can2.stroke();
+        //        can2.closePath();
+        //        can2.beginPath();
+        //        can2.moveTo(_x + 2.25, _y + 5 / 2);
+        //        can2.lineTo(_x + 2.25, _y - 5 / 2);
+        //        can2.strokeStyle = "black";
+        //        can2.stroke();
     }
     function addBee() {
-        x.push(350);
+        x.push(345);
         y.push(50);
         n++;
     }
@@ -264,5 +279,5 @@ var a04_Canvas;
         can2.lineTo(_x + 16, _y - 32);
         can2.fill();
     }
-})(a04_Canvas || (a04_Canvas = {}));
+})(a06a_Canvas || (a06a_Canvas = {}));
 //# sourceMappingURL=a06a.js.map

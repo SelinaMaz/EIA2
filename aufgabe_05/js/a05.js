@@ -6,8 +6,8 @@ Datum: 29.04.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
-var a04_Canvas;
-(function (a04_Canvas) {
+var a05_Canvas;
+(function (a05_Canvas) {
     var can2;
     var canvas;
     let x = [];
@@ -264,5 +264,5 @@ var a04_Canvas;
         can2.lineTo(_x + 16, _y - 32);
         can2.fill();
     }
-})(a04_Canvas || (a04_Canvas = {}));
+})(a05_Canvas || (a05_Canvas = {}));
 //# sourceMappingURL=a05.js.map
