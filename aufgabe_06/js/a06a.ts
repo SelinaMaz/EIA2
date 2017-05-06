@@ -11,8 +11,15 @@ namespace a06a_Canvas {
     var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
 
-    let x: number[] = [];
-    let y: number[] = [];
+    interface BeeData {
+        x: number;
+        y: number;
+        size: number;
+        color: string;
+    }
+    let beeData: BeeData[] = [];
+    let b: BeeData = { x: 0, y: 0, size: 0, color: "" };
+
     let n: number = 10;
     let imgData: ImageData;
 
@@ -51,39 +58,22 @@ namespace a06a_Canvas {
         *Aufgabe 6a
         **************************************************************************************************************************/
         beehive(350, 70);
-        interface BeeData {
-            x: number;
-            y: number;
-            size: number;
-        }
-        let beeData: BeeData[] = [];
-        let b: BeeData = { x: 0, y: 0, size: 0 };
-
-
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < n; i++) {
-            b.x = 348; //Koordinaten von Bienenkorb
+            b.x = 348; //Koordinaten von Bienenkorböffnung 
             b.y = 61;
             b.size = Math.random() * 10 + 5;
-            drawBee(b.x, b.y, b.size); //Start der Biene
+            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            drawBee(b.x, b.y, b.color, b.size); //zeichne Biene
             beeData[i] = b;
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
-
     }
-
 
     //Funktionen 
-    interface BeeData {
-        x: number;
-        y: number;
-        size: number;
-    }
-
-    let beeData: BeeData[] = [];
 
     function animate(): void {
         can2.putImageData(imgData, 0, 0);
@@ -94,7 +84,7 @@ namespace a06a_Canvas {
             b.y += Math.random() * 4 - 2;
 
             if (b.x < 0) {
-                b.y = 400;
+                b.x = 400;
             }
             if (b.y < 0) {
                 b.y = 300;
@@ -103,52 +93,52 @@ namespace a06a_Canvas {
                 b.y = 0;
             }
 
-            drawBee(b.x, b.y, b.size);
+            drawBee(b.x, b.y, b.color, b.size);
         }
         window.setTimeout(animate, 20);
     }
 
-    function drawBee(_x: number, _y: number, _size: number): void {
+    function drawBee(_x: number, _y: number, _color: string, _size: number): void {
         //Flügel
         can2.beginPath();
-        can2.moveTo(_x + 3, _y - 3 - 3 / 2);
-        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - 3 - 3 / 2, _x + 3 + 10 / 2, _y - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
-        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - 3 + 3 / 2, _x + 3 - 10 / 2, _y - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
+        can2.moveTo(_x + 3, _y - b.size / 2 - 3 - 3 / 2);
+        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - b.size / 2 - 3 - 3 / 2, _x + 3 + 10 / 2, _y - b.size / 2 - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
+        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - b.size / 2 - 3 + 3 / 2, _x + 3 - 10 / 2, _y - b.size / 2 - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
         can2.fillStyle = "rgba(255,255,255, 0.8)";
         can2.fill();
         can2.closePath();
         //Körper der Biene
         can2.beginPath();
-        can2.moveTo(_x, _y - 5 / 2);
-        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
-        can2.fillStyle = "#FCC631";
+        can2.moveTo(_x, _y - b.size / 2);
+        can2.bezierCurveTo(_x + b.size, _y - b.size / 2, _x + b.size / 2, _y + b.size / 2, _x, _y + b.size / 2);
+        can2.bezierCurveTo(_x - b.size, _y + b.size / 2, _x - b.size / 2, _y - b.size / 2, _x, _y - b.size / 2);
+        can2.fillStyle = b.color;
         can2.fill();
         can2.closePath();
         can2.beginPath();
-        can2.moveTo(_x, _y - 5 / 2);
-        can2.bezierCurveTo(_x + 10 / 2, _y - 5 / 2, _x + 10 / 2, _y + 5 / 2, _x, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 10 / 2, _y + 5 / 2, _x - 10 / 2, _y - 5 / 2, _x, _y - 5 / 2);
+        can2.moveTo(_x, _y - b.size / 2);
+        can2.bezierCurveTo(_x + b.size, _y - b.size / 4, _x + b.size / 2, _y + b.size / 2, _x, _y + b.size / 2);
+        can2.bezierCurveTo(_x - b.size, _y + b.size / 4, _x - b.size / 2, _y - b.size / 2, _x, _y - b.size / 2);
         can2.strokeStyle = "black";
         can2.stroke();
         can2.closePath();
         //Kopf
         can2.beginPath();
-        can2.moveTo(_x - 1, _y + 5 / 2);
-        can2.bezierCurveTo(_x - 5, _y, _x - 5, _y - 5 / 2, _x - 1, _y - 5 / 2);
+        can2.moveTo(_x - 1, _y + b.size / 2);
+        can2.bezierCurveTo(_x - b.size, _y, _x - 5, _y - b.size / 2, _x - 1, _y - b.size / 2);
         can2.fillStyle = "black";
         can2.fill();
         can2.closePath();
         //Streifen
         can2.beginPath();
-        can2.moveTo(_x + 0.25, _y + 5 / 2);
-        can2.lineTo(_x, _y - 5 / 2);
+        can2.moveTo(_x + 0.25, _y + b.size / 2);
+        can2.lineTo(_x, _y - b.size / 2);
         can2.strokeStyle = "black";
         can2.stroke();
         can2.closePath();
         can2.beginPath();
-        can2.moveTo(_x + 2.25, _y + 5 / 2);
-        can2.lineTo(_x + 2.25, _y - 5 / 2);
+        can2.moveTo(_x + 2.25, _y + b.size / 2);
+        can2.lineTo(_x + 2.25, _y - b.size / 2);
         can2.strokeStyle = "black";
         can2.stroke();
 
@@ -156,7 +146,7 @@ namespace a06a_Canvas {
 
 
     function addBee(): void {
-        beeData.push({ x: 348, y: 61, size: 0 });
+        beeData.push({ x: 348, y: 61, size: 0, color: "" });
         n++;
     }
 
