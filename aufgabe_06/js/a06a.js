@@ -50,7 +50,7 @@ var a06a_Canvas;
             b.x = 348; //Koordinaten von Bienenkorb�ffnung 
             b.y = 61;
             b.size = Math.random() * 10 + 5;
-            b.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            b.color = "hsl(" + Math.random() * 180 + ", 80%, 50%)";
             drawBee(b.x, b.y, b.color, b.size); //zeichne Biene
             beeData[i] = b;
         }
