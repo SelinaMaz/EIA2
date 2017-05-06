@@ -62,4 +62,4 @@ var StudiVZ;
         return "Ihre Matrikelnummer ist nicht registriert. Bitte tragen Sie sich vor der Abfrage ein.";
     }
 })(StudiVZ || (StudiVZ = {}));
-//# sourceMappingURL=a06.js.map
+//# sourceMappingURL=a06b.js.map
