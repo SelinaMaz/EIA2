@@ -1,3 +1,11 @@
+/*
+Aufgabe: A06a
+Name: Selina Mazzaro
+Matrikel: 254068
+Datum: 06.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
 namespace StudiVZ {
     interface StudentData {
         name: string;
