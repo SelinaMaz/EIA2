@@ -8,7 +8,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
 
 namespace a07_Canvas {
-   export var can2: CanvasRenderingContext2D;
+    export var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
 
     let beeData: Bee[] = [];
@@ -55,96 +55,32 @@ namespace a07_Canvas {
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {
-            beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)", ""));
+            beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         }
         window.setTimeout(animate, 30);
-//        canvas.addEventListener("click", addBee);
-//        canvas.addEventListener("push", addBee);
+        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("push", addBee);
     }
 
     //Funktionen 
 
     function animate(): void {
-       can2.putImageData(imgData, 0, 0);
+        can2.putImageData(imgData, 0, 0);
 
 
-        
+
         for (let i: number = 0; i < beeData.length; i++) {
             beeData[i].update();
-            }
-        
-//        for (let i: number = 0; i < n; i++) {
-//            let b: Bee = beeData[i];
-//            b.x += Math.random() * 5 - 3;
-//            b.y += Math.random() * 4 - 2;
-//
-//            if (b.x < 0) {
-//                b.x = 400;
-//            }
-//            if (b.y < 0) {
-//                b.y = 300;
-//            }
-//            if (b.y > 300) {
-//                b.y = 0;
-//            }
-//
-//            drawBee(b.x, b.y, b.color, b.size);
-//        }
+        }
+
         window.setTimeout(animate, 20);
     }
 
-//    function drawBee(_x: number, _y: number, _color: string, _size: number): void {
-//        //Flügel
-//        can2.beginPath();
-//        can2.moveTo(_x + 3, _y - b.size / 2 - 3 - 3 / 2);
-//        can2.bezierCurveTo(_x + 3 + 10 / 2, _y - b.size / 2 - 3 - 3 / 2, _x + 3 + 10 / 2, _y - b.size / 2 - 3 + 3 / 2, _x + 3, _y - 3 + 3 / 2);
-//        can2.bezierCurveTo(_x + 3 - 10 / 2, _y - b.size / 2 - 3 + 3 / 2, _x + 3 - 10 / 2, _y - b.size / 2 - 3 - 3 / 2, _x + 3, _y - 3 - 5 / 2);
-//        can2.fillStyle = "rgba(255,255,255, 0.8)";
-//        can2.fill();
-//        can2.closePath();
-//        //Körper der Biene
-//        can2.beginPath();
-//        can2.moveTo(_x, _y - b.size / 2);
-//        can2.bezierCurveTo(_x + b.size, _y - b.size / 2, _x + b.size / 2, _y + b.size / 2, _x, _y + b.size / 2);
-//        can2.bezierCurveTo(_x - b.size, _y + b.size / 2, _x - b.size / 2, _y - b.size / 2, _x, _y - b.size / 2);
-//        can2.fillStyle = b.color;
-//        can2.fill();
-//        can2.closePath();
-//        can2.beginPath();
-//        can2.moveTo(_x, _y - b.size / 2);
-//        can2.bezierCurveTo(_x + b.size, _y - b.size / 4, _x + b.size / 2, _y + b.size / 2, _x, _y + b.size / 2);
-//        can2.bezierCurveTo(_x - b.size, _y + b.size / 4, _x - b.size / 2, _y - b.size / 2, _x, _y - b.size / 2);
-//        can2.strokeStyle = "black";
-//        can2.stroke();
-//        can2.closePath();
-//        //Kopf
-//        can2.beginPath();
-//        can2.moveTo(_x - 1, _y + b.size / 2);
-//        can2.bezierCurveTo(_x - b.size, _y, _x - 5, _y - b.size / 2, _x - 1, _y - b.size / 2);
-//        can2.fillStyle = "black";
-//        can2.fill();
-//        can2.closePath();
-//        //Streifen
-//        can2.beginPath();
-//        can2.moveTo(_x + 0.25, _y + b.size / 2);
-//        can2.lineTo(_x, _y - b.size / 2);
-//        can2.strokeStyle = "black";
-//        can2.stroke();
-//        can2.closePath();
-//        can2.beginPath();
-//        can2.moveTo(_x + 2.25, _y + b.size / 2);
-//        can2.lineTo(_x + 2.25, _y - b.size / 2);
-//        can2.strokeStyle = "black";
-//        can2.stroke();
-//
-//    }
-//
-//
-////    function addBee(): void {
-////        beeData.push({ x: 348, y: 61, size: 0, color: "", flowerType: "blue" });
-////        n++;
-////    }
-//
+    function addBee(): void {
+        beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        n++;
+    }
+    
     function beehive(_x: number, _y: number): void {
         can2.beginPath();
         can2.moveTo(_x, _y);

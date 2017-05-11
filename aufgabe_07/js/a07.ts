@@ -4,15 +4,13 @@ namespace a07_Canvas {
         y: number;
         size: number;
         color: string;
-        flowerType: string;
 
-        constructor(_x: number, _y: number, _size: number, _color: string, _type: string) {
+        constructor(_x: number, _y: number, _size: number, _color: string) {
             console.log("Hey, I'm Bob!");
             this.x = _x;
             this.y = _y;
             this.size = _size;
             this.color = _color;
-            this.flowerType = _type;
         }
 
 
@@ -104,36 +102,3 @@ namespace a07_Canvas {
 //                    this.drawTulpe();
 //                    break;
 //            }
-
-
-//namespace L7_Classes {
-//    export let crc2: CanvasRenderingContext2D;
-//    let squares: Square[] = [];
-//    let n: number = 30;
-//
-//    window.addEventListener("load", init);
-//
-//    function init(_event: Event): void {
-//        let canvas: HTMLCanvasElement;
-//        canvas = document.getElementsByTagName("canvas")[0];
-//        crc2 = canvas.getContext("2d");
-//        for (let i: number = 0; i < n; i++) {
-//            let s: Square = new Square(200, 150);
-//            squares[i] = s;
-//        }
-//        console.log(squares);
-//        window.setTimeout(animate, 20);
-//    }
-//
-//    function animate(): void {
-//        crc2.fillStyle = "#ff0000";
-//        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-//
-//        for (let i: number = 0; i < n; i++) {
-//            let s: Square = squares[i];
-//            s.update();
-//        }
-//
-//        window.setTimeout(animate, 20);
-//    }
-//}
