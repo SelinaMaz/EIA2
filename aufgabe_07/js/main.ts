@@ -11,9 +11,11 @@ namespace a07_Canvas {
     export var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
 
-    let beeData: Bee[] = [];
-    //let b: Bee = new Bee(0, 0, 0, "", "blue");
+    let blume: Flower;
+    let tulpe: Flower;
+    let flower: Flower[] = [tulpe, blume];
 
+    let beeData: Bee[] = [];
     let n: number = 10;
     let imgData: ImageData;
 
@@ -37,17 +39,19 @@ namespace a07_Canvas {
         sun(300, 30);
         tree(350, 80);
 
-        for (var i: number = 0; i < 8; i++) {
+        for (var i: number = 0; i < 2; i++) {
             let randomFlower: number = Math.floor((Math.random() * 3) + 0);
             let _x: number = (Math.random() * (280 + 20)) + 0;
             let _y: number = (Math.random() * (280 - 130)) + 130;
 
-            blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
-            blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
-            blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
-            tulpe(_x + 40, _y - 5);
-        }
+            let s: Flower = new Flower(0, 0, 0, "", "", 0);
 
+            s.blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
+            s.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
+            s.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
+            s.tulpe(_x + 40, _y - 5);
+        }
+        
         /**************************************************************************************************************************
         *Aufgabe 6a
         **************************************************************************************************************************/
@@ -60,15 +64,21 @@ namespace a07_Canvas {
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
+
+        for (let i: number = 0; i < 5; i++) {
+            let z: number =  Math.random() * (2 - 1 + 1) + 1; 
+            if (z == 1 || 2) {
+                let s: Flower = new Flower(0, 0, 0, "", "", Math.random() * (2 - 1 + 1) + 1);
+                s.draw();
+            }
+        }
+        window.setTimeout(animateFolwer, 0);
     }
 
     //Funktionen 
 
     function animate(): void {
         can2.putImageData(imgData, 0, 0);
-
-
-
         for (let i: number = 0; i < beeData.length; i++) {
             beeData[i].update();
         }
@@ -80,7 +90,7 @@ namespace a07_Canvas {
         beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         n++;
     }
-    
+
     function beehive(_x: number, _y: number): void {
         can2.beginPath();
         can2.moveTo(_x, _y);
@@ -97,6 +107,15 @@ namespace a07_Canvas {
         can2.arc(_x - 2.5, _y - 8, 4, 0, Math.PI * 2, true);
         can2.fillStyle = "black";
         can2.fill();
+    }
+
+    function animateFolwer(): void {
+        can2.putImageData(imgData, 0, 0);
+        for (let i: number = 0; i < flower.length; i++) {
+            flower[i].update();
+        }
+
+        window.setTimeout(animate, 20);
     }
     /********************************************************************************************************
     *Aufgabe 4
@@ -188,44 +207,5 @@ namespace a07_Canvas {
                     break;
             }
         }
-    }
-
-    function blume(_pointColor: string, _color: string, _x: number, _y: number, _size: number): void {
-        can2.beginPath();
-        can2.moveTo(_x + 0.5, _y - 15);
-        can2.fillStyle = _color;
-        can2.strokeStyle = _color;
-        can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
-        can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
-        can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
-        can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
-        can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
-        can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
-        can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
-        can2.stroke();
-        can2.fill();
-        //Punkt
-        can2.beginPath();
-        can2.fillStyle = _pointColor;
-        can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
-        can2.fill();
-        can2.closePath();
-    }
-
-    function tulpe(_x: number, _y: number): void {
-        can2.beginPath();
-        can2.fillStyle = "#F78181";
-        can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
-        can2.closePath();
-        can2.fill();
-        can2.beginPath();
-        can2.moveTo(_x, _y - 32);
-        can2.lineTo(_x, _y - 40);
-        can2.lineTo(_x + 5, _y - 32);
-        can2.lineTo(_x + 8, _y - 40);
-        can2.lineTo(_x + 11, _y - 32);
-        can2.lineTo(_x + 16, _y - 40);
-        can2.lineTo(_x + 16, _y - 32);
-        can2.fill();
     }
 }

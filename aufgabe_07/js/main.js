@@ -9,8 +9,10 @@ In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
 var a07_Canvas;
 (function (a07_Canvas) {
     var canvas;
+    let blume;
+    let tulpe;
+    let flower = [tulpe, blume];
     let beeData = [];
-    //let b: Bee = new Bee(0, 0, 0, "", "blue");
     let n = 10;
     let imgData;
     window.addEventListener("load", init);
@@ -31,14 +33,15 @@ var a07_Canvas;
         house(175, 50, 50, 50);
         sun(300, 30);
         tree(350, 80);
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 2; i++) {
             let randomFlower = Math.floor((Math.random() * 3) + 0);
             let _x = (Math.random() * (280 + 20)) + 0;
             let _y = (Math.random() * (280 - 130)) + 130;
-            blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
-            blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
-            blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
-            tulpe(_x + 40, _y - 5);
+            let s = new a07_Canvas.Flower(0, 0, 0, "", "", 0);
+            s.blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
+            s.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
+            s.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
+            s.tulpe(_x + 40, _y - 5);
         }
         /**************************************************************************************************************************
         *Aufgabe 6a
@@ -51,6 +54,14 @@ var a07_Canvas;
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
+        for (let i = 0; i < 5; i++) {
+            let z = Math.random() * (2 - 1 + 1) + 1;
+            if (z == 1 || 2) {
+                let s = new a07_Canvas.Flower(0, 0, 0, "", "", Math.random() * (2 - 1 + 1) + 1);
+                s.draw();
+            }
+        }
+        window.setTimeout(animateFolwer, 0);
     }
     //Funktionen 
     function animate() {
@@ -80,6 +91,13 @@ var a07_Canvas;
         a07_Canvas.can2.arc(_x - 2.5, _y - 8, 4, 0, Math.PI * 2, true);
         a07_Canvas.can2.fillStyle = "black";
         a07_Canvas.can2.fill();
+    }
+    function animateFolwer() {
+        a07_Canvas.can2.putImageData(imgData, 0, 0);
+        for (let i = 0; i < flower.length; i++) {
+            flower[i].update();
+        }
+        window.setTimeout(animate, 20);
     }
     /********************************************************************************************************
     *Aufgabe 4
@@ -167,43 +185,6 @@ var a07_Canvas;
                     break;
             }
         }
-    }
-    function blume(_pointColor, _color, _x, _y, _size) {
-        a07_Canvas.can2.beginPath();
-        a07_Canvas.can2.moveTo(_x + 0.5, _y - 15);
-        a07_Canvas.can2.fillStyle = _color;
-        a07_Canvas.can2.strokeStyle = _color;
-        a07_Canvas.can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
-        a07_Canvas.can2.stroke();
-        a07_Canvas.can2.fill();
-        //Punkt
-        a07_Canvas.can2.beginPath();
-        a07_Canvas.can2.fillStyle = _pointColor;
-        a07_Canvas.can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
-        a07_Canvas.can2.fill();
-        a07_Canvas.can2.closePath();
-    }
-    function tulpe(_x, _y) {
-        a07_Canvas.can2.beginPath();
-        a07_Canvas.can2.fillStyle = "#F78181";
-        a07_Canvas.can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
-        a07_Canvas.can2.closePath();
-        a07_Canvas.can2.fill();
-        a07_Canvas.can2.beginPath();
-        a07_Canvas.can2.moveTo(_x, _y - 32);
-        a07_Canvas.can2.lineTo(_x, _y - 40);
-        a07_Canvas.can2.lineTo(_x + 5, _y - 32);
-        a07_Canvas.can2.lineTo(_x + 8, _y - 40);
-        a07_Canvas.can2.lineTo(_x + 11, _y - 32);
-        a07_Canvas.can2.lineTo(_x + 16, _y - 40);
-        a07_Canvas.can2.lineTo(_x + 16, _y - 32);
-        a07_Canvas.can2.fill();
     }
 })(a07_Canvas || (a07_Canvas = {}));
 //# sourceMappingURL=main.js.map

@@ -79,15 +79,66 @@ var a07_Canvas;
         }
     }
     a07_Canvas.Bee = Bee;
+    class Flower {
+        constructor(_x, _y, _size, _color, _pointColor, _flowerType) {
+            this.x = _x;
+            this.y = _y;
+            this.size = _size;
+            this.color = _color;
+            this.pointColor = _pointColor;
+            this.flowerType = _flowerType;
+        }
+        blume(_pointColor, _color, _x, _y, _size) {
+            a07_Canvas.can2.beginPath();
+            a07_Canvas.can2.moveTo(_x + 0.5, _y - 15);
+            a07_Canvas.can2.fillStyle = _color;
+            a07_Canvas.can2.strokeStyle = _color;
+            a07_Canvas.can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
+            a07_Canvas.can2.stroke();
+            a07_Canvas.can2.fill();
+            //Punkt
+            a07_Canvas.can2.beginPath();
+            a07_Canvas.can2.fillStyle = _pointColor;
+            a07_Canvas.can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
+            a07_Canvas.can2.fill();
+            a07_Canvas.can2.closePath();
+        }
+        tulpe(_x, _y) {
+            a07_Canvas.can2.beginPath();
+            a07_Canvas.can2.fillStyle = "#F78181";
+            a07_Canvas.can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
+            a07_Canvas.can2.closePath();
+            a07_Canvas.can2.fill();
+            a07_Canvas.can2.beginPath();
+            a07_Canvas.can2.moveTo(_x, _y - 32);
+            a07_Canvas.can2.lineTo(_x, _y - 40);
+            a07_Canvas.can2.lineTo(_x + 5, _y - 32);
+            a07_Canvas.can2.lineTo(_x + 8, _y - 40);
+            a07_Canvas.can2.lineTo(_x + 11, _y - 32);
+            a07_Canvas.can2.lineTo(_x + 16, _y - 40);
+            a07_Canvas.can2.lineTo(_x + 16, _y - 32);
+            a07_Canvas.can2.fill();
+        }
+        draw() {
+            switch (this.flowerType) {
+                case 1:
+                    this.blume("#F5A9A9", "white", this.x - 25, this.y - 6, 5);
+                    break;
+                case 2:
+                    this.tulpe(this.x + 40, this.y - 5);
+                    break;
+            }
+        }
+        update() {
+            this.draw();
+        }
+    }
+    a07_Canvas.Flower = Flower;
 })(a07_Canvas || (a07_Canvas = {}));
-//        draw(): void {
-//
-//            switch (this.flowerType) {
-//                case "rose":
-//                    this.drawRose();
-//                    break;
-//                case "tulpe":
-//                    this.drawTulpe();
-//                    break;
-//            }
 //# sourceMappingURL=a07.js.map
