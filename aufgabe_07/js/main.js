@@ -11,7 +11,7 @@ var a07_Canvas;
     var canvas;
     let blume;
     let tulpe;
-    let flower = [tulpe, blume];
+    let flower = [];
     let beeData = [];
     let n = 10;
     let imgData;
@@ -37,15 +37,22 @@ var a07_Canvas;
             let randomFlower = Math.floor((Math.random() * 3) + 0);
             let _x = (Math.random() * (280 + 20)) + 0;
             let _y = (Math.random() * (280 - 130)) + 130;
-            let s = new a07_Canvas.Flower(0, 0, 0, "", "", 0);
-            s.blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
-            s.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
-            s.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
-            s.tulpe(_x + 40, _y - 5);
+            let f = new a07_Canvas.Flower(0, 0, 0, "", "", "");
+            f.blume("#F5A9A9", "white", _x - 25, _y - 6, 5, ""); //Weis
+            f.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6, ""); // Blau
+            f.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4, ""); // Gelb
+            f.tulpe(_x + 40, _y - 5, "");
         }
-        /**************************************************************************************************************************
-        *Aufgabe 6a
-        **************************************************************************************************************************/
+        //Array Blumen
+        for (var i = 0; i < 6; i++) {
+            let randomFlower = Math.floor((Math.random() * 3) + 0);
+            let _x = (Math.random() * (280 + 20)) + 0;
+            let _y = (Math.random() * (280 - 130)) + 130;
+            flower.push(new a07_Canvas.Flower(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
+            flower.push(new a07_Canvas.Flower(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
+            flower.push(new a07_Canvas.Flower(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
+            flower.push(new a07_Canvas.Flower(_x + 40, _y - 5, 0, "", "", "tulpe"));
+        }
         beehive(350, 70);
         imgData = a07_Canvas.can2.getImageData(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < 10; i++) {
@@ -54,18 +61,14 @@ var a07_Canvas;
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
-        for (let i = 0; i < 5; i++) {
-            let z = Math.random() * (2 - 1 + 1) + 1;
-            if (z == 1 || 2) {
-                let s = new a07_Canvas.Flower(0, 0, 0, "", "", Math.random() * (2 - 1 + 1) + 1);
-                s.draw();
-            }
-        }
-        window.setTimeout(animateFolwer, 0);
     }
     //Funktionen 
     function animate() {
         a07_Canvas.can2.putImageData(imgData, 0, 0);
+        for (let i = 0; i < flower.length; i++) {
+            let s = flower[i];
+            s.update();
+        }
         for (let i = 0; i < beeData.length; i++) {
             beeData[i].update();
         }
@@ -92,16 +95,6 @@ var a07_Canvas;
         a07_Canvas.can2.fillStyle = "black";
         a07_Canvas.can2.fill();
     }
-    function animateFolwer() {
-        a07_Canvas.can2.putImageData(imgData, 0, 0);
-        for (let i = 0; i < flower.length; i++) {
-            flower[i].update();
-        }
-        window.setTimeout(animate, 20);
-    }
-    /********************************************************************************************************
-    *Aufgabe 4
-    **********************************************************************************************************/
     function bigMountain(_x, _y) {
         a07_Canvas.can2.fillStyle = "#A0A0A0";
         a07_Canvas.can2.beginPath();

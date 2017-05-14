@@ -1,4 +1,7 @@
 namespace a07_Canvas {
+
+    //Bee
+
     export class Bee {
         x: number;
         y: number;
@@ -88,79 +91,4 @@ namespace a07_Canvas {
             this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
         }
     }
-
-    export class Flower {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-        pointColor: string;
-        flowerType: number;
-
-        constructor(_x: number, _y: number, _size: number, _color: string, _pointColor: string, _flowerType: number) {
-            this.x = _x;
-            this.y = _y;
-            this.size = _size;
-            this.color = _color;
-            this.pointColor = _pointColor;
-            this.flowerType = _flowerType;
-        }
-
-
-        blume(_pointColor: string, _color: string, _x: number, _y: number, _size: number): void {
-            can2.beginPath();
-            can2.moveTo(_x + 0.5, _y - 15);
-            can2.fillStyle = _color;
-            can2.strokeStyle = _color;
-            can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
-            can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
-            can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
-            can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
-            can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
-            can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
-            can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
-            can2.stroke();
-            can2.fill();
-            //Punkt
-            can2.beginPath();
-            can2.fillStyle = _pointColor;
-            can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
-            can2.fill();
-            can2.closePath();
-        }
-
-        tulpe(_x: number, _y: number): void {
-            can2.beginPath();
-            can2.fillStyle = "#F78181";
-            can2.arc(_x + 8, _y - 33, 8, 0 * Math.PI, 1 * Math.PI);
-            can2.closePath();
-            can2.fill();
-            can2.beginPath();
-            can2.moveTo(_x, _y - 32);
-            can2.lineTo(_x, _y - 40);
-            can2.lineTo(_x + 5, _y - 32);
-            can2.lineTo(_x + 8, _y - 40);
-            can2.lineTo(_x + 11, _y - 32);
-            can2.lineTo(_x + 16, _y - 40);
-            can2.lineTo(_x + 16, _y - 32);
-            can2.fill();
-        }
-
-        draw(): void {
-            switch (this.flowerType) {
-                case 1:
-                    this.blume("#F5A9A9", "white", this.x - 25, this.y - 6, 5);
-                    break;
-                case 2:
-                    this.tulpe(this.x + 40, this.y - 5);
-                    break;
-            }
-           
-        }
-
-        update(): void {
-            this.draw();
-        }
-    }
 }
-

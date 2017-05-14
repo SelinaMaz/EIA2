@@ -13,7 +13,7 @@ namespace a07_Canvas {
 
     let blume: Flower;
     let tulpe: Flower;
-    let flower: Flower[] = [tulpe, blume];
+    let flower: Flower[] = [];
 
     let beeData: Bee[] = [];
     let n: number = 10;
@@ -44,17 +44,25 @@ namespace a07_Canvas {
             let _x: number = (Math.random() * (280 + 20)) + 0;
             let _y: number = (Math.random() * (280 - 130)) + 130;
 
-            let s: Flower = new Flower(0, 0, 0, "", "", 0);
+            let f: Flower = new Flower(0, 0, 0, "", "", "");
 
-            s.blume("#F5A9A9", "white", _x - 25, _y - 6, 5); //Weis
-            s.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6); // Blau
-            s.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4); // Gelb
-            s.tulpe(_x + 40, _y - 5);
+            f.blume("#F5A9A9", "white", _x - 25, _y - 6, 5, ""); //Weis
+            f.blume("#FCC631", "#A9D0F5", _x - 10, _y + 5, 6, ""); // Blau
+            f.blume("#FCC631", "#F3F781", _x + 10, _y - 5, 4, ""); // Gelb
+            f.tulpe(_x + 40, _y - 5, "");
         }
-        
-        /**************************************************************************************************************************
-        *Aufgabe 6a
-        **************************************************************************************************************************/
+        //Array Blumen
+        for (var i: number = 0; i < 6; i++) {
+            let randomFlower: number = Math.floor((Math.random() * 3) + 0);
+            let _x: number = (Math.random() * (280 + 20)) + 0;
+            let _y: number = (Math.random() * (280 - 130)) + 130;
+            
+            flower.push(new Flower(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
+            flower.push(new Flower(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
+            flower.push(new Flower(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
+            flower.push(new Flower(_x + 40, _y - 5, 0, "", "", "tulpe"));
+        }
+
         beehive(350, 70);
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
@@ -64,25 +72,21 @@ namespace a07_Canvas {
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
         canvas.addEventListener("push", addBee);
-
-        for (let i: number = 0; i < 5; i++) {
-            let z: number =  Math.random() * (2 - 1 + 1) + 1; 
-            if (z == 1 || 2) {
-                let s: Flower = new Flower(0, 0, 0, "", "", Math.random() * (2 - 1 + 1) + 1);
-                s.draw();
-            }
-        }
-        window.setTimeout(animateFolwer, 0);
     }
+
 
     //Funktionen 
 
     function animate(): void {
         can2.putImageData(imgData, 0, 0);
+
+        for (let i: number = 0; i < flower.length; i++) {
+            let s: Flower = flower[i];
+            s.update();
+        }
         for (let i: number = 0; i < beeData.length; i++) {
             beeData[i].update();
         }
-
         window.setTimeout(animate, 20);
     }
 
@@ -109,17 +113,6 @@ namespace a07_Canvas {
         can2.fill();
     }
 
-    function animateFolwer(): void {
-        can2.putImageData(imgData, 0, 0);
-        for (let i: number = 0; i < flower.length; i++) {
-            flower[i].update();
-        }
-
-        window.setTimeout(animate, 20);
-    }
-    /********************************************************************************************************
-    *Aufgabe 4
-    **********************************************************************************************************/
     function bigMountain(_x: number, _y: number): void {
         can2.fillStyle = "#A0A0A0";
         can2.beginPath();
