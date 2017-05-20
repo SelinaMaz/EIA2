@@ -39,8 +39,8 @@ namespace a08_Canvas {
         h.house(175, 50, 50, 50);
         h.sun(300, 30);
         h.tree(350, 80);
-
         h.beehive(350, 70);
+        
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {

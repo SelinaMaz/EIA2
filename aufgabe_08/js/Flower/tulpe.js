@@ -30,4 +30,4 @@ var a08_Canvas;
     }
     a08_Canvas.Tulpe = Tulpe;
 })(a08_Canvas || (a08_Canvas = {}));
-//# sourceMappingURL=tuple.js.map
+//# sourceMappingURL=tulpe.js.map
