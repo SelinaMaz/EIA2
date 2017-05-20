@@ -37,7 +37,7 @@ var a08_Canvas;
         h.beehive(350, 70);
         imgData = a08_Canvas.can2.getImageData(0, 0, canvas.width, canvas.height);
         for (let i = 0; i < 10; i++) {
-            beeData.push(new a08_Canvas.Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+            beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
@@ -79,7 +79,7 @@ var a08_Canvas;
         window.setTimeout(animate, 20);
     }
     function addBee() {
-        beeData.push(new a08_Canvas.Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         n++;
     }
 })(a08_Canvas || (a08_Canvas = {}));

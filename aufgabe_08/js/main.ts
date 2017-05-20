@@ -44,7 +44,7 @@ namespace a08_Canvas {
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (let i: number = 0; i < 10; i++) {
-            beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
@@ -94,7 +94,7 @@ namespace a08_Canvas {
     }
 
     function addBee(): void {
-        beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         n++;
     }
 }

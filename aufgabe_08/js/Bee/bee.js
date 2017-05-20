@@ -1,13 +1,10 @@
 var a08_Canvas;
 (function (a08_Canvas) {
     //Bee
-    class Bee {
+    class Bee extends a08_Canvas.Thing {
         constructor(_x, _y, _size, _color) {
+            super(_x, _y, _size, _color);
             console.log("Hey, I'm Bob!");
-            this.x = _x;
-            this.y = _y;
-            this.size = _size;
-            this.color = _color;
         }
         update() {
             this.move();
@@ -58,25 +55,7 @@ var a08_Canvas;
             a08_Canvas.can2.stroke();
         }
         move() {
-            this.x += Math.random() * 5 - 3;
-            this.y += Math.random() * 4 - 2;
-            if (this.x < 0) {
-                this.x = 400;
-            }
-            if (this.y < 0) {
-                this.y = 300;
-            }
-            if (this.y > 300) {
-                this.y = 0;
-            }
-        }
-        setRandomPosition() {
-            this.x = Math.random() * 200;
-            this.y = Math.random() * 200;
-        }
-        setRandomStyle() {
-            this.size = Math.random() * 30 + 10;
-            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            //allgmein
         }
     }
     a08_Canvas.Bee = Bee;

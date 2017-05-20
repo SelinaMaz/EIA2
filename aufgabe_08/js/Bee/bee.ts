@@ -1,17 +1,9 @@
 namespace a08_Canvas {
     //Bee
-    export class Bee {
-        x: number;
-        y: number;
-        size: number;
-        color: string;
-
+    export class Bee extends Thing {
         constructor(_x: number, _y: number, _size: number, _color: string) {
+            super(_x, _y, _size, _color);
             console.log("Hey, I'm Bob!");
-            this.x = _x;
-            this.y = _y;
-            this.size = _size;
-            this.color = _color;
         }
 
         update(): void {
@@ -65,28 +57,7 @@ namespace a08_Canvas {
         }
 
         move(): void {
-            this.x += Math.random() * 5 - 3;
-            this.y += Math.random() * 4 - 2;
-
-            if (this.x < 0) {
-                this.x = 400;
-            }
-            if (this.y < 0) {
-                this.y = 300;
-            }
-            if (this.y > 300) {
-                this.y = 0;
-            }
-        }
-
-        setRandomPosition(): void {
-            this.x = Math.random() * 200;
-            this.y = Math.random() * 200;
-        }
-
-        setRandomStyle(): void {
-            this.size = Math.random() * 30 + 10;
-            this.color = "hsl(" + Math.random() * 360 + ", 100%, 50%)";
+            //allgmein
         }
     }
 }
