@@ -41,7 +41,7 @@ var a08_Canvas;
             let blumeWeis = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-            //            let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "#F3F781", ""); // Gelb
+            //          let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "#F3F781", ""); // Gelb
             blumeWeis.draw();
             blumeBlau.draw();
             blumeGelb.draw();

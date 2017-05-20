@@ -49,7 +49,7 @@ namespace a08_Canvas {
             let blumeWeis: Flower = new Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau: Flower = new Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb: Flower = new Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-            //            let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "#F3F781", ""); // Gelb
+//          let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "#F3F781", ""); // Gelb
 
             blumeWeis.draw();
             blumeBlau.draw();
