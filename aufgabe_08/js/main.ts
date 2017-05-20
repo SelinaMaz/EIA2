@@ -34,12 +34,21 @@ namespace a08_Canvas {
         can2.fillRect(0, 0, canvas.width, 80);
 
         let h: Hintergrund = new Hintergrund(0, 0, 0, 0);
-
         h.bigMountain(30, 10);
         h.littleMountain(90, 30);
         h.house(175, 50, 50, 50);
         h.sun(300, 30);
         h.tree(350, 80);
+
+        h.beehive(350, 70);
+        imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
+
+        for (let i: number = 0; i < 10; i++) {
+            beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        }
+        window.setTimeout(animate, 30);
+        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("push", addBee);
 
         for (var i: number = 0; i < 2; i++) {
             let randomFlower: number = Math.floor((Math.random() * 3) + 0);
@@ -49,7 +58,7 @@ namespace a08_Canvas {
             let blumeWeis: Flower = new Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau: Flower = new Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb: Flower = new Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-//          let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "#F3F781", ""); // Gelb
+            let tulpeGelb: Flower = new Tulpe(_x - 25, _y - 6, 0, "", ""); //Tuple
 
             blumeWeis.draw();
             blumeBlau.draw();
@@ -65,18 +74,8 @@ namespace a08_Canvas {
             flower.push(new Blume(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
-//            flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
+            flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
         }
-
-        h.beehive(350, 70);
-        imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
-
-        for (let i: number = 0; i < 10; i++) {
-            beeData.push(new Bee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
-        }
-        window.setTimeout(animate, 30);
-        canvas.addEventListener("click", addBee);
-        canvas.addEventListener("push", addBee);
     }
 
     //Funktionen 
