@@ -49,10 +49,11 @@ var a08_Canvas;
             let blumeWeis = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-            let tulpeGelb = new a08_Canvas.Tulpe(_x - 25, _y - 6, 0, "", ""); //Tuple
+            let tulpe = new a08_Canvas.Tulpe(_x - 25, _y - 6, 0, "", ""); //Tuple
             blumeWeis.draw();
             blumeBlau.draw();
             blumeGelb.draw();
+            tulpe.draw();
         }
         //Array Blumen
         for (var i = 0; i < 6; i++) {
