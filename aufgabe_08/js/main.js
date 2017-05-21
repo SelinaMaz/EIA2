@@ -59,7 +59,7 @@ var a08_Canvas;
             console.log(a08_Canvas.flower);
         }
         for (let i = 0; i < 5; i++) {
-            a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
             a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
         }
         window.setTimeout(animate, 30);
@@ -79,7 +79,7 @@ var a08_Canvas;
         window.setTimeout(animate, 20);
     }
     function addBee() {
-        a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+        a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
         n++;
     }

@@ -71,7 +71,7 @@ namespace a08_Canvas {
         }
 
         for (let i: number = 0; i < 5; i++) {
-            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
             beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
         }
         window.setTimeout(animate, 30);
@@ -94,7 +94,7 @@ namespace a08_Canvas {
     }
 
     function addBee(): void {
-        beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+        beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
         beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
         n++;
     }
