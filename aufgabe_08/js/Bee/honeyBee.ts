@@ -35,5 +35,4 @@ namespace a08_Canvas {
             }
         }
     }
-
 }
