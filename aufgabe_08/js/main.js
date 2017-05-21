@@ -34,29 +34,17 @@ var a08_Canvas;
         h.tree(350, 80);
         h.beehive(350, 70);
         imgData = a08_Canvas.can2.getImageData(0, 0, canvas.width, canvas.height);
-        for (var i = 0; i < 2; i++) {
-            let randomFlower = Math.floor((Math.random() * 3) + 0);
+        //Blumen
+        for (var i = 0; i < 10; i++) {
             let _x = (Math.random() * (280 + 20)) + 0;
             let _y = (Math.random() * (280 - 130)) + 130;
-            let blumeWeis = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
-            let blumeBlau = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
             let tulpe = new a08_Canvas.Tulpe(_x - 25, _y - 6, 0, "", ""); //Tulpe
-            blumeWeis.draw();
-            blumeBlau.draw();
+            a08_Canvas.flower.push(blumeGelb);
             blumeGelb.draw();
+            a08_Canvas.flower.push(tulpe);
             tulpe.draw();
-        }
-        //Array Blumen
-        for (var i = 0; i < 6; i++) {
-            let randomFlower = Math.floor((Math.random() * 3) + 0);
-            let _x = (Math.random() * (280 + 20)) + 0;
-            let _y = (Math.random() * (280 - 130)) + 130;
-            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
-            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
-            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
-            a08_Canvas.flower.push(new a08_Canvas.Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
-            console.log(a08_Canvas.flower);
+            console.log(a08_Canvas.flower.length);
         }
         for (let i = 0; i < 5; i++) {
             a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));

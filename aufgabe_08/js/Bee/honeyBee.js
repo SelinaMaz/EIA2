@@ -18,7 +18,7 @@ var a08_Canvas;
         }
         move() {
             let _x = this.xTarget - this.x;
-            let _y = this.yTarget - this.y;
+            let _y = this.yTarget - this.y - 15;
             if (Math.abs(_x) < 0.5 && Math.abs(_y) < 0.5)
                 this.setRandomTarget();
             else {

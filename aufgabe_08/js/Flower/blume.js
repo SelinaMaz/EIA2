@@ -5,33 +5,26 @@ var a08_Canvas;
             super(_x, _y, _size, _color, _flowerType);
             this.pointColor = _pointColor;
         }
-        blume(_pointColor, _color, _x, _y, _size, _flowerType) {
+        draw() {
             a08_Canvas.can2.beginPath();
-            a08_Canvas.can2.moveTo(_x + 0.5, _y - 15);
-            a08_Canvas.can2.fillStyle = _color;
-            a08_Canvas.can2.strokeStyle = _color;
-            a08_Canvas.can2.arc(_x - 3, _y - 12, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x - 6, _y - 16, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x - 3, _y - 21, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x + 3, _y - 21, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x + 6, _y - 17, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x + 4, _y - 16, _size, 0, Math.PI * 2, true);
-            a08_Canvas.can2.arc(_x + 3, _y - 12, _size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.moveTo(this.x + 0.5, this.y - 15);
+            a08_Canvas.can2.fillStyle = this.color;
+            a08_Canvas.can2.strokeStyle = this.color;
+            a08_Canvas.can2.arc(this.x - 3, this.y - 12, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x - 6, this.y - 16, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x - 3, this.y - 21, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x + 3, this.y - 21, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x + 6, this.y - 17, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x + 4, this.y - 16, this.size, 0, Math.PI * 2, true);
+            a08_Canvas.can2.arc(this.x + 3, this.y - 12, this.size, 0, Math.PI * 2, true);
             a08_Canvas.can2.stroke();
             a08_Canvas.can2.fill();
             //Punkt
             a08_Canvas.can2.beginPath();
-            a08_Canvas.can2.fillStyle = _pointColor;
-            a08_Canvas.can2.arc(_x, _y - 16, 3, 0, Math.PI * 2, true);
+            a08_Canvas.can2.fillStyle = this.pointColor;
+            a08_Canvas.can2.arc(this.x, this.y - 16, 3, 0, Math.PI * 2, true);
             a08_Canvas.can2.fill();
             a08_Canvas.can2.closePath();
-        }
-        draw() {
-            switch (this.flowerType) {
-                case "blume":
-                    this.blume("#F5A9A9", "white", this.x - 25, this.y - 6, 5, "blume");
-                    break;
-            }
         }
     }
     a08_Canvas.Blume = Blume;

@@ -40,34 +40,21 @@ namespace a08_Canvas {
 
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
-        for (var i: number = 0; i < 2; i++) {
-            let randomFlower: number = Math.floor((Math.random() * 3) + 0);
+        //Blumen
+        for (var i: number = 0; i < 10; i++) {
             let _x: number = (Math.random() * (280 + 20)) + 0;
             let _y: number = (Math.random() * (280 - 130)) + 130;
-
-            let blumeWeis: Flower = new Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
-            let blumeBlau: Flower = new Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
+            
             let blumeGelb: Flower = new Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
             let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "", ""); //Tulpe
-
-            blumeWeis.draw();
-            blumeBlau.draw();
+            
+            flower.push(blumeGelb);
             blumeGelb.draw();
+            
+            flower.push(tulpe);
             tulpe.draw();
-        }
-
-        //Array Blumen
-        for (var i: number = 0; i < 6; i++) {
-            let randomFlower: number = Math.floor((Math.random() * 3) + 0);
-            let _x: number = (Math.random() * (280 + 20)) + 0;
-            let _y: number = (Math.random() * (280 - 130)) + 130;
-
-            flower.push(new Blume(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
-            flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
-            flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
-            flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
-
-            console.log(flower);
+            
+            console.log(flower.length);
         }
 
         for (let i: number = 0; i < 5; i++) {
