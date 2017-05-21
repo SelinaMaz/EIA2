@@ -11,11 +11,8 @@ namespace a08_Canvas {
     export var can2: CanvasRenderingContext2D;
     var canvas: HTMLCanvasElement;
 
-    let blume: Flower;
-    let tulpe: Flower;
-    let flower: Flower[] = [];
-
-    let beeData: Bee[] = [];
+    export let flower: Flower[] = [];
+    export let beeData: Bee[] = [];
     let n: number = 10;
     let imgData: ImageData;
 
@@ -43,8 +40,9 @@ namespace a08_Canvas {
         
         imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
-        for (let i: number = 0; i < 10; i++) {
-            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        for (let i: number = 0; i < 5; i++) {
+            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
@@ -76,6 +74,8 @@ namespace a08_Canvas {
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
             flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
+            
+            console.log(flower.length);
         }
     }
 
@@ -84,8 +84,8 @@ namespace a08_Canvas {
         can2.putImageData(imgData, 0, 0);
 
         for (let i: number = 0; i < flower.length; i++) {
-            let s: Flower = flower[i];
-            s.update();
+            let f: Flower = flower[i];
+            f.update();
         }
         for (let i: number = 0; i < beeData.length; i++) {
             beeData[i].update();
@@ -94,7 +94,8 @@ namespace a08_Canvas {
     }
 
     function addBee(): void {
-        beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+        beeData.push(new HoneyBee(348, 61, Math.random() * 10 + 5, "#FCC631"));
         n++;
     }
 }

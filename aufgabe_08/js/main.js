@@ -9,10 +9,8 @@ In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
 var a08_Canvas;
 (function (a08_Canvas) {
     var canvas;
-    let blume;
-    let tulpe;
-    let flower = [];
-    let beeData = [];
+    a08_Canvas.flower = [];
+    a08_Canvas.beeData = [];
     let n = 10;
     let imgData;
     window.addEventListener("load", init);
@@ -36,8 +34,9 @@ var a08_Canvas;
         h.tree(350, 80);
         h.beehive(350, 70);
         imgData = a08_Canvas.can2.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < 10; i++) {
-            beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        for (let i = 0; i < 5; i++) {
+            a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
         }
         window.setTimeout(animate, 30);
         canvas.addEventListener("click", addBee);
@@ -60,26 +59,28 @@ var a08_Canvas;
             let randomFlower = Math.floor((Math.random() * 3) + 0);
             let _x = (Math.random() * (280 + 20)) + 0;
             let _y = (Math.random() * (280 - 130)) + 130;
-            flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
-            flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
-            flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
-            flower.push(new a08_Canvas.Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
+            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F5A9A9", "white", "blume"));
+            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
+            a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
+            a08_Canvas.flower.push(new a08_Canvas.Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
+            console.log(a08_Canvas.flower.length);
         }
     }
     //Funktionen 
     function animate() {
         a08_Canvas.can2.putImageData(imgData, 0, 0);
-        for (let i = 0; i < flower.length; i++) {
-            let s = flower[i];
-            s.update();
+        for (let i = 0; i < a08_Canvas.flower.length; i++) {
+            let f = a08_Canvas.flower[i];
+            f.update();
         }
-        for (let i = 0; i < beeData.length; i++) {
-            beeData[i].update();
+        for (let i = 0; i < a08_Canvas.beeData.length; i++) {
+            a08_Canvas.beeData[i].update();
         }
         window.setTimeout(animate, 20);
     }
     function addBee() {
-        beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "hsl(" + Math.random() * 180 + ", 80%, 50%)"));
+        a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+        a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, Math.random() * 10 + 5, "#FCC631"));
         n++;
     }
 })(a08_Canvas || (a08_Canvas = {}));
