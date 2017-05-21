@@ -61,6 +61,7 @@ namespace a07_Canvas {
             flower.push(new Flower(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
             flower.push(new Flower(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
             flower.push(new Flower(_x + 40, _y - 5, 0, "", "", "tulpe"));
+            console.log(flower);
         }
 
         beehive(350, 70);

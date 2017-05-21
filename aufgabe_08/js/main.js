@@ -48,7 +48,7 @@ var a08_Canvas;
             let blumeWeis = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb = new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-            let tulpe = new a08_Canvas.Tulpe(_x - 25, _y - 6, 0, "", ""); //Tuple
+            let tulpe = new a08_Canvas.Tulpe(_x - 25, _y - 6, 0, "", ""); //Tulpe
             blumeWeis.draw();
             blumeBlau.draw();
             blumeGelb.draw();
@@ -63,7 +63,7 @@ var a08_Canvas;
             a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
             a08_Canvas.flower.push(new a08_Canvas.Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
             a08_Canvas.flower.push(new a08_Canvas.Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
-            console.log(a08_Canvas.flower.length);
+            console.log(a08_Canvas.flower);
         }
     }
     //Funktionen 

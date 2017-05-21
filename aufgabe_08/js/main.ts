@@ -56,7 +56,7 @@ namespace a08_Canvas {
             let blumeWeis: Flower = new Blume(_x - 25, _y - 6, 5, "white", "#F5A9A9", ""); // Weis
             let blumeBlau: Flower = new Blume(_x - 25, _y - 6, 5, "#A9D0F5", "#FCC631", ""); // Blau
             let blumeGelb: Flower = new Blume(_x - 25, _y - 6, 5, "#F3F781", "#FCC631", ""); // Gelb
-            let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "", ""); //Tuple
+            let tulpe: Flower = new Tulpe(_x - 25, _y - 6, 0, "", ""); //Tulpe
 
             blumeWeis.draw();
             blumeBlau.draw();
@@ -75,7 +75,7 @@ namespace a08_Canvas {
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
             flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
             
-            console.log(flower.length);
+            console.log(flower);
         }
     }
 
