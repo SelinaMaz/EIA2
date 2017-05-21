@@ -37,16 +37,8 @@ namespace a08_Canvas {
         h.sun(300, 30);
         h.tree(350, 80);
         h.beehive(350, 70);
-        
-        imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
-        for (let i: number = 0; i < 5; i++) {
-            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
-            beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
-        }
-        window.setTimeout(animate, 30);
-        canvas.addEventListener("click", addBee);
-        canvas.addEventListener("push", addBee);
+        imgData = can2.getImageData(0, 0, canvas.width, canvas.height);
 
         for (var i: number = 0; i < 2; i++) {
             let randomFlower: number = Math.floor((Math.random() * 3) + 0);
@@ -74,9 +66,17 @@ namespace a08_Canvas {
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#A9D0F5", "blume"));
             flower.push(new Blume(_x - 25, _y - 6, 5, "#FCC631", "#F3F781", "blume"));
             flower.push(new Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
-            
+
             console.log(flower);
         }
+
+        for (let i: number = 0; i < 5; i++) {
+            beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
+        }
+        window.setTimeout(animate, 30);
+        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("push", addBee);
     }
 
     //Funktionen 
@@ -95,7 +95,7 @@ namespace a08_Canvas {
 
     function addBee(): void {
         beeData.push(new DumbBee(348, 61, Math.random() * 10 + 5, "blue"/*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
-        beeData.push(new HoneyBee(348, 61, Math.random() * 10 + 5, "#FCC631"));
+        beeData.push(new HoneyBee(348, 61, 10, "#FCC631"));
         n++;
     }
 }

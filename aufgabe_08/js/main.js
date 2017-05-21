@@ -34,13 +34,6 @@ var a08_Canvas;
         h.tree(350, 80);
         h.beehive(350, 70);
         imgData = a08_Canvas.can2.getImageData(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < 5; i++) {
-            a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
-            a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
-        }
-        window.setTimeout(animate, 30);
-        canvas.addEventListener("click", addBee);
-        canvas.addEventListener("push", addBee);
         for (var i = 0; i < 2; i++) {
             let randomFlower = Math.floor((Math.random() * 3) + 0);
             let _x = (Math.random() * (280 + 20)) + 0;
@@ -65,6 +58,13 @@ var a08_Canvas;
             a08_Canvas.flower.push(new a08_Canvas.Tulpe(_x + 40, _y - 5, 0, "", "tulpe"));
             console.log(a08_Canvas.flower);
         }
+        for (let i = 0; i < 5; i++) {
+            a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
+            a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
+        }
+        window.setTimeout(animate, 30);
+        canvas.addEventListener("click", addBee);
+        canvas.addEventListener("push", addBee);
     }
     //Funktionen 
     function animate() {
@@ -80,7 +80,7 @@ var a08_Canvas;
     }
     function addBee() {
         a08_Canvas.beeData.push(new a08_Canvas.DumbBee(348, 61, Math.random() * 10 + 5, "blue" /*"hsl(" + Math.random() * 180 + ", 80%, 50%)"*/));
-        a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, Math.random() * 10 + 5, "#FCC631"));
+        a08_Canvas.beeData.push(new a08_Canvas.HoneyBee(348, 61, 10, "#FCC631"));
         n++;
     }
 })(a08_Canvas || (a08_Canvas = {}));
