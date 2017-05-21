@@ -27,7 +27,7 @@ namespace a08_Canvas {
         move(): void {
             let _x: number = this.xTarget - this.x;
             let _y: number = this.yTarget - this.y;
-            if (Math.abs(_x) < 1 && Math.abs(_y) < 0.5)
+            if (Math.abs(_x) < 1 && Math.abs(_y) < 1)
                 this.setRandomTarget();
             else {
                 this.x += _x * this.speed;

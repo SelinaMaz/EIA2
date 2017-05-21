@@ -8,10 +8,9 @@ var a08_Canvas;
             this.setRandomTarget();
         }
         setRandomTarget() {
-            let flower = [];
-            let randomtargetflower = Math.round(Math.random() * (flower.length - 1));
-            this.xTarget = flower[randomtargetflower].x;
-            this.yTarget = flower[randomtargetflower].y;
+            let randomtargetflower = Math.round(Math.random() * (a08_Canvas.flower.length - 1));
+            this.xTarget = a08_Canvas.flower[randomtargetflower].x;
+            this.yTarget = a08_Canvas.flower[randomtargetflower].y;
         }
         setStart() {
             this.x = 348;
@@ -20,7 +19,7 @@ var a08_Canvas;
         move() {
             let _x = this.xTarget - this.x;
             let _y = this.yTarget - this.y;
-            if (Math.abs(_x) < 1 && Math.abs(_y) < 0.5)
+            if (Math.abs(_x) < 1 && Math.abs(_y) < 1)
                 this.setRandomTarget();
             else {
                 this.x += _x * this.speed;
