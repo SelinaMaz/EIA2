@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>A9-FormElements</title>
+<link rel="stylesheet" href="a09.css" type="text/css" media="screen"/>
+<script src="js/a09.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<header>
+<h1>Luigis Eis</h1>
+<img alt="Eis" src="ice-cream.png"> 
+	<ul id="Mainav">
+		<li> Bestellung</li>
+		<li>Übersicht</li>
+		<li>Bestätigung</li>
+	</ul>
+</header>
+	<fieldset id="Vorschau">
+		<legend>Vorschau</legend>
+	</fieldset>
+	<fieldset id="Personalien">
+		<legend> Personalien </legend>
+		Name
+		<input type="text" name="Text" placeholder="Name" required/>
+		<hr/>
+		Vorname
+		<input type="text" name="Text" placeholder="Vorname" required/>
+		<hr/>
+		Adresse
+		<textarea name="Area" cols="30" rows="4" placeholder="long text here"></textarea>
+		<hr>
+		Telefon
+		<input type="text" name="Pattern" pattern="[0-15]{11}" placeholder="015156148"/>
+		<hr/>
+		Mail
+		<input type="email" name="Mail" placeholder="Benutzer @ Anbieter"/>
+	</fieldset>
+	<fieldset id="Bestellung">
+		<legend> Bestellung </legend>
+		Eissorte
+		<select name="Select" id="select">
+			<option value="Apfel">Apfel</option>
+			<option value="Butterkaramel">Butterkaramel</option>
+			<option value="Champagner">Champagner</option>
+			<option value="Erdbeere">Erdbeere</option>
+			<option value="Haselnuss">Haselnuss</option>
+			<option value="Himbeere">Himbeere</option>
+			<option value="Himbeere-Rosmarin">Himbeere-Rosmarin</option>
+			<option value="Holunder-Basilikum">Holunder-Basilikum</option>
+			<option value="Joghurt">Joghurt</option>
+			<option value="Kaffe">Kaffe</option>
+			<option value="Mango">Mango</option>
+			<option value="Schokolade">Schokolade</option>
+			<option value="Stracciatella">Stracciatella</option>
+			<option value="Vanillie">Vanillie</option>
+			<option value="Walnuss">Walnuss</option>
+		</select>
+		<hr>
+		Anzahl der Kugeln
+		<input type="number" name="Stepper" step="1" min="1" max="10" value="1"/>
+		<hr/>
+		Behälter
+		<br>
+		<input type="radio" name="Waffel" value="waffel" id="waffel"/>
+		<label for="waffel">Waffel</label>
+		<input type="radio" name="Becher" value="becher" id="becher"/>
+		<label for="becher">Becher</label>
+		
+		<!-- Eis hinzufügen -->
+	</fieldset>
+
+	<fieldset id="Lieferung">
+		<legend> Lieferung</legend>
+		
+	</fieldset>
+</body>
+</html>

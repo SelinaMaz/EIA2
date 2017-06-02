@@ -1,0 +1,78 @@
+* {
+	display: block;
+	vertical-align: top
+}
+
+input[type="radio"], input[type="checkbox"], label {
+	display: inline;
+}
+
+label::after {
+	content: "";
+	display: block;
+}
+
+head {
+	display: none;
+}
+
+input:invalid {
+	background: #F0C060;
+}
+
+input:valid {
+	background: white;
+}
+
+input:required {
+	background: white;
+}
+
+fieldset {
+	clear: left;
+	width: 300px;
+	margin-bottom: 5%;
+	margin-left: 5%;
+}
+
+legend {
+	color: #ED8561;
+}
+
+body {
+	margin: 5% 10% 5% 10%;
+	border: 1em solid black;
+}
+
+/*Header*/
+h1 {
+	font-size: 3em;
+	text-align: center;
+	margin-top: 8%;
+}
+
+img {
+	position: relative;
+	top: -6em;
+	left: 55%;
+	z-index: -1;
+	opacity: 0.8;
+	transform: scaleX(-1) rotate(30deg);
+}
+
+/*Main*/
+#Vorschau {
+	position: fixed;
+	top: 84%;
+	left: 55%;
+}
+
+#Mainav {
+	border-bottom: 2px solid black;
+	margin: -3% 5% 5% 5%; 
+}
+
+li {
+	float: left;
+	margin: 2% 10% 5% 15%;
+}
