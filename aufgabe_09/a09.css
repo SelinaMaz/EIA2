@@ -1,6 +1,7 @@
 * {
 	display: block;
-	vertical-align: top
+	vertical-align: top;
+	font-family: 'Gudea', sans-serif;
 }
 
 input[type="radio"], input[type="checkbox"], label {
@@ -37,6 +38,8 @@ fieldset {
 
 legend {
 	color: #ED8561;
+	font-size: 30px;
+	font-family: 'Vibur', cursive;
 }
 
 body {
@@ -46,15 +49,16 @@ body {
 
 /*Header*/
 h1 {
-	font-size: 3em;
+	font-size: 5em;
 	text-align: center;
-	margin-top: 8%;
+	margin-top: 5%;
+	font-family: 'Vibur', cursive;
 }
 
 img {
 	position: relative;
-	top: -6em;
-	left: 55%;
+	top: -9.5em;
+	left: 62.5%;
 	z-index: -1;
 	opacity: 0.8;
 	transform: scaleX(-1) rotate(30deg);
@@ -63,16 +67,56 @@ img {
 /*Main*/
 #Vorschau {
 	position: fixed;
-	top: 84%;
+	top: 75%;
 	left: 55%;
 }
 
 #Mainav {
 	border-bottom: 2px solid black;
-	margin: -3% 5% 5% 5%; 
+	margin: -8% 5% 5% 5%;
 }
 
 li {
 	float: left;
-	margin: 2% 10% 5% 15%;
+	margin: 2% 5% 5% 15%;
+	padding: 1%;
+}
+
+#BestellungNav {
+	background-color: #ED8561;
+	padding: 1%;
+	border-radius: .5em .5em .5em .5em;
+}
+
+/* Smartphone */
+@media screen and (max-width:570px) {
+	#Vorschau {
+		position: static;
+	}
+	body {
+		border: none;
+	}
+	#Mainav {
+		margin: -25% 5% 5% 5%;
+	}
+}
+
+/* Tablet */
+@media screen and (min-width: 571px) {
+	#Mainav {
+		margin: -20% 5% 5% 5%;
+	}
+	#Vorschau {
+		position: static;
+	}
+}
+
+/* PC */
+@media screen and (min-width: 800px) {
+	#Mainav {
+		margin: -8% 5% 5% 5%;
+	}
+	#Vorschau {
+		position: fixed;
+	}
 }
