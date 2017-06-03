@@ -59,6 +59,18 @@ main{
 h2{
 	padding: 5%;
 }
+
+a{
+	border-radius: .5em .5em .5em .5em;
+	background-color: #ED8561;
+	max-width: 10em;
+	height: 2em;
+	text-decoration: none;
+	color: black;
+	margin: 5% 5% 10% 5%;
+	padding: 1% 1% 0% 1%;
+	text-align: center;
+}
 /*******************************************Smartphone**************************************************/
 @media screen and (max-width:570px) {
 	body {

@@ -4,47 +4,15 @@
 	font-family: 'Gudea', sans-serif;
 }
 
-input[type="radio"], input[type="checkbox"], label {
-	display: inline;
-}
-
-label::after {
-	content: "";
-	display: block;
-}
-
 head {
 	display: none;
 }
 
-input:invalid {
-	background: #F0C060;
-}
-
-input:valid {
-	background: white;
-}
-
-input:required {
-	background: white;
-}
-
-fieldset {
-	clear: left;
-	width: 300px;
-	margin-bottom: 5%;
-	margin-left: 5%;
-}
-
-legend {
-	color: #ED8561;
-	font-size: 30px;
-	font-family: 'Vibur', cursive;
-}
 
 body {
 	margin: 5% 10% 5% 10%;
 	border: 1em solid black;
+	height: 80em;
 }
 
 /*Header*/
@@ -63,17 +31,6 @@ img {
 	opacity: 0.8;
 	transform: scaleX(-1) rotate(30deg);
 }
-
-/*Main*/
-#Vorschau {
-	position: fixed;
-	top: 75%;
-	left: 55%;
-}
-
-button{
-	margin-top: 4%;
-}
 #Mainav {
 	border-bottom: 2px solid black;
 	margin: -8% 5% 5% 5%;
@@ -89,28 +46,21 @@ li {
 	margin: 2%;
 }
 
-#BestellungNav {
+#BestaetigungNav {
 	background-color: #ED8561;
 	padding: 1%;
 	border-radius: .5em .5em .5em .5em;
 }
 
-a{
-	border-radius: .5em .5em .5em .5em;
-	background-color: #ED8561;
-	max-width: 10em;
-	height: 2em;
-	text-decoration: none;
-	color: black;
-	margin: 5% 5% 10% 5%;
-	padding: 1% 1% 0% 1%;
-	text-align: center;
+main{
+	clear: left;
+}
+
+h2, p{
+	padding: 5%;
 }
 /*******************************************Smartphone**************************************************/
 @media screen and (max-width:570px) {
-	#Vorschau {
-		position: static;
-	}
 	body {
 		border: none;
 	}
@@ -127,9 +77,6 @@ a{
 
 /********************************************Tablet*****************************************************/
 @media screen and (min-width: 571px) {
-	#Vorschau {
-		position: static;
-	}
 	.arrow {
 		display: none;
 	}
