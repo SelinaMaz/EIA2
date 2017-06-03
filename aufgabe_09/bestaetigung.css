@@ -8,7 +8,6 @@ head {
 	display: none;
 }
 
-
 body {
 	margin: 5% 10% 5% 10%;
 	border: 1em solid black;
@@ -31,6 +30,7 @@ img {
 	opacity: 0.8;
 	transform: scaleX(-1) rotate(30deg);
 }
+
 #Mainav {
 	border-bottom: 2px solid black;
 	margin: -8% 5% 5% 5%;
@@ -52,12 +52,29 @@ li {
 	border-radius: .5em .5em .5em .5em;
 }
 
-main{
+main {
 	clear: left;
 }
 
-h2, p{
+h2, p {
 	padding: 5%;
+}
+
+a{
+	text-decoration: none;
+	color: black;
+}
+
+#neueBestellung {
+	border-radius: .5em .5em .5em .5em;
+	background-color: #ED8561;
+	max-width: 10em;
+	height: 2em;
+	text-decoration: none;
+	color: black;
+	margin: 5% 5% 10% 5%;
+	padding: 1% 1% 0% 1%;
+	text-align: center;
 }
 /*******************************************Smartphone**************************************************/
 @media screen and (max-width:570px) {

@@ -96,6 +96,11 @@ li {
 }
 
 a{
+	text-decoration: none;
+	color: black;
+}
+
+#uebersicht{
 	border-radius: .5em .5em .5em .5em;
 	background-color: #ED8561;
 	max-width: 10em;
