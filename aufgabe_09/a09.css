@@ -78,8 +78,12 @@ img {
 
 li {
 	float: left;
-	margin: 2% 5% 5% 15%;
+	margin: 2% 5% 5% 8%;
 	padding: 1%;
+}
+
+.arrow {
+	margin: 2%;
 }
 
 #BestellungNav {
@@ -88,7 +92,7 @@ li {
 	border-radius: .5em .5em .5em .5em;
 }
 
-/* Smartphone */
+/*******************************************Smartphone**************************************************/
 @media screen and (max-width:570px) {
 	#Vorschau {
 		position: static;
@@ -99,24 +103,30 @@ li {
 	#Mainav {
 		margin: -25% 5% 5% 5%;
 	}
+	.arrow {
+		display: none;
+	}
+	li {
+		clear: left;
+	}
 }
 
-/* Tablet */
+/********************************************Tablet*****************************************************/
 @media screen and (min-width: 571px) {
-	#Mainav {
-		margin: -20% 5% 5% 5%;
-	}
 	#Vorschau {
 		position: static;
 	}
+	.arrow {
+		display: none;
+	}
 }
 
-/* PC */
+/**********************************************PC********************************************************/
 @media screen and (min-width: 800px) {
-	#Mainav {
-		margin: -8% 5% 5% 5%;
-	}
 	#Vorschau {
 		position: fixed;
+	}
+	.arrow {
+		display: block;
 	}
 }

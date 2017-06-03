@@ -5,8 +5,9 @@
 <title>A9-FormElements</title>
 <link rel="stylesheet" href="a09.css" type="text/css" media="screen"/>
 <script src="js/a09.js" type="text/javascript" charset="utf-8"></script>
- <link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Gudea" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css?family=Vibur" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
@@ -14,12 +15,16 @@
 <img alt="Eis" src="ice-cream.png"> 
 	<ul id="Mainav">
 		<li id="BestellungNav"> Bestellung </li>
+		<li class="arrow"> <i class="fa fa-angle-right" style="font-size:24px"></i> </li>
 		<li>Übersicht</li>
+		<li class="arrow"> <i class="fa fa-angle-right" style="font-size:24px"></i> </li>
 		<li>Bestätigung</li>
 	</ul>
 </header>
 	<fieldset id="Vorschau">
 		<legend>Vorschau</legend>
+		<hr>
+		Zwischensumme:
 	</fieldset>
 	<fieldset id="Personalien">
 		<legend> Personalien </legend>
@@ -30,7 +35,7 @@
 		<input type="text" name="Text" placeholder="Vorname" required/>
 		<hr/>
 		Adresse
-		<textarea name="Area" cols="30" rows="4" placeholder="long text here"></textarea>
+		<textarea name="Area" cols="30" rows="4" placeholder="Max Mustermann, Hilderstraße 15, 79183 Waldkirch"></textarea>
 		<hr>
 		Telefon
 		<input type="text" name="Pattern" pattern="[0-15]{11}" placeholder="015156148"/>
@@ -40,7 +45,7 @@
 	</fieldset>
 	<fieldset id="Bestellung">
 		<legend> Bestellung </legend>
-		Eissorte
+		Eissorte, pro Kugel 1,00€
 		<select name="Select" id="select">
 			<option value="Apfel">Apfel</option>
 			<option value="Butterkaramel">Butterkaramel</option>
@@ -68,13 +73,36 @@
 		<label for="waffel">Waffel</label>
 		<input type="radio" name="Becher" value="becher" id="becher"/>
 		<label for="becher">Becher</label>
-		
+		<hr>
+		Zusatz je 0,50€
+		<br>
+		<input type="radio" name="Bunte Streusel" value="bunteStreusel" id="bunteStreusel"/>
+		<label for="bunteStreusel">Bunte Streusel</label>
+		<input type="radio" name="Schokosoße" value="schokosoße" id="schokosoße"/>
+		<label for="schokosoße">Schokosoße</label>
+		<input type="radio" name="Sahne" value="sahne" id="sahne"/>
+		<label for="sahne">Sahne</label>
+		<input type="radio" name="Smarties" value="smarties" id="smarties"/>
+		<label for="smarties">Smarties</label>
 		<!-- Eis hinzufügen -->
+		<button>Eis hinzufügen</button>
 	</fieldset>
 
 	<fieldset id="Lieferung">
 		<legend> Lieferung</legend>
-		
+		Lieferart
+		<br>
+		<input type="checkbox" name="Abholung" value="abholung" id="abholung"/>
+		<label for="abholung">Abholung</label>
+		<input type="checkbox" name="Lieferung" value="lieferung" id="lieferung"/>
+		<label for="lieferung">Lieferung (1,00€ Versand)</label>
+		<hr>
+		Zahlungsart
+		<br>
+		<input type="checkbox" name="Rechnung" value="aufRechnung" id="aufRechnung"/>
+		<label for="aufRechnung">Auf Rechnung</label>
+		<input type="checkbox" name="Kreditkarte" value="kreditkarte" id="kreditkarte"/>
+		<label for="kreditkarte">Kreditkarte</label>
 	</fieldset>
 </body>
 </html>
