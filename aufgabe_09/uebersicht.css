@@ -1,0 +1,93 @@
+* {
+	display: block;
+	vertical-align: top;
+	font-family: 'Gudea', sans-serif;
+}
+
+head {
+	display: none;
+}
+
+
+body {
+	margin: 5% 10% 5% 10%;
+	border: 1em solid black;
+	height: 80em;
+}
+
+/*Header*/
+h1 {
+	font-size: 5em;
+	text-align: center;
+	margin-top: 5%;
+	font-family: 'Vibur', cursive;
+}
+
+img {
+	position: relative;
+	top: -9.5em;
+	left: 62.5%;
+	z-index: -1;
+	opacity: 0.8;
+	transform: scaleX(-1) rotate(30deg);
+}
+#Mainav {
+	border-bottom: 2px solid black;
+	margin: -8% 5% 5% 5%;
+}
+
+li {
+	float: left;
+	margin: 2% 5% 5% 8%;
+	padding: 1%;
+}
+
+.arrow {
+	margin: 2%;
+}
+
+#UebersichtNav {
+	background-color: #ED8561;
+	padding: 1%;
+	border-radius: .5em .5em .5em .5em;
+}
+
+main{
+	clear: left;
+}
+
+h2{
+	padding: 5%;
+}
+/*******************************************Smartphone**************************************************/
+@media screen and (max-width:570px) {
+	body {
+		border: none;
+	}
+	#Mainav {
+		margin: -25% 5% 5% 5%;
+	}
+	.arrow {
+		display: none;
+	}
+	li {
+		clear: left;
+	}
+}
+
+/********************************************Tablet*****************************************************/
+@media screen and (min-width: 571px) {
+	.arrow {
+		display: none;
+	}
+}
+
+/**********************************************PC********************************************************/
+@media screen and (min-width: 800px) {
+	#Vorschau {
+		position: fixed;
+	}
+	.arrow {
+		display: block;
+	}
+}
