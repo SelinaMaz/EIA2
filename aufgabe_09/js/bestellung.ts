@@ -34,9 +34,12 @@ namespace Form {
         bestaetigung = document.getElementById("bestaetigung");
 
         createAuswahl();
-//        eissorten.addEventListener("change", change);
-//        zusatz.addEventListener("change", change);
-
+        let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
+        for (let i: number = 0; i < fieldsets.length; i++) {
+            let fieldset: HTMLFieldSetElement = fieldsets[i];
+            fieldset.addEventListener("change", Warenkorb);
+            fieldset.addEventListener("change", Summe);
+        }
         bestaetigung.addEventListener("click", saveOrder);
     }
 
@@ -129,7 +132,7 @@ namespace Form {
         input.required = true;
         label.id = _behaelter;
         behaelter.appendChild(label);
-        inputZusatz.push(input);
+        inputBehaelter.push(input);
     }
 
     function createZusatzRadio(_zusatz: string): void {
@@ -145,84 +148,38 @@ namespace Form {
         inputZusatz.push(input);
     }
 
-    function Bestelluebersicht(_event: Event): void {
+    function Warenkorb(_event: Event): void {
         console.log(_event);
-        let bestellung: HTMLElement = document.getElementById("bestellbox");
+        let bestellung: HTMLElement = document.getElementById("vorschau");
         bestellung.innerText = "";
-        for (let i: number = 0; i < inputsEissorten.length; i++) {
-            if (parseInt(inputsEissorten[i].value) > 0) {
-                bestellung.innerText += eissorten[i] + " " + ": " + (parseInt(inputsEissorten[i].value) * 1) + "\n";
+        for (let i: number = 0; i < selectEis.length; i++) {
+            if (parseInt(selectEis[i].value) > 0) {
+                bestellung.innerText += + sorten[i] + " " + ": " + (parseInt(selectEis[i].value) * 1) + "\n";
             }
         }
-        for (let i: number = 0; i < inputsToppings.length; i++) {
-            if (inputsToppings[i].checked) {
-                bestellung.innerText += toppings[i] + " " + "\n";
+        for (let i: number = 0; i < inputBehaelter.length; i++) {
+            if (inputBehaelter[i].checked) {
+                bestellung.innerText += behaelterArray[i] + " " + "\n";
             }
         }
-    }
-    
-    function showSum(_event: Event): void {
-        let summe: number = 0;
-        for (let i: number = 0; i < inputsEissorten.length; i++) {
-            summe += parseInt(inputsEissorten[i].value);
-        }
-        for (let i: number = 0; i < inputsToppings.length; i++) {
-            if (inputsToppings[i].checked)
-                summe += 0.5;
-        }
-        console.log(summe);
-        document.getElementById("gesamtsumme").innerText = summe.toString() + " â‚¬";
-    }
-    
-    function clickButton(_event: Event): void {
-        let proof: HTMLInputElement[] = [];
-        for (let i: number = 0; i < 5; i++) {
-            let inputs: HTMLInputElement = <HTMLInputElement>document.getElementsByClassName("proof")[i];
-            proof.push(inputs);
-            console.log(inputs);
-        }
-        for (let i: number = 0; i < proof.length; i++) {
-            console.log(proof.length);
-            if (proof[i].validity.valid == false) {
-                alert("Die Eingaben sind nicht korrekt. Bitte erneut ueberpruefen!");
-                location.reload();
-            }
-            else {
-                alert("Vielen Dank fuer Ihre Bestellung! Bis zum naechsten Mal");
-                location.reload();
+        for (let i: number = 0; i < inputZusatz.length; i++) {
+            if (inputZusatz[i].checked) {
+                bestellung.innerText += zusatzArray[i] + " " + "\n";
             }
         }
     }
 
-    //    function change(): void {
-    //        let summe: number = 0;
-    //        for (let i: number = 0; i < selectEis.length; i++) {
-    //            summe += 1;
-    //        }
-    //        for (let i: number = 0; i < inputZusatz.length; i++) {
-    //            if (inputZusatz[i].checked) {
-    //                summe += 0.5;
-    //            }
-    //        }
-    //    }
-    //
-    //    function changeWarenkorb(_summe: number): void {
-    //        let warenkorb: HTMLElement = document.getElementById("Warenkorb");
-    //        warenkorb.innerText = "";
-    //
-    //        for (let i: number = 0; i < selectEis.length; i++) {
-    //            if (parseInt(selectEis[i].value) > 0) {
-    //                warenkorb.innerText += sorten[i] + " " + (parseInt(selectEis[i].value) * 1) + "€" + "\n";
-    //            }
-    //        }
-    //        for (let i: number = 0; i < inputZusatz.length; i++) {
-    //            if (inputZusatz[i].checked) {
-    //                warenkorb.innerText += zusatzArray[i] + "€" + "\n";
-    //            }
-    //        }
-    //        let summeHtml: HTMLElement = document.getElementById("Summe");
-    //        summeHtml.innerText = _summe.toString() + "€";
-    //    }
+    function Summe(_event: Event): void {
+        let summe: number = 0;
+        for (let i: number = 0; i < selectEis.length; i++) {
+            summe += parseInt(selectEis[i].value);
+        }
+        for (let i: number = 0; i < inputZusatz.length; i++) {
+            if (inputZusatz[i].checked)
+                summe += 0.5;
+        }
+        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "€";
+    }
 }
 
 

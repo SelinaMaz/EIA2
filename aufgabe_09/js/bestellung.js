@@ -28,8 +28,12 @@ var Form;
         zusatz = document.getElementById("Zusatz");
         bestaetigung = document.getElementById("bestaetigung");
         createAuswahl();
-        eissorten.addEventListener("change", change);
-        zusatz.addEventListener("change", change);
+        let fieldsets = document.getElementsByTagName("fieldset");
+        for (let i = 0; i < fieldsets.length; i++) {
+            let fieldset = fieldsets[i];
+            fieldset.addEventListener("change", Warenkorb);
+            fieldset.addEventListener("change", Summe);
+        }
         bestaetigung.addEventListener("click", saveOrder);
     }
     function saveOrder(_event) {
@@ -113,7 +117,7 @@ var Form;
         input.required = true;
         label.id = _behaelter;
         behaelter.appendChild(label);
-        inputZusatz.push(input);
+        inputBehaelter.push(input);
     }
     function createZusatzRadio(_zusatz) {
         let label = document.createElement("label");
@@ -127,32 +131,36 @@ var Form;
         zusatz.appendChild(label);
         inputZusatz.push(input);
     }
-    function change() {
-        let summe = 0;
+    function Warenkorb(_event) {
+        console.log(_event);
+        let bestellung = document.getElementById("vorschau");
+        bestellung.innerText = "";
         for (let i = 0; i < selectEis.length; i++) {
-            summe += 1;
+            if (parseInt(selectEis[i].value) > 0) {
+                bestellung.innerText += +sorten[i] + " " + ": " + (parseInt(selectEis[i].value) * 1) + "\n";
+            }
+        }
+        for (let i = 0; i < inputBehaelter.length; i++) {
+            if (inputBehaelter[i].checked) {
+                bestellung.innerText += behaelterArray[i] + " " + "\n";
+            }
         }
         for (let i = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked) {
-                summe += 0.5;
+                bestellung.innerText += zusatzArray[i] + " " + "\n";
             }
         }
     }
-    function changeWarenkorb(_summe) {
-        let warenkorb = document.getElementById("Warenkorb");
-        warenkorb.innerText = "";
+    function Summe(_event) {
+        let summe = 0;
         for (let i = 0; i < selectEis.length; i++) {
-            if (parseInt(selectEis[i].value) > 0) {
-                warenkorb.innerText += sorten[i] + " " + (parseInt(selectEis[i].value) * 1) + "�" + "\n";
-            }
+            summe += parseInt(selectEis[i].value);
         }
         for (let i = 0; i < inputZusatz.length; i++) {
-            if (inputZusatz[i].checked) {
-                warenkorb.innerText += zusatzArray[i] + "�" + "\n";
-            }
+            if (inputZusatz[i].checked)
+                summe += 0.5;
         }
-        let summeHtml = document.getElementById("Summe");
-        summeHtml.innerText = _summe.toString() + "�";
+        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "�";
     }
 })(Form || (Form = {}));
 //# sourceMappingURL=bestellung.js.map

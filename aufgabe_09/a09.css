@@ -66,7 +66,7 @@ img {
 
 /*Main*/
 #Warenkorb {
-	position: fixed;
+	position: absolute;
 	top: 75%;
 	left: 55%;
 	background-color: white;
@@ -144,7 +144,7 @@ a{
 /**********************************************PC********************************************************/
 @media screen and (min-width: 800px) {
 	#Warenkorb {
-		position: fixed;
+		position: absolute;
 	}
 	.arrow {
 		display: block;
