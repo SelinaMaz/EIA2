@@ -1,3 +1,10 @@
+/*
+Aufgabe: A08
+Name: Selina Mazzaro
+Matrikel: 254068
+Datum: 04.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var Form;
 (function (Form) {
     window.addEventListener("load", init);
@@ -7,7 +14,7 @@ var Form;
     let eissorten;
     let zusatz;
     let behaelter;
-    let vorschau;
+    let warenkorb;
     let bestaetigung;
     let selectEis = [];
     let zusatzArray = ["Bunte Streusel", "Schokoso�e", "Sahne", "Smarties"];
@@ -15,15 +22,14 @@ var Form;
     let inputZusatz = [];
     let inputBehaelter = [];
     function init(_event) {
-        vorschau = document.getElementById("Vorschau");
+        warenkorb = document.getElementById("Warenkorb");
         eissorten = document.getElementById("Eissorten");
         behaelter = document.getElementById("Behaelter");
         zusatz = document.getElementById("Zusatz");
         bestaetigung = document.getElementById("bestaetigung");
         createAuswahl();
-        //        eissorten.addEventListener("change", change);
-        //        zusatz.addEventListener("change", change);
-        //        behaelter.addEventListener("change", change);
+        eissorten.addEventListener("change", change);
+        zusatz.addEventListener("change", change);
         bestaetigung.addEventListener("click", saveOrder);
     }
     function saveOrder(_event) {
@@ -70,35 +76,38 @@ var Form;
         }
     }
     function createAuswahl() {
+        createSelect();
         for (let i = 0; i < behaelterArray.length; i++) {
             createBehaelterRadio(behaelterArray[i]);
         }
         for (let i = 0; i < zusatzArray.length; i++) {
             createZusatzRadio(zusatzArray[i]);
         }
-        createSelect();
+        createStepper();
     }
     function createSelect() {
-        let label = document.createElement("label");
         let select = document.createElement("select");
-        let option = document.createElement("option");
-        let eis = document.createTextNode("Apfel");
-        label.innerText = "Eissorten";
-        label.appendChild(select);
-        select.setAttribute("id", "mySelect");
-        option.setAttribute("value", "eis");
-        option.appendChild(eis);
-        eissorten.appendChild(label);
-        selectEis.push(select);
-        document.getElementById("mySelect").appendChild(eis);
+        for (let i = 0; i < sorten.length; i++) {
+            let option = document.createElement("option");
+            option.text = sorten[i];
+            option.value = sorten[i];
+            select.appendChild(option);
+        }
+        document.getElementById("Eissorten").appendChild(select);
+    }
+    function createStepper() {
+        let input = document.createElement("input");
+        input.type = "number";
+        input.min = "0";
+        input.max = "10";
+        input.value = "0";
+        document.getElementById("Anzahl").appendChild(input);
     }
     function createBehaelterRadio(_behaelter) {
-        // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
         let label = document.createElement("label");
         let input = document.createElement("input");
         label.innerText = _behaelter;
         label.appendChild(input);
-        // Die Art des Inputs wird über den Typ definiert
         input.type = "radio";
         input.name = "behaelter";
         input.required = true;
@@ -107,18 +116,43 @@ var Form;
         inputZusatz.push(input);
     }
     function createZusatzRadio(_zusatz) {
-        // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
         let label = document.createElement("label");
         let input = document.createElement("input");
         label.innerText = _zusatz;
         label.appendChild(input);
-        // Die Art des Inputs wird über den Typ definiert
         input.type = "radio";
         input.name = "zusatz";
         input.required = true;
         label.id = _zusatz;
         zusatz.appendChild(label);
         inputZusatz.push(input);
+    }
+    function change() {
+        let summe = 0;
+        for (let i = 0; i < selectEis.length; i++) {
+            summe += 1;
+        }
+        for (let i = 0; i < inputZusatz.length; i++) {
+            if (inputZusatz[i].checked) {
+                summe += 0.5;
+            }
+        }
+    }
+    function changeWarenkorb(_summe) {
+        let warenkorb = document.getElementById("Warenkorb");
+        warenkorb.innerText = "";
+        for (let i = 0; i < selectEis.length; i++) {
+            if (parseInt(selectEis[i].value) > 0) {
+                warenkorb.innerText += sorten[i] + " " + (parseInt(selectEis[i].value) * 1) + "�" + "\n";
+            }
+        }
+        for (let i = 0; i < inputZusatz.length; i++) {
+            if (inputZusatz[i].checked) {
+                warenkorb.innerText += zusatzArray[i] + "�" + "\n";
+            }
+        }
+        let summeHtml = document.getElementById("Summe");
+        summeHtml.innerText = _summe.toString() + "�";
     }
 })(Form || (Form = {}));
 //# sourceMappingURL=bestellung.js.map
