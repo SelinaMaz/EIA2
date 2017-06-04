@@ -1,6 +1,7 @@
 var Form;
 (function (Form) {
-    document.getElementById("IceButton").addEventListener("click", createNewIce);
+    let iceButton = document.getElementById("IceButton");
+    iceButton.addEventListener("onClick", createNewIce);
     function createNewIce() {
         console.log("hallo");
     }
