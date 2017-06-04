@@ -83,7 +83,6 @@ namespace Form {
     }
 
     function createAuswahl(): void {
-        createSelect(sorten[0]);
 
         for (let i: number = 0; i < behaelterArray.length; i++) {
             createBehaelterRadio(behaelterArray[i]);
@@ -91,7 +90,68 @@ namespace Form {
         for (let i: number = 0; i < zusatzArray.length; i++) {
             createZusatzRadio(zusatzArray[i]);
         }
+
+        createSelect();
     }
-    
-    
+
+    function createSelect(): void {
+        let label: HTMLLabelElement = document.createElement("label");
+        let select: HTMLSelectElement = document.createElement("select");
+        let option: HTMLOptionElement = document.createElement("option");
+        let eis = document.createTextNode("Apfel");
+
+        label.innerText = "Eissorten";
+        label.appendChild(select);
+        
+        select.setAttribute("id", "mySelect");
+        option.setAttribute("value", "eis");
+        option.appendChild(eis);
+        
+        eissorten.appendChild(label);
+        selectEis.push(select);
+        document.getElementById("mySelect").appendChild(eis);
+    }
+
+    function createBehaelterRadio(_behaelter: string): void {
+        // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+
+        label.innerText = _behaelter;
+        label.appendChild(input);
+        // Die Art des Inputs wird über den Typ definiert
+        input.type = "radio";
+        input.name = "behaelter";
+        input.required = true;
+        label.id = _behaelter;
+
+        behaelter.appendChild(label);
+        inputZusatz.push(input);
+    }
+
+    function createZusatzRadio(_zusatz: string): void {
+        // Ein Label ist ein Text den man anklicken kann um damit den Input auszulösen
+        let label: HTMLLabelElement = document.createElement("label");
+        let input: HTMLInputElement = document.createElement("input");
+
+        label.innerText = _zusatz;
+        label.appendChild(input);
+        // Die Art des Inputs wird über den Typ definiert
+        input.type = "radio";
+        input.name = "zusatz";
+        input.required = true;
+        label.id = _zusatz;
+
+        zusatz.appendChild(label);
+        inputZusatz.push(input);
+    }
 }
+
+
+
+
+
+
+
+
+
