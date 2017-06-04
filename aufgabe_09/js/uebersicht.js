@@ -42,7 +42,7 @@ var Form;
             if (inputZusatz[i].checked)
                 summe += 0.5;
         }
-        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "�";
+        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "€";
     }
 })(Form || (Form = {}));
 //# sourceMappingURL=uebersicht.js.map

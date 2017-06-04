@@ -20,7 +20,7 @@ namespace Form {
     let bestaetigung: HTMLElement;
 
     let selectEis: HTMLSelectElement[] = [];
-    let zusatzArray: string[] = ["Bunte Streusel", "Schokosoﬂe", "Sahne", "Smarties"];
+    let zusatzArray: string[] = ["Bunte Streusel", "Schokososse", "Sahne", "Smarties"];
     let behaelterArray: string[] = ["Waffel", "Becher"];
     let inputZusatz: HTMLInputElement[] = [];
     let inputBehaelter: HTMLInputElement[] = [];
@@ -174,11 +174,15 @@ namespace Form {
         for (let i: number = 0; i < selectEis.length; i++) {
             summe += parseInt(selectEis[i].value);
         }
+        for (let i: number = 0; i < inputBehaelter.length; i++) {
+            if (inputBehaelter[i].checked)
+                summe += 0.5;
+        }
         for (let i: number = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;
         }
-        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "Ä";
+        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "‚Ç¨";
     }
 }
 

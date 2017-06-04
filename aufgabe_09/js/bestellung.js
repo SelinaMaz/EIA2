@@ -17,7 +17,7 @@ var Form;
     let warenkorb;
     let bestaetigung;
     let selectEis = [];
-    let zusatzArray = ["Bunte Streusel", "Schokoso�e", "Sahne", "Smarties"];
+    let zusatzArray = ["Bunte Streusel", "Schokososse", "Sahne", "Smarties"];
     let behaelterArray = ["Waffel", "Becher"];
     let inputZusatz = [];
     let inputBehaelter = [];
@@ -156,11 +156,15 @@ var Form;
         for (let i = 0; i < selectEis.length; i++) {
             summe += parseInt(selectEis[i].value);
         }
+        for (let i = 0; i < inputBehaelter.length; i++) {
+            if (inputBehaelter[i].checked)
+                summe += 0.5;
+        }
         for (let i = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;
         }
-        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "�";
+        document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "€";
     }
 })(Form || (Form = {}));
 //# sourceMappingURL=bestellung.js.map
