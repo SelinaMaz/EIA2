@@ -17,13 +17,15 @@ namespace Form {
     let zusatz: HTMLElement;
     let behaelter: HTMLElement;
     let warenkorb: HTMLElement;
-    let bestaetigung: HTMLElement;
+    let check: HTMLElement;
+    let abschicken: HTMLElement;
 
     let selectEis: HTMLSelectElement[] = [];
     let zusatzArray: string[] = ["Bunte Streusel", "Schokososse", "Sahne", "Smarties"];
     let behaelterArray: string[] = ["Waffel", "Becher"];
     let inputZusatz: HTMLInputElement[] = [];
     let inputBehaelter: HTMLInputElement[] = [];
+    let inputStepper: HTMLInputElement[] = [];
 
 
     function init(_event: Event): void {
@@ -31,7 +33,8 @@ namespace Form {
         eissorten = document.getElementById("Eissorten");
         behaelter = document.getElementById("Behaelter");
         zusatz = document.getElementById("Zusatz");
-        bestaetigung = document.getElementById("bestaetigung");
+        check = document.getElementById("check");
+        abschicken = document.getElementById("abschicken");
 
         createAuswahl();
         let fieldsets: NodeListOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
@@ -40,22 +43,24 @@ namespace Form {
             fieldset.addEventListener("change", Warenkorb);
             fieldset.addEventListener("change", Summe);
         }
-        bestaetigung.addEventListener("click", saveOrder);
+        check.addEventListener("click", checkOrder);
+//        document.getElementById("lieferung").addEventListener("click", Lieferung);
+        abschicken.addEventListener("click", BestellungSenden);
         console.log(selectEis.values);
     }
 
-    function saveOrder(_event: Event): void {
+    function checkOrder(_event: Event): void {
         let korrektur: string[] = ["Bitte überprüfen und ergänzen Sie folgende Eingaben \n"];
-        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Name");
-        let nachname: HTMLInputElement = <HTMLInputElement>document.getElementById("Nachname");
+        let name: HTMLInputElement = <HTMLInputElement>document.getElementById("Name");
+        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Vorname");
         let adresse: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("Adresse");
         let telefon: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefon");
         let lieferart: HTMLInputElement = <HTMLInputElement>document.getElementById("Lieferart");
         let zahlungsart: HTMLInputElement = <HTMLInputElement>document.getElementById("Zahlungsart");
 
-        if (vorname.validity.valid == false)
+        if (name.validity.valid == false)
             korrektur.push("vorname \n");
-        if (nachname.validity.valid == false)
+        if (vorname.validity.valid == false)
             korrektur.push("Nachname \n");
         if (adresse.validity.valid == false)
             korrektur.push("Adresse \n");
@@ -73,15 +78,15 @@ namespace Form {
             if (parseInt(selectEis[i].value) > 0)
                 eiskugeln += 1;
         }
-        
+
         if (eiskugeln == 0)
             korrektur.push("Eissorten\n");
-        
+
         for (let i: number = 0; i < inputBehaelter.length; i++) {
             if (inputBehaelter[i].checked)
                 behaelter += 1;
         }
-        
+
         if (behaelter == 0)
             korrektur.push("Behälter");
 
@@ -125,6 +130,7 @@ namespace Form {
         input.max = "10";
         input.value = "0";
         document.getElementById("Anzahl").appendChild(input);
+        inputStepper.push(input);
     }
 
     function createBehaelterRadio(_behaelter: string): void {
@@ -174,26 +180,37 @@ namespace Form {
         }
     }
 
+//    let lieferung = event.bubbles;
+//    let l: number = 0;
+//
+//    function Lieferung(_event: Event): void {
+//        if (lieferung == true) {
+//            l = 1;
+//        }
+//    }
+
     function Summe(_event: Event): void {
         let summe: number = 0;
-        for (let i: number = 0; i < selectEis.length; i++) {
-            summe += parseInt(selectEis[i].value);
+        for (let i: number = 0; i < inputStepper.length; i++) {
+            if (inputStepper[i].checked)
+                summe += parseInt(inputStepper[i].value);
         }
-//        for (let i: number = 0; i < inputBehaelter.length; i++) {
-//            if (inputBehaelter[i].checked)
-//                summe += 0.5;
-//        }
         for (let i: number = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;
         }
+
+//        if (l = 1) {
+//            summe += 1;
+//        }
+
         document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "â‚¬";
     }
+
+    function BestellungSenden(_event: Event): void {
+        alert("Vielen Dank für deine Besstellung. \nLuigi wuenscht schonmal Guten Appetit :)");
+    }
+
 }
-
-
-
-
-
 
 

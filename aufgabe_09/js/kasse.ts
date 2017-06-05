@@ -18,7 +18,7 @@ namespace Form {
 
     function Warenkorb(_event: Event): void {
         console.log(_event);
-        let bestellung: HTMLElement = document.getElementById("uebersicht");
+        let bestellung: HTMLElement = document.getElementById("Kasse");
         bestellung.innerText = "";
         for (let i: number = 0; i < selectEis.length; i++) {
             if (parseInt(selectEis[i].value) > 0) {

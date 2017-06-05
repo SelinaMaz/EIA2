@@ -46,7 +46,7 @@ li {
 	margin: 2%;
 }
 
-#UebersichtNav {
+#KasseNav {
 	background-color: #ED8561;
 	padding: 1%;
 	border-radius: .5em .5em .5em .5em;
@@ -101,7 +101,7 @@ a{
 
 /**********************************************PC********************************************************/
 @media screen and (min-width: 800px) {
-	#Vorschau {
+	#Warenkorb {
 		position: fixed;
 	}
 	.arrow {

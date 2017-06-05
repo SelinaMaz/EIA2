@@ -101,9 +101,6 @@ a{
 
 /**********************************************PC********************************************************/
 @media screen and (min-width: 800px) {
-	#Vorschau {
-		position: fixed;
-	}
 	.arrow {
 		display: block;
 	}

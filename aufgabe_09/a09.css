@@ -70,7 +70,7 @@ img {
 /*Main*/
 #Warenkorb {
 	position: absolute;
-	top: 75%;
+	top: 68%;
 	left: 55%;
 	background-color: white;
 }
@@ -104,7 +104,7 @@ a{
 	color: black;
 }
 
-#uebersicht{
+#abschicken{
 	border-radius: .5em .5em .5em .5em;
 	background-color: #ED8561;
 	max-width: 10em;

@@ -15,18 +15,21 @@ var Form;
     let zusatz;
     let behaelter;
     let warenkorb;
-    let bestaetigung;
+    let check;
+    let abschicken;
     let selectEis = [];
     let zusatzArray = ["Bunte Streusel", "Schokososse", "Sahne", "Smarties"];
     let behaelterArray = ["Waffel", "Becher"];
     let inputZusatz = [];
     let inputBehaelter = [];
+    let inputStepper = [];
     function init(_event) {
         warenkorb = document.getElementById("Warenkorb");
         eissorten = document.getElementById("Eissorten");
         behaelter = document.getElementById("Behaelter");
         zusatz = document.getElementById("Zusatz");
-        bestaetigung = document.getElementById("bestaetigung");
+        check = document.getElementById("check");
+        abschicken = document.getElementById("abschicken");
         createAuswahl();
         let fieldsets = document.getElementsByTagName("fieldset");
         for (let i = 0; i < fieldsets.length; i++) {
@@ -34,20 +37,22 @@ var Form;
             fieldset.addEventListener("change", Warenkorb);
             fieldset.addEventListener("change", Summe);
         }
-        bestaetigung.addEventListener("click", saveOrder);
+        check.addEventListener("click", checkOrder);
+        //        document.getElementById("lieferung").addEventListener("click", Lieferung);
+        abschicken.addEventListener("click", BestellungSenden);
         console.log(selectEis.values);
     }
-    function saveOrder(_event) {
+    function checkOrder(_event) {
         let korrektur = ["Bitte �berpr�fen und erg�nzen Sie folgende Eingaben \n"];
-        let vorname = document.getElementById("Name");
-        let nachname = document.getElementById("Nachname");
+        let name = document.getElementById("Name");
+        let vorname = document.getElementById("Vorname");
         let adresse = document.getElementById("Adresse");
         let telefon = document.getElementById("Telefon");
         let lieferart = document.getElementById("Lieferart");
         let zahlungsart = document.getElementById("Zahlungsart");
-        if (vorname.validity.valid == false)
+        if (name.validity.valid == false)
             korrektur.push("vorname \n");
-        if (nachname.validity.valid == false)
+        if (vorname.validity.valid == false)
             korrektur.push("Nachname \n");
         if (adresse.validity.valid == false)
             korrektur.push("Adresse \n");
@@ -108,6 +113,7 @@ var Form;
         input.max = "10";
         input.value = "0";
         document.getElementById("Anzahl").appendChild(input);
+        inputStepper.push(input);
     }
     function createBehaelterRadio(_behaelter) {
         let label = document.createElement("label");
@@ -153,20 +159,31 @@ var Form;
             }
         }
     }
+    //    let lieferung = event.bubbles;
+    //    let l: number = 0;
+    //
+    //    function Lieferung(_event: Event): void {
+    //        if (lieferung == true) {
+    //            l = 1;
+    //        }
+    //    }
     function Summe(_event) {
         let summe = 0;
-        for (let i = 0; i < selectEis.length; i++) {
-            summe += parseInt(selectEis[i].value);
+        for (let i = 0; i < inputStepper.length; i++) {
+            if (inputStepper[i].checked)
+                summe += parseInt(inputStepper[i].value);
         }
-        //        for (let i: number = 0; i < inputBehaelter.length; i++) {
-        //            if (inputBehaelter[i].checked)
-        //                summe += 0.5;
-        //        }
         for (let i = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;
         }
+        //        if (l = 1) {
+        //            summe += 1;
+        //        }
         document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "€";
+    }
+    function BestellungSenden(_event) {
+        alert("Vielen Dank f�r deine Besstellung. \nLuigi wuenscht schonmal Guten Appetit :)");
     }
 })(Form || (Form = {}));
 //# sourceMappingURL=bestellung.js.map

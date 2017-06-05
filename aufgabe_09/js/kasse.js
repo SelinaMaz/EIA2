@@ -15,7 +15,7 @@ var Form;
     let inputBehaelter = [];
     function Warenkorb(_event) {
         console.log(_event);
-        let bestellung = document.getElementById("uebersicht");
+        let bestellung = document.getElementById("Kasse");
         bestellung.innerText = "";
         for (let i = 0; i < selectEis.length; i++) {
             if (parseInt(selectEis[i].value) > 0) {
@@ -45,4 +45,4 @@ var Form;
         document.getElementById("Summe").innerText = "Summe:" + " " + summe.toString() + "€";
     }
 })(Form || (Form = {}));
-//# sourceMappingURL=uebersicht.js.map
+//# sourceMappingURL=kasse.js.map
