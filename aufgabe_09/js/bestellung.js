@@ -35,6 +35,7 @@ var Form;
             fieldset.addEventListener("change", Summe);
         }
         bestaetigung.addEventListener("click", saveOrder);
+        console.log(selectEis.values);
     }
     function saveOrder(_event) {
         let korrektur = ["Bitte �berpr�fen und erg�nzen Sie folgende Eingaben \n"];
@@ -48,7 +49,8 @@ var Form;
             korrektur.push("vorname \n");
         if (nachname.validity.valid == false)
             korrektur.push("Nachname \n");
-        //Adresse fehlt noch
+        if (adresse.validity.valid == false)
+            korrektur.push("Adresse \n");
         if (telefon.validity.valid == false)
             korrektur.push("Telefon \n");
         if (lieferart.value != "lieferung" && lieferart.value != "abholung")
@@ -71,7 +73,7 @@ var Form;
             korrektur.push("Beh�lter");
         if (korrektur.length > 1) {
             for (let i = 0; i < korrektur.length; i++)
-                korrektur.push;
+                korrektur.push("");
             alert(korrektur.join(""));
         }
         else {
@@ -156,10 +158,10 @@ var Form;
         for (let i = 0; i < selectEis.length; i++) {
             summe += parseInt(selectEis[i].value);
         }
-        for (let i = 0; i < inputBehaelter.length; i++) {
-            if (inputBehaelter[i].checked)
-                summe += 0.5;
-        }
+        //        for (let i: number = 0; i < inputBehaelter.length; i++) {
+        //            if (inputBehaelter[i].checked)
+        //                summe += 0.5;
+        //        }
         for (let i = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;

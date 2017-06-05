@@ -41,13 +41,14 @@ namespace Form {
             fieldset.addEventListener("change", Summe);
         }
         bestaetigung.addEventListener("click", saveOrder);
+        console.log(selectEis.values);
     }
 
     function saveOrder(_event: Event): void {
         let korrektur: string[] = ["Bitte überprüfen und ergänzen Sie folgende Eingaben \n"];
         let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Name");
         let nachname: HTMLInputElement = <HTMLInputElement>document.getElementById("Nachname");
-        let adresse: HTMLElement = <HTMLElement>document.getElementById("Adresse");
+        let adresse: HTMLTextAreaElement = <HTMLTextAreaElement>document.getElementById("Adresse");
         let telefon: HTMLInputElement = <HTMLInputElement>document.getElementById("Telefon");
         let lieferart: HTMLInputElement = <HTMLInputElement>document.getElementById("Lieferart");
         let zahlungsart: HTMLInputElement = <HTMLInputElement>document.getElementById("Zahlungsart");
@@ -56,7 +57,8 @@ namespace Form {
             korrektur.push("vorname \n");
         if (nachname.validity.valid == false)
             korrektur.push("Nachname \n");
-        //Adresse fehlt noch
+        if (adresse.validity.valid == false)
+            korrektur.push("Adresse \n");
         if (telefon.validity.valid == false)
             korrektur.push("Telefon \n");
         if (lieferart.value != "lieferung" && lieferart.value != "abholung")
@@ -71,18 +73,21 @@ namespace Form {
             if (parseInt(selectEis[i].value) > 0)
                 eiskugeln += 1;
         }
+        
         if (eiskugeln == 0)
             korrektur.push("Eissorten\n");
+        
         for (let i: number = 0; i < inputBehaelter.length; i++) {
             if (inputBehaelter[i].checked)
                 behaelter += 1;
         }
+        
         if (behaelter == 0)
             korrektur.push("Behälter");
 
         if (korrektur.length > 1) {
             for (let i: number = 0; i < korrektur.length; i++)
-                korrektur.push
+                korrektur.push("");
             alert(korrektur.join(""));
         }
         else {
@@ -174,10 +179,10 @@ namespace Form {
         for (let i: number = 0; i < selectEis.length; i++) {
             summe += parseInt(selectEis[i].value);
         }
-        for (let i: number = 0; i < inputBehaelter.length; i++) {
-            if (inputBehaelter[i].checked)
-                summe += 0.5;
-        }
+//        for (let i: number = 0; i < inputBehaelter.length; i++) {
+//            if (inputBehaelter[i].checked)
+//                summe += 0.5;
+//        }
         for (let i: number = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked)
                 summe += 0.5;

@@ -42,6 +42,9 @@ legend {
 	font-family: 'Vibur', cursive;
 }
 
+#Hinweis{
+	font-size: 0.75em;
+}
 body {
 	margin: 5% 10% 5% 10%;
 	border: 1em solid black;

@@ -31,20 +31,23 @@
 	</fieldset>
 	<fieldset id="Personalien">
 		<legend> Personalien </legend>
-		Name
-		<input id="Name" type="text" name="Text" placeholder="Name" required/>
+		Name*
+		<input id="Name" type="text" name="Text" placeholder="Mustermann" required/>
 		<hr/>
-		Vorname
-		<input id="Vorname" type="text" name="Text" placeholder="Vorname" required/>
+		Vorname*
+		<input id="Vorname" type="text" name="Text" placeholder="Max" required/>
 		<hr/>
-		Adresse
-		<textarea id="Adresse" name="Area" cols="30" rows="4" placeholder="Max Mustermann, Hilderstraße 15, 79183 Waldkirch"></textarea>
+		Adresse*
+		<textarea id="Adresse" name="Area" required cols="30" rows="4" placeholder="Hilderstraße 15 
+		 
+		 79183 Waldkirch"></textarea>
 		<hr>
-		Telefon
-		<input id="Telefon" type="text" name="Pattern" pattern="[0-15]{11}" placeholder="015156148"/>
+		Telefon*
+		<input id="Telefon" type="text" name="Pattern" placeholder="07681 25015" required/>
 		<hr/>
 		Mail
-		<input type="email" name="Mail" placeholder="Benutzer @ Anbieter"/>
+		<input type="email" name="Mail" placeholder="max.mm@gmail.de"/>
+		<p id="Hinweis">Felder die mit einem * gekennzeichnet sind müssen ausgefüllt werden.</p>
 	</fieldset>
 	
 	<fieldset id="Bestellung">
@@ -66,7 +69,7 @@
 
 	<fieldset id="Lieferung">
 		<legend> Lieferung</legend>
-		Lieferart
+		Lieferart*
 		<div id="Lieferart">
 			<br>
 			<input type="checkbox" name="Abholung" value="abholung" id="abholung"/>
@@ -75,7 +78,7 @@
 			<label for="lieferung">Lieferung (1,00€ Versand)</label>
 			<hr>
 		</div>
-		Zahlungsart
+		Zahlungsart*
 		<div id="Zahlungsart">
 			<br>
 			<input type="checkbox" name="Rechnung" value="aufRechnung" id="aufRechnung"/>
