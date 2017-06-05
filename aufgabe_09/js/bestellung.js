@@ -17,12 +17,14 @@ var Form;
     let warenkorb;
     let check;
     let abschicken;
+    let sEis = [];
     let selectEis = [];
     let zusatzArray = ["Bunte Streusel", "Schokososse", "Sahne", "Smarties"];
     let behaelterArray = ["Waffel", "Becher"];
     let inputZusatz = [];
     let inputBehaelter = [];
     let inputStepper = [];
+    let selectListe = [];
     function init(_event) {
         warenkorb = document.getElementById("Warenkorb");
         eissorten = document.getElementById("Eissorten");
@@ -40,7 +42,9 @@ var Form;
         check.addEventListener("click", checkOrder);
         //        document.getElementById("lieferung").addEventListener("click", Lieferung);
         abschicken.addEventListener("click", BestellungSenden);
-        console.log(selectEis.values);
+        console.log(selectListe);
+        console.log(sEis);
+        console.log(inputStepper);
     }
     function checkOrder(_event) {
         let korrektur = ["Bitte �berpr�fen und erg�nzen Sie folgende Eingaben \n"];
@@ -103,17 +107,20 @@ var Form;
             option.text = sorten[i];
             option.value = sorten[i];
             select.appendChild(option);
+            selectListe.push(sorten[i]);
+            sEis.push(option);
         }
         document.getElementById("Eissorten").appendChild(select);
     }
     function createStepper() {
-        let input = document.createElement("input");
-        input.type = "number";
-        input.min = "0";
-        input.max = "10";
-        input.value = "0";
-        document.getElementById("Anzahl").appendChild(input);
-        inputStepper.push(input);
+        let stepper = document.createElement("input");
+        stepper.type = "number";
+        stepper.min = "0";
+        stepper.max = "10";
+        stepper.value = "0";
+        stepper.step = "1";
+        document.getElementById("Anzahl").appendChild(stepper);
+        inputStepper.push(stepper);
     }
     function createBehaelterRadio(_behaelter) {
         let label = document.createElement("label");
@@ -140,22 +147,26 @@ var Form;
         inputZusatz.push(input);
     }
     function Warenkorb(_event) {
-        console.log(_event);
         let bestellung = document.getElementById("vorschau");
         bestellung.innerText = "";
-        for (let i = 0; i < selectEis.length; i++) {
-            if (parseInt(selectEis[i].value) > 0) {
-                bestellung.innerText += +sorten[i] + " " + ": " + (parseInt(selectEis[i].value) * 1) + "\n";
+        for (let i = 0; i < sEis.length; i++) {
+            if (parseInt(sEis[i].value) > 0) {
+                bestellung.innerText += sEis[i].text + "\n";
             }
         }
+        //        for (let i: number = 0; i < selectListe.length; i++) {
+        //            if (selectListe[i].length > 0) {
+        //                bestellung.innerText +=  selectListe[i] + " " + "\n";
+        //            }
+        //        }
         for (let i = 0; i < inputBehaelter.length; i++) {
             if (inputBehaelter[i].checked) {
-                bestellung.innerText += behaelterArray[i] + " " + "\n";
+                bestellung.innerText += behaelterArray[i] + "\n";
             }
         }
         for (let i = 0; i < inputZusatz.length; i++) {
             if (inputZusatz[i].checked) {
-                bestellung.innerText += zusatzArray[i] + " " + "\n";
+                bestellung.innerText += zusatzArray[i] + "\n";
             }
         }
     }
