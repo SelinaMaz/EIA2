@@ -1,6 +1,6 @@
 namespace Form {
 
-    let iceButton = document.getElementById("IceButton");
+    let iceButton: HTMLElement = document.getElementById("IceButton");
     iceButton.addEventListener("onClick", createNewIce);
     
     

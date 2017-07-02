@@ -57,9 +57,9 @@ var A3;
                 }
             });
         }
-        document.addEventListener("mousemove", function (Event) {
-            document.getElementById("inhalt").style.left = (Event.clientX + 10) + "px";
-            document.getElementById("inhalt").style.top = (Event.clientY + 10) + "px";
+        document.addEventListener("mousemove", function (event) {
+            document.getElementById("inhalt").style.left = (event.clientX + 10) + "px";
+            document.getElementById("inhalt").style.top = (event.clientY + 10) + "px";
         });
     });
     //Divs erzeugen
