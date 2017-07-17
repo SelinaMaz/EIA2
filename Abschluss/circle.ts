@@ -2,16 +2,16 @@ namespace a012 {
     export class Circle {
         x: number;
         y: number;
-        dx: number;
-        dy: number;
+        dx: number; //Geschwindigkeit in x-Richtung
+        dy: number; //Geschwindigkeit in y-Richtung
         radius: number;
         color: string;
 
         constructor(_x: number, _y: number, _dx: number, _dy: number, _radius: number, _color: string) {
             this.x = _x;
             this.y = _y;
-            this.dx = _dx; //Geschwindigkeit in x-Richtung
-            this.dy = _dy;//Geschwindigkeit in y-Richtung
+            this.dx = _dx;
+            this.dy = _dy; 
             this.radius = _radius;
             this.color = colorArray[Math.floor[Math.random() * colorArray.length]];
         }
