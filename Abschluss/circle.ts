@@ -19,7 +19,7 @@ namespace a012 {
         draw(): void {
             c.beginPath();
             c.arc(this.x, this.y, this.radius, 8, Math.PI * 2, false);
-            c.fillStyle = "black";
+            c.fillStyle = this.color;
             c.fill();
         };
 
