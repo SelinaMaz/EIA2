@@ -18,7 +18,7 @@ namespace a012 {
 
         console.log(canvas);
         
-//       new Circle(100, 100, 50, 50, 5);
+ //      new Circle(100, 100, 50, 50, 5, "black");
     }
 
     export var mouse = {
