@@ -10,8 +10,8 @@ namespace a012 {
         constructor(_x: number, _y: number, _dx: number, _dy: number, _radius: number, _color: string) {
             this.x = _x;
             this.y = _y;
-            this.dx = _dx;
-            this.dy = _dy;
+            this.dx = _dx; //Geschwindigkeit in x-Richtung
+            this.dy = _dy;//Geschwindigkeit in y-Richtung
             this.radius = _radius;
             this.color = colorArray[Math.floor[Math.random() * colorArray.length]];
         }
