@@ -4,8 +4,7 @@ Name: Selina Mazzaro
 Matrikel: 254068
 Datum: 17.07.17
     
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-In Zusammenarbeit mit Jana Burger und Jacqueliene Wagner.*/
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 
 namespace a012 {
     export var c: CanvasRenderingContext2D;
