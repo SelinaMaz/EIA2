@@ -32,7 +32,6 @@ namespace a012 {
         console.log(canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
-        
         for (var i: number = 0; i < 100; i++) {
             circleArray.push(new Circle(x, y, dx, dy, radius, color));
         }
