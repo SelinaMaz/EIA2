@@ -21,8 +21,8 @@ namespace a012 {
     }
 
     export interface Mouse {
-        x: any;
-        y: any;
+        x: number;
+        y: number;
     };
 
     export var mouse: Mouse;
