@@ -33,7 +33,7 @@ namespace a012 {
             this.x += this.dx;
             this.y += this.dy;
 
-            //Interaktion mit der Maus
+            //Interaktion Maus und Canvas
             if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
                 if (this.radius < maxRadius) {
                     this.radius += 1;

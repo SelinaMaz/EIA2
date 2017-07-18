@@ -37,8 +37,7 @@ namespace a012 {
         console.log(mouse);
     });
     
-    export var circleArray: Circle[] = [];
-    
+    export var circleArray: Circle[] = [];   
     for (var i: number = 0; i < 100; i++) {
         var radius: number = Math.random() * 3 + 1;
         var x: number = Math.random() * (canvas.width - radius * 2) + radius;
@@ -52,7 +51,6 @@ namespace a012 {
     function animate(): void {
         requestAnimationFrame(animate);
         c.clearRect(0, 0, canvas.width, canvas.height);
-
         for (var i: number = 0; i < circleArray.length; i++) {
             circleArray[i].update();
         }

@@ -25,7 +25,7 @@ var a012;
             }
             this.x += this.dx;
             this.y += this.dy;
-            //Interaktion mit der Maus
+            //Interaktion Maus und Canvas
             if (a012.mouse.x - this.x < 50 && a012.mouse.x - this.x > -50 && a012.mouse.y - this.y < 50 && a012.mouse.y - this.y > -50) {
                 if (this.radius < a012.maxRadius) {
                     this.radius += 1;
