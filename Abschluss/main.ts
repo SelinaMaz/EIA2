@@ -16,14 +16,7 @@ namespace a012 {
     export var maxRadius: number = 40;
     export var minRadius: number = 2;
 
-    export interface Mouse {
-        x: number;
-        y: number;
-    };
-
-    export var mouseArray: Mouse[] = [];
-    export var mouseValue: number[] = [];
-    export var mouse: Mouse;
+    export var mouse = { x: 0, y: 0 };
 
     window.addEventListener("load", init);
     window.addEventListener("mousemove", mouseEvent);

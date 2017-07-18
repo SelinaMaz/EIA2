@@ -11,9 +11,7 @@ var a012;
     a012.circleArray = [];
     a012.maxRadius = 40;
     a012.minRadius = 2;
-    ;
-    a012.mouseArray = [];
-    a012.mouseValue = [];
+    a012.mouse = { x: 0, y: 0 };
     window.addEventListener("load", init);
     window.addEventListener("mousemove", mouseEvent);
     function init(_event) {
