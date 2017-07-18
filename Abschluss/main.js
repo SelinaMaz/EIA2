@@ -15,7 +15,7 @@ var a012;
     a012.mouseArray = [];
     a012.mouseValue = [];
     window.addEventListener("load", init);
-    //    window.addEventListener("mousemove", mouseEvent);
+    window.addEventListener("mousemove", mouseEvent);
     function init(_event) {
         a012.canvas = document.getElementsByTagName("canvas")[0];
         a012.c = a012.canvas.getContext("2d");
@@ -35,7 +35,7 @@ var a012;
     animate();
     function animate() {
         requestAnimationFrame(animate);
-        a012.c.clearRect(0, 0, a012.canvas.width, a012.canvas.height);
+        //        c.clearRect(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < a012.circleArray.length; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;

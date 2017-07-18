@@ -26,7 +26,7 @@ namespace a012 {
     export var mouse: Mouse;
 
     window.addEventListener("load", init);
-    //    window.addEventListener("mousemove", mouseEvent);
+    window.addEventListener("mousemove", mouseEvent);
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -50,7 +50,7 @@ namespace a012 {
 
     function animate(): void {
         requestAnimationFrame(animate);
-        c.clearRect(0, 0, canvas.width, canvas.height);
+//        c.clearRect(0, 0, canvas.width, canvas.height);
         for (var i: number = 0; i < circleArray.length; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
