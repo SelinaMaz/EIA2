@@ -38,14 +38,14 @@ namespace a012 {
     });
     
     export var circleArray: Circle[] = [];
-    var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
-
+    
     for (var i: number = 0; i < 100; i++) {
         var radius: number = Math.random() * 3 + 1;
         var x: number = Math.random() * (canvas.width - radius * 2) + radius;
         var y: number = Math.random() * (canvas.height - radius * 2) + radius;
         var dx: number = (Math.random() - 0.5);
         var dy: number = (Math.random() - 0.5);
+        var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
         circleArray.push(new Circle(x, y, dx, dy, radius, color));
     }
 

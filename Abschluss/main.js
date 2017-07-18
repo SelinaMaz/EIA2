@@ -24,13 +24,13 @@ var a012;
         console.log(a012.mouse);
     });
     a012.circleArray = [];
-    var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
     for (var i = 0; i < 100; i++) {
         var radius = Math.random() * 3 + 1;
         var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
         var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
         var dx = (Math.random() - 0.5);
         var dy = (Math.random() - 0.5);
+        var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
         a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, color));
     }
     function animate() {
