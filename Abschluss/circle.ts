@@ -13,7 +13,7 @@ namespace a012 {
             this.dx = _dx;
             this.dy = _dy; 
             this.radius = _radius;
-            this.color = colorArray[Math.floor[Math.random() * colorArray.length]];
+            this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
         }
 
         draw(): void {

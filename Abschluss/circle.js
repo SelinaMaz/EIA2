@@ -1,27 +1,26 @@
 var a012;
 (function (a012) {
     class Circle {
-        //        color: any;
-        constructor(_x, _y, _dx, _dy, _radius /*, _color: number*/) {
+        constructor(_x, _y, _dx, _dy, _radius, _color) {
             this.x = _x;
             this.y = _y;
             this.dx = _dx;
             this.dy = _dy;
             this.radius = _radius;
-            //            this.color = colorArray[Math.floor[Math.random() * colorArray.length]];
+            this.color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
         }
         draw() {
             a012.c.beginPath();
             a012.c.arc(this.x, this.y, this.radius, 8, Math.PI * 2, false);
-            a012.c.fillStyle = "black";
+            a012.c.fillStyle = this.color;
             a012.c.fill();
         }
         ;
         update() {
-            if (this.x + this.radius > innerWidth || this.x - this.radius < 8) {
+            if (this.x + this.radius > a012.canvas.width || this.x - this.radius < 8) {
                 this.dx = -this.dx;
             }
-            if (this.y + this.radius > innerHeight || this.y - this.radius < 8) {
+            if (this.y + this.radius > a012.canvas.height || this.y - this.radius < 8) {
                 this.dy = -this.dy;
             }
             this.x += this.dx;

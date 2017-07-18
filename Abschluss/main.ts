@@ -17,14 +17,15 @@ namespace a012 {
 
         console.log(canvas);
         
- //      new Circle(100, 100, 50, 50, 5, "black");
+//       new Circle(100, 100, 50, 50, 5, "black");
     }
 
-    export var mouse = {
-        x: undefined,
-        y: undefined
+    export interface Mouse {
+        x: any;
+        y: any;
     };
 
+    export var mouse: Mouse;
     export var maxRadius: number = 40;
     export var minRadius: number = 2;
     export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
@@ -35,8 +36,9 @@ namespace a012 {
 
         console.log(mouse);
     });
-
+    
     export var circleArray: Circle[] = [];
+    var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
 
     for (var i: number = 0; i < 100; i++) {
         var radius: number = Math.random() * 3 + 1;
