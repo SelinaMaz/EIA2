@@ -29,11 +29,11 @@ var a012;
             var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
             a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, color));
         }
+        animate();
     }
-    animate();
     function animate() {
         requestAnimationFrame(animate);
-        //        c.clearRect(0, 0, canvas.width, canvas.height);
+        a012.c.clearRect(0, 0, a012.canvas.width, a012.canvas.height);
         for (var i = 0; i < a012.circleArray.length; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;

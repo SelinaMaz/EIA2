@@ -38,12 +38,12 @@ namespace a012 {
             var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
             circleArray.push(new Circle(x, y, dx, dy, radius, color));
         }
+        animate();
     }
-    animate();
 
     function animate(): void {
         requestAnimationFrame(animate);
-//        c.clearRect(0, 0, canvas.width, canvas.height);
+        c.clearRect(0, 0, canvas.width, canvas.height);
         for (var i: number = 0; i < circleArray.length; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
