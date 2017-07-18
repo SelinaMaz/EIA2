@@ -12,10 +12,15 @@ namespace a012 {
 
     export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
     export var circleArray: Circle[] = [];
+    var radius: number;
+    var x: number;
+    var y: number;
+    var dx: number;
+    var dy: number;
+    var color: string;
 
     export var maxRadius: number = 40;
     export var minRadius: number = 2;
-
     export var mouse = { x: 0, y: 0 };
 
     window.addEventListener("load", init);
@@ -25,17 +30,10 @@ namespace a012 {
         canvas = document.getElementsByTagName("canvas")[0];
         c = canvas.getContext("2d");
         console.log(canvas);
-
-        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
-        drawCircle.draw(100, 100, 4, "blue");
-
+        //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
+        //        drawCircle.draw(100, 100, 4, "blue");
+        
         for (var i: number = 0; i < 100; i++) {
-            var radius: number = Math.random() * 3 + 1;
-            var x: number = Math.random() * (canvas.width - radius * 2) + radius;
-            var y: number = Math.random() * (canvas.height - radius * 2) + radius;
-            var dx: number = (Math.random() - 0.5);
-            var dy: number = (Math.random() - 0.5);
-            var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
             circleArray.push(new Circle(x, y, dx, dy, radius, color));
         }
         animate();
