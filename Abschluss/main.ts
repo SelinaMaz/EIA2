@@ -9,35 +9,30 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace a012 {
     export var c: CanvasRenderingContext2D;
     export var canvas: HTMLCanvasElement;
-    window.addEventListener("load", init);
 
-    function init(_event: Event): void {
-        canvas = document.getElementsByTagName("canvas")[0];
-        c = canvas.getContext("2d");
-
-        console.log(canvas);
-        
-//       new Circle(100, 100, 50, 50, 5, "black");
-    }
+    export var maxRadius: number = 40;
+    export var minRadius: number = 2;
+    export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
+    export var circleArray: Circle[] = [];
 
     export interface Mouse {
         x: number;
         y: number;
     };
 
+    export var mouseArray: number[] = [];
     export var mouse: Mouse;
-    export var maxRadius: number = 40;
-    export var minRadius: number = 2;
-    export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
+    mouse.x = 0;
+    mouse.y = 0;
 
-    window.addEventListener("mousemove", function(event): void {
-        mouse.x = event.x;
-        mouse.y = event.y;
+    window.addEventListener("load", init);
+    function init(_event: Event): void {
+        canvas = document.getElementsByTagName("canvas")[0];
+        c = canvas.getContext("2d");
+        console.log(canvas);
+        //       new Circle(100, 100, 50, 50, 5, "black");
+    }
 
-        console.log(mouse);
-    });
-    
-    export var circleArray: Circle[] = [];   
     for (var i: number = 0; i < 100; i++) {
         var radius: number = Math.random() * 3 + 1;
         var x: number = Math.random() * (canvas.width - radius * 2) + radius;
@@ -56,4 +51,13 @@ namespace a012 {
         }
     }
     animate();
+
+    window.addEventListener("mousemove", function(event): void {
+        mouse.x = event.x;
+        mouse.y = event.y;
+        mouseArray.push(mouse.x);
+        mouseArray.push(mouse.y);
+        console.log(mouse);
+    });
+
 }

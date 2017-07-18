@@ -7,6 +7,14 @@ Datum: 17.07.17
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.*/
 var a012;
 (function (a012) {
+    a012.maxRadius = 40;
+    a012.minRadius = 2;
+    a012.colorArray = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
+    a012.circleArray = [];
+    ;
+    a012.mouseArray = [];
+    a012.mouse.x = 0;
+    a012.mouse.y = 0;
     window.addEventListener("load", init);
     function init(_event) {
         a012.canvas = document.getElementsByTagName("canvas")[0];
@@ -14,16 +22,6 @@ var a012;
         console.log(a012.canvas);
         //       new Circle(100, 100, 50, 50, 5, "black");
     }
-    ;
-    a012.maxRadius = 40;
-    a012.minRadius = 2;
-    a012.colorArray = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
-    window.addEventListener("mousemove", function (event) {
-        a012.mouse.x = event.x;
-        a012.mouse.y = event.y;
-        console.log(a012.mouse);
-    });
-    a012.circleArray = [];
     for (var i = 0; i < 100; i++) {
         var radius = Math.random() * 3 + 1;
         var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
@@ -41,5 +39,12 @@ var a012;
         }
     }
     animate();
+    window.addEventListener("mousemove", function (event) {
+        a012.mouse.x = event.x;
+        a012.mouse.y = event.y;
+        a012.mouseArray.push(a012.mouse.x);
+        a012.mouseArray.push(a012.mouse.y);
+        console.log(a012.mouse);
+    });
 })(a012 || (a012 = {}));
 //# sourceMappingURL=main.js.map
