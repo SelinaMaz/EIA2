@@ -16,33 +16,33 @@ namespace a012 {
             this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
         }
 
-        draw(): void {
+        draw(_x: number, _y: number, _radius: number, _color: string): void {
             c.beginPath();
-            c.arc(this.x, this.y, this.radius, 8, Math.PI * 2, false);
-            c.fillStyle = this.color;
+            c.arc(_x, _y, _radius, 0, Math.PI * 2, true);
+            c.fillStyle = _color;
             c.fill();
         };
 
-        update(): void {
-            if (this.x + this.radius > canvas.width || this.x - this.radius < 8) {
-                this.dx = -this.dx;
+        update(_x: number, _y: number, _dx: number, _dy: number, _radius: number, _color: string ): void {
+            if (_x + _radius > canvas.width || _x - _radius < 8) {
+                _dx = -_dx;
             }
-            if (this.y + this.radius > canvas.height || this.y - this.radius < 8) {
-                this.dy = -this.dy;
+            if (_y + _radius > canvas.height || _y - _radius < 8) {
+                _dy = -_dy;
             }
-            this.x += this.dx;
-            this.y += this.dy;
+            _x += _dx;
+            _y += _dy;
 
-            //Interaktion Maus und Canvas
-            if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
-                if (this.radius < maxRadius) {
-                    this.radius += 1;
+            //Interaktion, Maus und Canvas
+            if (mouse.x - _x < 50 && mouse.x - _x > -50 && mouse.y - _y < 50 && mouse.y - _y > -50) {
+                if (_radius < maxRadius) {
+                    _radius += 1;
                 }
             }
-            else if (this.radius > minRadius) {
-                this.radius -= 1;
+            else if (_radius > minRadius) {
+                _radius -= 1;
             }
-            this.draw();
+            this.draw(_x, _y, _radius, _color);
         };
     }
 }

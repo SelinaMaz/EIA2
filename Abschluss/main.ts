@@ -10,27 +10,31 @@ namespace a012 {
     export var c: CanvasRenderingContext2D;
     export var canvas: HTMLCanvasElement;
 
-    export var maxRadius: number = 40;
-    export var minRadius: number = 2;
     export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
     export var circleArray: Circle[] = [];
+
+    export var maxRadius: number = 40;
+    export var minRadius: number = 2;
 
     export interface Mouse {
         x: number;
         y: number;
     };
 
-    export var mouseArray: number[] = [];
+    export var mouseArray: Mouse[] = [];
+    export var mouseValue: number[] = [];
     export var mouse: Mouse;
-    mouse.x = 0;
-    mouse.y = 0;
 
     window.addEventListener("load", init);
+    //    window.addEventListener("mousemove", mouseEvent);
+
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
         c = canvas.getContext("2d");
         console.log(canvas);
-        //       new Circle(100, 100, 50, 50, 5, "black");
+
+        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
+        drawCircle.draw(100, 100, 4, "blue");
     }
 
     for (var i: number = 0; i < 100; i++) {
@@ -42,22 +46,21 @@ namespace a012 {
         var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
         circleArray.push(new Circle(x, y, dx, dy, radius, color));
     }
+    animate();
+
 
     function animate(): void {
         requestAnimationFrame(animate);
         c.clearRect(0, 0, canvas.width, canvas.height);
         for (var i: number = 0; i < circleArray.length; i++) {
-            circleArray[i].update();
+            circleArray[i].update(x, y, dx, dy, radius, color);
         }
     }
-    animate();
 
-    window.addEventListener("mousemove", function(event): void {
+    function mouseEvent(event: MouseEvent): void {
         mouse.x = event.x;
         mouse.y = event.y;
-        mouseArray.push(mouse.x);
-        mouseArray.push(mouse.y);
         console.log(mouse);
-    });
+    }
 
 }
