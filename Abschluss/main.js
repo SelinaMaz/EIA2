@@ -25,7 +25,6 @@ var a012;
         a012.c = a012.canvas.getContext("2d");
         console.log(a012.canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
-        //        drawCircle.draw(100, 100, 4, "blue");
         for (var i = 0; i < 80; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;

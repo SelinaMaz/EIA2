@@ -31,7 +31,6 @@ namespace a012 {
         c = canvas.getContext("2d");
         console.log(canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
-        //        drawCircle.draw(100, 100, 4, "blue");
         for (var i: number = 0; i < 80; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
