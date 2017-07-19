@@ -32,16 +32,17 @@ namespace a012 {
         console.log(canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
-        for (var i: number = 0; i < 150; i++) {
+        for (var i: number = 0; i < 80; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
             var y: number = Math.random() * (canvas.height - radius * 2) + radius;
             var dx: number = (Math.random() - 0.5);
             var dy: number = (Math.random() - 0.5);
-            //            var color: string = "black";
             circleArray.push(new Circle(x, y, dx, dy, radius, "#30363B"));
         }
         animate();
+        canvas.addEventListener("click", addGlowCircle);
+        canvas.addEventListener("mouseover", playMusik);
     }
 
     function animate(): void {
@@ -56,7 +57,7 @@ namespace a012 {
     function mouseEvent(event: MouseEvent): void {
         mouse.x = parseInt((event.x - 180) + "px");
         mouse.y = parseInt((event.y - 150) + "px");
-        console.log(mouse);
+        //        console.log(mouse);
     }
 
     function createText(t: string, size: number): void {
@@ -64,7 +65,35 @@ namespace a012 {
         c.textAlign = "center";
         c.fillStyle = "white";
         c.fillText(t, canvas.width / 2, canvas.height / 2);
-        c.fillRect( canvas.width / 3, (canvas.height / 2) + 5, canvas.width / 3, 1);
+        c.fillRect(canvas.width / 3, (canvas.height / 2) + 5, canvas.width / 3, 1);
+    }
+
+    function addGlowCircle(): void {
+        var x: number = Math.random() * (canvas.width - radius * 2) + radius;
+        var y: number = Math.random() * (canvas.height - radius * 2) + radius;
+        var dx: number = (Math.random() - 0.5);
+        var dy: number = (Math.random() - 0.5);
+
+        circleArray.push(new GlowCircle(x, y, dx, dy, 2, "white"));
+        console.log("Hi");
+    }
+
+    function playMusik(_event: Event): void {
+        var mySound: HTMLAudioElement = new Audio("Cheerleader.mp3");
+        console.log("Musik an");
+
+        var start: boolean = _event.bubbles;
+        start = false;
+
+        if (start == false) {
+            mySound.play();
+            mySound.loop = true;
+            console.log(_event);
+        }
+        else {
+            mySound.pause();
+        }
+
     }
 
 }

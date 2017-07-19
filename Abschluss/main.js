@@ -26,16 +26,17 @@ var a012;
         console.log(a012.canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
-        for (var i = 0; i < 150; i++) {
+        for (var i = 0; i < 80; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
             var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
             var dx = (Math.random() - 0.5);
             var dy = (Math.random() - 0.5);
-            //            var color: string = "black";
             a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, "#30363B"));
         }
         animate();
+        a012.canvas.addEventListener("click", addGlowCircle);
+        a012.canvas.addEventListener("mouseover", playMusik);
     }
     function animate() {
         requestAnimationFrame(animate);
@@ -48,7 +49,7 @@ var a012;
     function mouseEvent(event) {
         a012.mouse.x = parseInt((event.x - 180) + "px");
         a012.mouse.y = parseInt((event.y - 150) + "px");
-        console.log(a012.mouse);
+        //        console.log(mouse);
     }
     function createText(t, size) {
         a012.c.font = size + ("px 'Dosis', sans-serif");
@@ -56,6 +57,28 @@ var a012;
         a012.c.fillStyle = "white";
         a012.c.fillText(t, a012.canvas.width / 2, a012.canvas.height / 2);
         a012.c.fillRect(a012.canvas.width / 3, (a012.canvas.height / 2) + 5, a012.canvas.width / 3, 1);
+    }
+    function addGlowCircle() {
+        var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
+        var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
+        var dx = (Math.random() - 0.5);
+        var dy = (Math.random() - 0.5);
+        a012.circleArray.push(new a012.GlowCircle(x, y, dx, dy, 2, "white"));
+        console.log("Hi");
+    }
+    function playMusik(_event) {
+        var mySound = new Audio("Cheerleader.mp3");
+        console.log("Musik an");
+        var start = _event.bubbles;
+        start = false;
+        if (start == false) {
+            mySound.play();
+            mySound.loop = true;
+            console.log(_event);
+        }
+        else {
+            mySound.pause();
+        }
     }
 })(a012 || (a012 = {}));
 //# sourceMappingURL=main.js.map
