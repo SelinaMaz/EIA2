@@ -19,5 +19,4 @@ var a012;
     }
     a012.GlowCircle = GlowCircle;
 })(a012 || (a012 = {}));
-//Warum pusht es nichts mehr hoch ?! 
 //# sourceMappingURL=glowCircle.js.map

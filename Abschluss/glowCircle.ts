@@ -17,4 +17,3 @@ namespace a012 {
         };
     }
 }
-//Warum pusht es nichts mehr hoch ?!

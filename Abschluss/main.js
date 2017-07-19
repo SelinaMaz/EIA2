@@ -37,6 +37,7 @@ var a012;
         a012.canvas.addEventListener("mouseout", pauseMusik);
         a012.canvas.addEventListener("mouseover", playMusik);
     }
+    //Animation und Interaktion
     function animate() {
         requestAnimationFrame(animate);
         a012.c.clearRect(0, 0, a012.canvas.width, a012.canvas.height);
@@ -50,6 +51,7 @@ var a012;
         a012.mouse.y = parseInt((event.y - 150) + "px");
         //        console.log(mouse);
     }
+    //Text
     function createText(t, size) {
         a012.c.font = size + ("px 'Dosis', sans-serif");
         a012.c.textAlign = "center";
@@ -57,6 +59,7 @@ var a012;
         a012.c.fillText(t, a012.canvas.width / 2, a012.canvas.height / 2);
         a012.c.fillRect(a012.canvas.width / 3, (a012.canvas.height / 2) + 5, a012.canvas.width / 3, 1);
     }
+    //GlowCircle
     function addGlowCircle() {
         var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
         var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
@@ -65,11 +68,12 @@ var a012;
         a012.circleArray.push(new a012.GlowCircle(x, y, dx, dy, 2, "white"));
         console.log("Hi");
     }
+    //Musik
     var mySound = new Audio("Cheerleader.mp3");
     function playMusik(_event) {
         console.log("Musik an");
         mySound.play();
-        //        mySound.loop = true;
+        mySound.loop = true;
         console.log(_event);
     }
     function pauseMusik(_event) {

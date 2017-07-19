@@ -9,7 +9,6 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace a012 {
     export var c: CanvasRenderingContext2D;
     export var canvas: HTMLCanvasElement;
-
     export var colorArray: string[] = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
     export var circleArray: Circle[] = [];
     var radius: number;
@@ -18,7 +17,6 @@ namespace a012 {
     var dx: number;
     var dy: number;
     var color: string;
-
     export var maxRadius: number = 10;
     export var minRadius: number = 1;
     export var mouse = { x: 0, y: 0 };
@@ -43,7 +41,8 @@ namespace a012 {
         canvas.addEventListener("mouseout", pauseMusik);
         canvas.addEventListener("mouseover", playMusik);
     }
-
+    
+    //Animation und Interaktion
     function animate(): void {
         requestAnimationFrame(animate);
         c.clearRect(0, 0, canvas.width, canvas.height);
@@ -59,6 +58,7 @@ namespace a012 {
         //        console.log(mouse);
     }
 
+    //Text
     function createText(t: string, size: number): void {
         c.font = size + ("px 'Dosis', sans-serif");
         c.textAlign = "center";
@@ -67,6 +67,8 @@ namespace a012 {
         c.fillRect(canvas.width / 3, (canvas.height / 2) + 5, canvas.width / 3, 1);
     }
 
+    
+    //GlowCircle
     function addGlowCircle(): void {
         var x: number = Math.random() * (canvas.width - radius * 2) + radius;
         var y: number = Math.random() * (canvas.height - radius * 2) + radius;
@@ -76,12 +78,13 @@ namespace a012 {
         circleArray.push(new GlowCircle(x, y, dx, dy, 2, "white"));
         console.log("Hi");
     }
-
+    
+    //Musik
     var mySound: HTMLAudioElement = new Audio("Cheerleader.mp3");
     function playMusik(_event: Event): void {
         console.log("Musik an");
         mySound.play();
-        //        mySound.loop = true;
+        mySound.loop = true;
         console.log(_event);
     }
 
@@ -89,6 +92,4 @@ namespace a012 {
         mySound.pause();
         console.log(_event);
     }
-
-
 }
