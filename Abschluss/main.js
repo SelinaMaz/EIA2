@@ -24,7 +24,6 @@ var a012;
         a012.canvas = document.getElementsByTagName("canvas")[0];
         a012.c = a012.canvas.getContext("2d");
         console.log(a012.canvas);
-        //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         for (var i = 0; i < 80; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
@@ -35,6 +34,7 @@ var a012;
         }
         animate();
         a012.canvas.addEventListener("click", addGlowCircle);
+        a012.canvas.addEventListener("mouseout", pauseMusik);
         a012.canvas.addEventListener("mouseover", playMusik);
     }
     function animate() {
@@ -65,19 +65,16 @@ var a012;
         a012.circleArray.push(new a012.GlowCircle(x, y, dx, dy, 2, "white"));
         console.log("Hi");
     }
+    var mySound = new Audio("Cheerleader.mp3");
     function playMusik(_event) {
-        var mySound = new Audio("Cheerleader.mp3");
         console.log("Musik an");
-        var start = _event.bubbles;
-        start = false;
-        if (start == false) {
-            mySound.play();
-            mySound.loop = true;
-            console.log(_event);
-        }
-        else {
-            mySound.pause();
-        }
+        mySound.play();
+        //        mySound.loop = true;
+        console.log(_event);
+    }
+    function pauseMusik(_event) {
+        mySound.pause();
+        console.log(_event);
     }
 })(a012 || (a012 = {}));
 //# sourceMappingURL=main.js.map

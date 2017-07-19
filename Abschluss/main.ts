@@ -30,7 +30,6 @@ namespace a012 {
         canvas = document.getElementsByTagName("canvas")[0];
         c = canvas.getContext("2d");
         console.log(canvas);
-        //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         for (var i: number = 0; i < 80; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
@@ -41,6 +40,7 @@ namespace a012 {
         }
         animate();
         canvas.addEventListener("click", addGlowCircle);
+        canvas.addEventListener("mouseout", pauseMusik);
         canvas.addEventListener("mouseover", playMusik);
     }
 
@@ -77,22 +77,18 @@ namespace a012 {
         console.log("Hi");
     }
 
+    var mySound: HTMLAudioElement = new Audio("Cheerleader.mp3");
     function playMusik(_event: Event): void {
-        var mySound: HTMLAudioElement = new Audio("Cheerleader.mp3");
         console.log("Musik an");
-
-        var start: boolean = _event.bubbles;
-        start = false;
-
-        if (start == false) {
-            mySound.play();
-            mySound.loop = true;
-            console.log(_event);
-        }
-        else {
-            mySound.pause();
-        }
-
+        mySound.play();
+        //        mySound.loop = true;
+        console.log(_event);
     }
+
+    function pauseMusik(_event: Event): void {
+        mySound.pause();
+        console.log(_event);
+    }
+
 
 }
