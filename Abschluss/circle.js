@@ -7,13 +7,13 @@ var a012;
             this.dx = _dx;
             this.dy = _dy;
             this.radius = _radius;
-            this.color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
+            this.color = "#30363B";
         }
         draw(_x, _y, _radius, _color) {
             a012.c.beginPath();
             a012.c.arc(_x, _y, _radius, 0, Math.PI * 2, true);
-            a012.c.fillStyle = _color;
-            a012.c.fill();
+            a012.c.strokeStyle = _color;
+            a012.c.stroke();
         }
         ;
         update() {
@@ -29,10 +29,12 @@ var a012;
             if (a012.mouse.x - this.x < 50 && a012.mouse.x - this.x > -50 && a012.mouse.y - this.y < 50 && a012.mouse.y - this.y > -50) {
                 if (this.radius < a012.maxRadius) {
                     this.radius += 1;
+                    this.color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
                 }
             }
             else if (this.radius > a012.minRadius) {
                 this.radius -= 1;
+                this.color = "#30363B";
             }
             this.draw(this.x, this.y, this.radius, this.color);
         }

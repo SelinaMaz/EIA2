@@ -15,7 +15,7 @@ var a012;
     var dx;
     var dy;
     var color;
-    a012.maxRadius = 40;
+    a012.maxRadius = 10;
     a012.minRadius = 2;
     a012.mouse = { x: 0, y: 0 };
     window.addEventListener("load", init);
@@ -26,14 +26,14 @@ var a012;
         console.log(a012.canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 150; i++) {
             var radius = Math.random() * 3 + 1;
             var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
             var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
             var dx = (Math.random() - 0.5);
             var dy = (Math.random() - 0.5);
-            var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
-            a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, color));
+            //            var color: string = "black";
+            a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, "#30363B"));
         }
         animate();
     }
@@ -43,11 +43,19 @@ var a012;
         for (var i = 0; i < a012.circleArray.length; i++) {
             a012.circleArray[i].update();
         }
+        createText("Turn on the Sound", 30);
     }
     function mouseEvent(event) {
-        a012.mouse.x = parseInt((event.x - 220) + "px");
-        a012.mouse.y = parseInt((event.y - 120) + "px");
+        a012.mouse.x = parseInt((event.x - 280) + "%");
+        a012.mouse.y = parseInt((event.y - 150) + "%");
         console.log(a012.mouse);
+    }
+    function createText(t, size) {
+        a012.c.font = size + ("px 'Dosis', sans-serif");
+        a012.c.textAlign = "center";
+        a012.c.fillStyle = "white";
+        a012.c.fillText(t, a012.canvas.width / 2, a012.canvas.height / 2);
+        a012.c.fillRect(a012.canvas.width / 3, (a012.canvas.height / 2) + 5, a012.canvas.width / 3, 1);
     }
 })(a012 || (a012 = {}));
 //# sourceMappingURL=main.js.map

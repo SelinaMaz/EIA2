@@ -19,7 +19,7 @@ namespace a012 {
     var dy: number;
     var color: string;
 
-    export var maxRadius: number = 40;
+    export var maxRadius: number = 10;
     export var minRadius: number = 2;
     export var mouse = { x: 0, y: 0 };
 
@@ -32,14 +32,14 @@ namespace a012 {
         console.log(canvas);
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
-        for (var i: number = 0; i < 100; i++) {
+        for (var i: number = 0; i < 150; i++) {
             var radius: number = Math.random() * 3 + 1;
             var x: number = Math.random() * (canvas.width - radius * 2) + radius;
             var y: number = Math.random() * (canvas.height - radius * 2) + radius;
             var dx: number = (Math.random() - 0.5);
             var dy: number = (Math.random() - 0.5);
-            var color: string = colorArray[Math.floor(Math.random() * colorArray.length)];
-            circleArray.push(new Circle(x, y, dx, dy, radius, color));
+            //            var color: string = "black";
+            circleArray.push(new Circle(x, y, dx, dy, radius, "#30363B"));
         }
         animate();
     }
@@ -50,12 +50,21 @@ namespace a012 {
         for (var i: number = 0; i < circleArray.length; i++) {
             circleArray[i].update();
         }
+        createText("Turn on the Sound", 30);
     }
 
     function mouseEvent(event: MouseEvent): void {
-        mouse.x = parseInt((event.x - 220) + "px");
-        mouse.y = parseInt((event.y - 120) + "px");
+        mouse.x = parseInt((event.x - 280) + "%");
+        mouse.y = parseInt((event.y - 150) + "%");
         console.log(mouse);
+    }
+
+    function createText(t: string, size: number): void {
+        c.font = size + ("px 'Dosis', sans-serif");
+        c.textAlign = "center";
+        c.fillStyle = "white";
+        c.fillText(t, canvas.width / 2, canvas.height / 2);
+        c.fillRect( canvas.width / 3, (canvas.height / 2) + 5, canvas.width / 3, 1);
     }
 
 }

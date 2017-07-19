@@ -1,8 +1,9 @@
 canvas{
 	width: 80%;
-	height: 75%;
+	height: 80%;
 	position: absolute;
 	top: 5%;
 	left: 10%;
 	border: 1px solid black;
+	background-color: #30363B;
 }

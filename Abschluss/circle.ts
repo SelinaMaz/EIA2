@@ -11,16 +11,16 @@ namespace a012 {
             this.x = _x;
             this.y = _y;
             this.dx = _dx;
-            this.dy = _dy; 
+            this.dy = _dy;
             this.radius = _radius;
-            this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
+            this.color = "#30363B";
         }
 
         draw(_x: number, _y: number, _radius: number, _color: string): void {
             c.beginPath();
             c.arc(_x, _y, _radius, 0, Math.PI * 2, true);
-            c.fillStyle = _color;
-            c.fill();
+            c.strokeStyle = _color;
+            c.stroke();
         };
 
         update(): void {
@@ -37,10 +37,13 @@ namespace a012 {
             if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
                 if (this.radius < maxRadius) {
                     this.radius += 1;
+                    this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
                 }
+
             }
             else if (this.radius > minRadius) {
                 this.radius -= 1;
+                this.color = "#30363B";
             }
             this.draw(this.x, this.y, this.radius, this.color);
         };
