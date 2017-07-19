@@ -16,7 +16,7 @@ var a012;
     var dy;
     var color;
     a012.maxRadius = 10;
-    a012.minRadius = 2;
+    a012.minRadius = 1;
     a012.mouse = { x: 0, y: 0 };
     window.addEventListener("load", init);
     window.addEventListener("mousemove", mouseEvent);
@@ -43,11 +43,11 @@ var a012;
         for (var i = 0; i < a012.circleArray.length; i++) {
             a012.circleArray[i].update();
         }
-        createText("Turn on the Sound", 30);
+        createText("Turn on the Sound", 20);
     }
     function mouseEvent(event) {
-        a012.mouse.x = parseInt((event.x - 280) + "%");
-        a012.mouse.y = parseInt((event.y - 150) + "%");
+        a012.mouse.x = parseInt((event.x - 180) + "px");
+        a012.mouse.y = parseInt((event.y - 150) + "px");
         console.log(a012.mouse);
     }
     function createText(t, size) {

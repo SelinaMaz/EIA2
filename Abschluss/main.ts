@@ -20,7 +20,7 @@ namespace a012 {
     var color: string;
 
     export var maxRadius: number = 10;
-    export var minRadius: number = 2;
+    export var minRadius: number = 1;
     export var mouse = { x: 0, y: 0 };
 
     window.addEventListener("load", init);
@@ -50,12 +50,12 @@ namespace a012 {
         for (var i: number = 0; i < circleArray.length; i++) {
             circleArray[i].update();
         }
-        createText("Turn on the Sound", 30);
+        createText("Turn on the Sound", 20);
     }
 
     function mouseEvent(event: MouseEvent): void {
-        mouse.x = parseInt((event.x - 280) + "%");
-        mouse.y = parseInt((event.y - 150) + "%");
+        mouse.x = parseInt((event.x - 180) + "px");
+        mouse.y = parseInt((event.y - 150) + "px");
         console.log(mouse);
     }
 
