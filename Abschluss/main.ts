@@ -53,8 +53,8 @@ namespace a012 {
     }
 
     function mouseEvent(event: MouseEvent): void {
-        mouse.x = event.x
-        mouse.y = event.x;
+        mouse.x = parseInt((event.x - 220) + "px");
+        mouse.y = parseInt((event.y - 120) + "px");
         console.log(mouse);
     }
 

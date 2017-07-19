@@ -45,8 +45,8 @@ var a012;
         }
     }
     function mouseEvent(event) {
-        a012.mouse.x = event.x;
-        a012.mouse.y = event.x;
+        a012.mouse.x = parseInt((event.x - 220) + "px");
+        a012.mouse.y = parseInt((event.y - 120) + "px");
         console.log(a012.mouse);
     }
 })(a012 || (a012 = {}));
