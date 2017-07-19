@@ -4,9 +4,9 @@ var a012;
         constructor(_x, _y, _dx, _dy, _radius, _color) {
             super(_x, _y, _dx, _dy, _radius, _color);
         }
-        draw(_x, _y) {
+        draw() {
             a012.c.beginPath();
-            a012.c.arc(_x, _y, this.radius, 0, Math.PI * 2, true);
+            a012.c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
             a012.c.fillStyle = this.color;
             a012.c.strokeStyle = "#fffacd";
             a012.c.shadowColor = "#FFFFFF";
