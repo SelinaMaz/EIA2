@@ -27,6 +27,12 @@ var a012;
         //        var drawCircle: Circle = new Circle(0, 0, 0, 0, 0, "");
         //        drawCircle.draw(100, 100, 4, "blue");
         for (var i = 0; i < 100; i++) {
+            var radius = Math.random() * 3 + 1;
+            var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
+            var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
+            var dx = (Math.random() - 0.5);
+            var dy = (Math.random() - 0.5);
+            var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
             a012.circleArray.push(new a012.Circle(x, y, dx, dy, radius, color));
         }
         animate();
@@ -35,18 +41,12 @@ var a012;
         requestAnimationFrame(animate);
         a012.c.clearRect(0, 0, a012.canvas.width, a012.canvas.height);
         for (var i = 0; i < a012.circleArray.length; i++) {
-            var radius = Math.random() * 3 + 1;
-            var x = Math.random() * (a012.canvas.width - radius * 2) + radius;
-            var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
-            var dx = (Math.random() - 0.5);
-            var dy = (Math.random() - 0.5);
-            var color = a012.colorArray[Math.floor(Math.random() * a012.colorArray.length)];
-            a012.circleArray[i].update(x, y, dx, dy, radius, color);
+            a012.circleArray[i].update();
         }
     }
     function mouseEvent(event) {
         a012.mouse.x = event.x;
-        a012.mouse.y = event.y;
+        a012.mouse.y = event.x;
         console.log(a012.mouse);
     }
 })(a012 || (a012 = {}));

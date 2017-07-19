@@ -16,25 +16,25 @@ var a012;
             a012.c.fill();
         }
         ;
-        update(_x, _y, _dx, _dy, _radius, _color) {
-            if (_x + _radius > a012.canvas.width || _x - _radius < 8) {
-                _dx = -_dx;
+        update() {
+            if (this.x + this.radius > a012.canvas.width || this.x - this.radius < 8) {
+                this.dx = -this.dx;
             }
-            if (_y + _radius > a012.canvas.height || _y - _radius < 8) {
-                _dy = -_dy;
+            if (this.y + this.radius > a012.canvas.height || this.y - this.radius < 8) {
+                this.dy = -this.dy;
             }
-            _x += _dx;
-            _y += _dy;
+            this.x += this.dx;
+            this.y += this.dy;
             //Interaktion, Maus und Canvas
-            if (a012.mouse.x - _x < 50 && a012.mouse.x - _x > -50 && a012.mouse.y - _y < 50 && a012.mouse.y - _y > -50) {
-                if (_radius < a012.maxRadius) {
-                    _radius += 1;
+            if (a012.mouse.x - this.x < 50 && a012.mouse.x - this.x > -50 && a012.mouse.y - this.y < 50 && a012.mouse.y - this.y > -50) {
+                if (this.radius < a012.maxRadius) {
+                    this.radius += 1;
                 }
             }
-            else if (_radius > a012.minRadius) {
-                _radius -= 1;
+            else if (this.radius > a012.minRadius) {
+                this.radius -= 1;
             }
-            this.draw(_x, _y, _radius, _color);
+            this.draw(this.x, this.y, this.radius, this.color);
         }
         ;
     }
