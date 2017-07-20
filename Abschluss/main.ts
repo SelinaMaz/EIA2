@@ -39,8 +39,8 @@ namespace a012 {
         }
         animate();
         canvas.addEventListener("click", addGlowCircle);
-        canvas.addEventListener("mouseout", pauseMusik);
-        canvas.addEventListener("mouseover", playMusik);
+        canvas.addEventListener("mouseout", pauseMusic);
+        canvas.addEventListener("mouseover", playMusic);
     }
 
     //Animation und Interaktion
@@ -84,15 +84,17 @@ namespace a012 {
     }
 
     //Musik
-    var mySound: HTMLAudioElement = new Audio("Cheerleader.mp3");
-    function playMusik(_event: Event): void {
+    var music: string[] = ["Cheerleader.mp3", "LushLife.mp3", "Sugar.mp3"];
+    var mySound: HTMLAudioElement = new Audio(music[Math.floor(Math.random() * music.length)]);
+
+    function playMusic(_event: Event): void {
         console.log("Musik an");
         mySound.play();
         mySound.loop = true;
         console.log(_event);
     }
 
-    function pauseMusik(_event: Event): void {
+    function pauseMusic(_event: Event): void {
         mySound.pause();
         console.log(_event);
     }

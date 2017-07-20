@@ -35,8 +35,8 @@ var a012;
         }
         animate();
         a012.canvas.addEventListener("click", addGlowCircle);
-        a012.canvas.addEventListener("mouseout", pauseMusik);
-        a012.canvas.addEventListener("mouseover", playMusik);
+        a012.canvas.addEventListener("mouseout", pauseMusic);
+        a012.canvas.addEventListener("mouseover", playMusic);
     }
     //Animation und Interaktion
     function animate() {
@@ -74,14 +74,15 @@ var a012;
         console.log(a012.glowCircle);
     }
     //Musik
-    var mySound = new Audio("Cheerleader.mp3");
-    function playMusik(_event) {
+    var music = ["Cheerleader.mp3", "LushLife.mp3", "Sugar.mp3"];
+    var mySound = new Audio(music[Math.floor(Math.random() * music.length)]);
+    function playMusic(_event) {
         console.log("Musik an");
         mySound.play();
         mySound.loop = true;
         console.log(_event);
     }
-    function pauseMusik(_event) {
+    function pauseMusic(_event) {
         mySound.pause();
         console.log(_event);
     }
