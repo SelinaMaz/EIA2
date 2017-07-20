@@ -24,6 +24,7 @@ namespace a012 {
 
     window.addEventListener("load", init);
     window.addEventListener("mousemove", mouseEvent);
+    window.addEventListener("touchmove", mouseEvent);
 
     function init(_event: Event): void {
         canvas = document.getElementsByTagName("canvas")[0];
@@ -41,6 +42,8 @@ namespace a012 {
         canvas.addEventListener("click", addGlowCircle);
         canvas.addEventListener("mouseout", pauseMusic);
         canvas.addEventListener("mouseover", playMusic);
+        canvas.addEventListener("touchstart", playMusic);
+        canvas.addEventListener("touchend", pauseMusic);
     }
 
     //Animation und Interaktion

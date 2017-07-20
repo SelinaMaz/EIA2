@@ -21,6 +21,7 @@ var a012;
     a012.mouse = { x: 0, y: 0 };
     window.addEventListener("load", init);
     window.addEventListener("mousemove", mouseEvent);
+    window.addEventListener("touchmove", mouseEvent);
     function init(_event) {
         a012.canvas = document.getElementsByTagName("canvas")[0];
         a012.c = a012.canvas.getContext("2d");
@@ -37,6 +38,8 @@ var a012;
         a012.canvas.addEventListener("click", addGlowCircle);
         a012.canvas.addEventListener("mouseout", pauseMusic);
         a012.canvas.addEventListener("mouseover", playMusic);
+        a012.canvas.addEventListener("touchstart", playMusic);
+        a012.canvas.addEventListener("touchend", pauseMusic);
     }
     //Animation und Interaktion
     function animate() {
