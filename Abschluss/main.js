@@ -9,6 +9,7 @@ var a012;
 (function (a012) {
     a012.colorArray = ["#2FA9E1", "#5D8699", "#35FFD1", "#FF8475", "#CC162F"];
     a012.circleArray = [];
+    a012.glowCircle = [];
     var radius;
     var x;
     var y;
@@ -44,6 +45,9 @@ var a012;
         for (var i = 0; i < a012.circleArray.length; i++) {
             a012.circleArray[i].update();
         }
+        for (var i = 0; i < a012.glowCircle.length; i++) {
+            a012.glowCircle[i].update();
+        }
         createText("Turn on the Sound", 20);
     }
     function mouseEvent(event) {
@@ -65,8 +69,9 @@ var a012;
         var y = Math.random() * (a012.canvas.height - radius * 2) + radius;
         var dx = (Math.random() - 0.5);
         var dy = (Math.random() - 0.5);
-        a012.circleArray.push(new a012.GlowCircle(x, y, dx, dy, 2, "white"));
-        console.log("Hi");
+        a012.glowCircle.push(new a012.GlowCircle(x, y, dx, dy, 2, "white"));
+        console.log("Hi glowCircle");
+        console.log(a012.glowCircle);
     }
     //Musik
     var mySound = new Audio("Cheerleader.mp3");

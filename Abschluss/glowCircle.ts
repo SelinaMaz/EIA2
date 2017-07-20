@@ -4,6 +4,8 @@ namespace a012 {
             super(_x, _y, _dx, _dy, _radius, _color);        
         }
 
+        
+        //Erweiterung der Funktion draw(), um die Kreise zum Leuten zu bringen.
         draw(): void {
             c.beginPath();
             c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
